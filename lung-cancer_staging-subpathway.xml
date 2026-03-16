@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:cp="http://www.helict.de/bpmn4cp" xmlns:bioc="http://bpmn.io/schema/bpmn/biocolor/1.0" xmlns:color="http://www.omg.org/spec/BPMN/non-normative/color/1.0" id="sample-diagram" targetNamespace="http://bpmn.io/schema/bpmn" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd">
   <bpmn2:collaboration id="Collaboration_1aftimr">
-    <bpmn2:participant id="Participant_10yfyq5" name="Staging Diagnostics - Lung Cancer" processRef="Process_1" />
+    <bpmn2:participant id="Participant_10yfyq5" name="Staging-Diagnostik - Lungenkrebs" processRef="Process_1" />
   </bpmn2:collaboration>
   <bpmn2:process id="Process_1" isExecutable="false">
     <bpmn2:parallelGateway id="Gateway_1xjgvsi" name="">
@@ -9,11 +9,11 @@
       <bpmn2:outgoing>Flow_0mj6tw5</bpmn2:outgoing>
       <bpmn2:outgoing>Flow_1jka1pa</bpmn2:outgoing>
     </bpmn2:parallelGateway>
-    <bpmn2:task id="Activity_10hbg7g" name="imaging">
+    <bpmn2:task id="Activity_10hbg7g" name="Bildgebung">
       <bpmn2:incoming>Flow_0mj6tw5</bpmn2:incoming>
       <bpmn2:outgoing>Flow_1rff0er</bpmn2:outgoing>
     </bpmn2:task>
-    <bpmn2:task id="Activity_1tdn0dk" name="pathology/ molecular pathology">
+    <bpmn2:task id="Activity_1tdn0dk" name="Pathologie/ molekulare Pathologie">
       <bpmn2:incoming>Flow_1hk0w7g</bpmn2:incoming>
       <bpmn2:outgoing>Flow_01n2wpf</bpmn2:outgoing>
       <bpmn2:dataOutputAssociation id="DataOutputAssociation_0sae2dt">
@@ -25,21 +25,21 @@
       <bpmn2:incoming>Flow_1rff0er</bpmn2:incoming>
       <bpmn2:outgoing>Flow_0ijz914</bpmn2:outgoing>
     </bpmn2:parallelGateway>
-    <bpmn2:task id="Activity_0g38zlb" name="cTNM classification and staging">
+    <bpmn2:task id="Activity_0g38zlb" name="cTNM-Klassifikation und Staging">
       <bpmn2:incoming>Flow_0ijz914</bpmn2:incoming>
       <bpmn2:outgoing>Flow_0vxd55a</bpmn2:outgoing>
     </bpmn2:task>
-    <bpmn2:endEvent id="Event_0sik5ks" name="end of staging diagnostics">
+    <bpmn2:endEvent id="Event_0sik5ks" name="Ende der Staging-Diagnostik">
       <bpmn2:incoming>Flow_0vxd55a</bpmn2:incoming>
     </bpmn2:endEvent>
-    <bpmn2:subProcess id="Activity_013emyo" name="diagnosis assurance" cp:selectionBehavior="any">
+    <bpmn2:subProcess id="Activity_013emyo" name="Diagnosesicherung" cp:selectionBehavior="any">
       <bpmn2:incoming>Flow_1jka1pa</bpmn2:incoming>
       <bpmn2:outgoing>Flow_1hk0w7g</bpmn2:outgoing>
-      <bpmn2:task id="Activity_11j60zy" name="mediastinal staging (e.g. EBUS/EUS, medianoscopy)" />
-      <bpmn2:task id="Activity_13fvkvl" name="image-guided biopsy (primary lesion, metastases)" />
-      <bpmn2:task id="Activity_137xg0a" name="bronchoscopy" />
+      <bpmn2:task id="Activity_11j60zy" name="Mediastinales Staging (z. B. EBUS/EUS, Mediastinoskopie)" />
+      <bpmn2:task id="Activity_13fvkvl" name="Bildgesteuerte Biopsie (Primaerlaesion, Metastasen)" />
+      <bpmn2:task id="Activity_137xg0a" name="Bronchoskopie" />
     </bpmn2:subProcess>
-    <bpmn2:startEvent id="Event_1a8ka9t" name="beginning of staging diagnostics">
+    <bpmn2:startEvent id="Event_1a8ka9t" name="Beginn der Staging-Diagnostik">
       <bpmn2:outgoing>Flow_0058fwa</bpmn2:outgoing>
     </bpmn2:startEvent>
     <bpmn2:sequenceFlow id="Flow_0058fwa" sourceRef="Event_1a8ka9t" targetRef="Gateway_1xjgvsi" />
@@ -50,27 +50,27 @@
     <bpmn2:sequenceFlow id="Flow_01n2wpf" sourceRef="Activity_1tdn0dk" targetRef="Gateway_00g65l5" />
     <bpmn2:sequenceFlow id="Flow_0ijz914" sourceRef="Gateway_00g65l5" targetRef="Activity_0g38zlb" />
     <bpmn2:sequenceFlow id="Flow_0vxd55a" sourceRef="Activity_0g38zlb" targetRef="Event_0sik5ks" />
-    <cp:qualityIndicator id="QualityIndicator_0j6w6bc" name="#5 pathological diagnosis – tumour subtype" dataObjectRef="DataObject_1qu69lw">
-      <cp:qIDefinition type="ratio" numerator="Number of patients with a pathological diagnosis of NSCLC who have a tumour subtype identified." denumerator="All patients with a pathological diagnosis of NSCLC." />
+    <cp:qualityIndicator id="QualityIndicator_0j6w6bc" name="#5 pathologische Diagnose - Tumorsubtyp" dataObjectRef="DataObject_1qu69lw">
+      <cp:qIDefinition type="ratio" numerator="Anzahl der Patienten mit einer pathologischen Diagnose eines NSCLC, bei denen ein Tumorsubtyp identifiziert wurde." denumerator="Alle Patienten mit einer pathologischen Diagnose eines NSCLC." />
     </cp:qualityIndicator>
     <bpmn2:dataObject id="DataObject_1qu69lw" />
-    <cp:qualityIndicator id="QualityIndicator_0nvwtz8" name="#4 pathological diagnosis" dataObjectRef="DataObject_1mf4ptv">
-      <cp:qIDefinition type="ratio" numerator="Number of patients with Lung Cancer who have a pathological diagnosis (including following surgical resection)." denumerator="All patients with Lung Cancer." />
+    <cp:qualityIndicator id="QualityIndicator_0nvwtz8" name="#4 pathologische Diagnose" dataObjectRef="DataObject_1mf4ptv">
+      <cp:qIDefinition type="ratio" numerator="Anzahl der Patienten mit Lungenkrebs, bei denen eine pathologische Diagnose vorliegt (einschliesslich nach chirurgischer Resektion)." denumerator="Alle Patienten mit Lungenkrebs." />
     </cp:qualityIndicator>
     <bpmn2:dataObject id="DataObject_1mf4ptv" />
-    <cp:qualityIndicator id="QualityIndicator_0ohfvaw" name="#6 pre-treatment diagnosis" dataObjectRef="DataObject_17g765p">
-      <cp:qIDefinition type="ratio" numerator="Number of patients who receive curative treatment (radical radiotherapy, radical chemoradiotherapy or surgical resection) that have a cytological / histological diagnosis prior to treatment." denumerator="All patients with Lung Cancer who receive curative treatment (radical radiotherapy, radical chemoradiotherapy or surgical resection). Excluding patients who refuse investigations." />
+    <cp:qualityIndicator id="QualityIndicator_0ohfvaw" name="#6 praetherapeutische Diagnose" dataObjectRef="DataObject_17g765p">
+      <cp:qIDefinition type="ratio" numerator="Anzahl der Patienten, die eine kurative Behandlung erhalten (radikale Strahlentherapie, radikale Radiochemotherapie oder chirurgische Resektion) und vor der Behandlung eine zytologische / histologische Diagnose haben." denumerator="Alle Patienten mit Lungenkrebs, die eine kurative Behandlung erhalten (radikale Strahlentherapie, radikale Radiochemotherapie oder chirurgische Resektion). Ausgenommen sind Patienten, die Untersuchungen ablehnen." />
     </cp:qualityIndicator>
     <bpmn2:dataObject id="DataObject_17g765p" />
-    <bpmn2:dataObjectReference id="DataObjectReference_0nnzpd8" name="pathology results report" dataObjectRef="DataObject_04r3617" />
+    <bpmn2:dataObjectReference id="DataObjectReference_0nnzpd8" name="Pathologischer Befundbericht" dataObjectRef="DataObject_04r3617" />
     <bpmn2:dataObject id="DataObject_04r3617" />
     <bpmn2:textAnnotation id="TextAnnotation_11f9q4r">
-      <bpmn2:text>* according to guideline recommendations
-* if needed Liquid Biopsy</bpmn2:text>
+      <bpmn2:text>* gemaess Leitlinienempfehlungen
+* bei Bedarf Liquid Biopsy</bpmn2:text>
     </bpmn2:textAnnotation>
     <bpmn2:association id="Association_0swazng" sourceRef="Activity_1tdn0dk" targetRef="TextAnnotation_11f9q4r" />
     <bpmn2:textAnnotation id="TextAnnotation_0e70ar9">
-      <bpmn2:text>usually in ambulatory care; possibilities: X-ray thorax, PET/CT thorax/abdomen, MRI skull</bpmn2:text>
+      <bpmn2:text>in der Regel ambulant; Moeglichkeiten: Roentgen-Thorax, PET/CT Thorax/Abdomen, MRT Schaedel</bpmn2:text>
     </bpmn2:textAnnotation>
     <bpmn2:association id="Association_1dbypp4" sourceRef="Activity_10hbg7g" targetRef="TextAnnotation_0e70ar9" />
     <bpmn2:association id="Association_0xhqezc" sourceRef="Activity_1tdn0dk" targetRef="QualityIndicator_0j6w6bc" />

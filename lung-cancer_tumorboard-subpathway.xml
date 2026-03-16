@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:bioc="http://bpmn.io/schema/bpmn/biocolor/1.0" xmlns:color="http://www.omg.org/spec/BPMN/non-normative/color/1.0" xmlns:cp="http://www.helict.de/bpmn4cp" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Web Modeler" exporterVersion="a6952c8" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.2.0" camunda:diagramRelationId="8f6a5808-ba20-4af2-a6fe-1c5c782e86b6">
   <bpmn:collaboration id="Collaboration_00djj31">
-    <bpmn:participant id="Participant_1qylwsq" name="Standard Tumorboard (TB) Meeting - Lung Cancer" processRef="Process_e2faa7c4-7c7e-4408-82ce-89d081ca8a1b" />
+    <bpmn:participant id="Participant_1qylwsq" name="Standard-Tumorboard (TB) Sitzung" processRef="Process_e2faa7c4-7c7e-4408-82ce-89d081ca8a1b" />
   </bpmn:collaboration>
   <bpmn:process id="Process_e2faa7c4-7c7e-4408-82ce-89d081ca8a1b" isExecutable="false">
-    <bpmn:startEvent id="StartEvent_1" name="Therapeutic or diagnostic question for patient">
+    <bpmn:startEvent id="StartEvent_1" name="Therapeutische oder diagnostische Fragestellung für den Patienten">
       <bpmn:outgoing>Flow_1qy0fno</bpmn:outgoing>
     </bpmn:startEvent>
     <bpmn:sequenceFlow id="Flow_1qy0fno" sourceRef="StartEvent_1" targetRef="Activity_1azhtk5" />
     <bpmn:sequenceFlow id="Flow_0bepz2w" sourceRef="Activity_1azhtk5" targetRef="Activity_1phtl9y" />
     <bpmn:sequenceFlow id="Flow_00acios" sourceRef="Activity_1phtl9y" targetRef="Activity_1e4jmjc" />
     <bpmn:sequenceFlow id="Flow_1rfnrph" sourceRef="Activity_1e4jmjc" targetRef="Event_1gjnvno" />
-    <bpmn:task id="Activity_1azhtk5" name="Registration of patient for tumor board">
+    <bpmn:task id="Activity_1azhtk5" name="Anmeldung (des Falls) zum Tumorboard">
       <bpmn:incoming>Flow_1qy0fno</bpmn:incoming>
       <bpmn:outgoing>Flow_0bepz2w</bpmn:outgoing>
       <bpmn:property id="Property_13af50y" name="__targetRef_placeholder" />
@@ -20,49 +20,46 @@
         <bpmn:targetRef>Property_13af50y</bpmn:targetRef>
       </bpmn:dataInputAssociation>
     </bpmn:task>
-    <bpmn:task id="Activity_1e4jmjc" name="presentation in TB meeting (therapy recommen-dation)">
+    <bpmn:task id="Activity_1e4jmjc" name="Vorstellung (des Falls) im Tumorboard (ableiten einer Therapieempfehlung)">
       <bpmn:incoming>Flow_00acios</bpmn:incoming>
       <bpmn:outgoing>Flow_1rfnrph</bpmn:outgoing>
       <bpmn:dataOutputAssociation id="DataOutputAssociation_08pbgnd">
         <bpmn:targetRef>DataObjectReference_1h9sxia</bpmn:targetRef>
       </bpmn:dataOutputAssociation>
     </bpmn:task>
-    <bpmn:dataObjectReference id="DataObjectReference_1mlu0z0" name="patient and diagnostics data" dataObjectRef="DataObject_02k4onu" />
+    <bpmn:dataObjectReference id="DataObjectReference_1mlu0z0" name="Patienten- und Diagnostikdaten" dataObjectRef="DataObject_02k4onu" />
     <bpmn:dataObject id="DataObject_02k4onu" />
-    <bpmn:dataObjectReference id="DataObjectReference_1h9sxia" name="TB protocol with therapy recommendation" dataObjectRef="DataObject_144eanx" />
+    <bpmn:dataObjectReference id="DataObjectReference_1h9sxia" name="Tumorboard-Protokoll mit Therapieempfehlung" dataObjectRef="DataObject_144eanx" />
     <bpmn:dataObject id="DataObject_144eanx" />
-    <bpmn:endEvent id="Event_1gjnvno" name="end of TB">
+    <bpmn:endEvent id="Event_1gjnvno" name="Ende des Tumorboard">
       <bpmn:incoming>Flow_1rfnrph</bpmn:incoming>
     </bpmn:endEvent>
-    <bpmn:task id="Activity_1phtl9y" name="preparation of TB meeting">
+    <bpmn:task id="Activity_1phtl9y" name="Vorbereitung des Tumorboards (Zusammenstellung der Patienten- und Diagnostikdaten, Einladung der Teilnehmenden)">
       <bpmn:incoming>Flow_0bepz2w</bpmn:incoming>
       <bpmn:outgoing>Flow_00acios</bpmn:outgoing>
     </bpmn:task>
-    <cp:qualityIndicator id="QualityIndicator_031h1lz" name="#18&#10;clinical trials and research study access" dataObjectRef="DataObject_106899o">
-      <cp:qIDefinition type="ratio" numerator="Number of patients with Lung Cancer enrolled in an interventional clinical trial or translational research." denumerator="All patients with lung cancer" />
+    <cp:qualityIndicator id="QualityIndicator_031h1lz" name="#18&#10;Zugang zu klinischen Studien und Forschungsstudien" dataObjectRef="DataObject_106899o">
+      <cp:qIDefinition type="ratio" numerator="Anzahl der Patienten mit Lungenkrebs, die in eine interventionelle klinische Studie oder translationale Forschung eingeschlossen sind." denumerator="Alle Patienten mit Lungenkrebs" />
     </cp:qualityIndicator>
     <bpmn:dataObject id="DataObject_106899o" />
-    <cp:qualityIndicator id="QualityIndicator_0o1cc2x" name="#2 pretherapeutic TB/MDT meeting" dataObjectRef="DataObject_1kej7en">
-      <cp:qIDefinition type="ratio" numerator="patients of the denominator presented in the pretherapeutic TB/MDT meeting" denumerator="all LC patients with first diagnosis of Lung Cancer" />
+    <cp:qualityIndicator id="QualityIndicator_0o1cc2x" name="#2 Prätherapeutische TB/MTB-Vorstellung" dataObjectRef="DataObject_1kej7en">
+      <cp:qIDefinition type="ratio" numerator="Patienten des Nenners, die in der prätherapeutischen TB/MTB-Vorstellung vorgestellt wurden" denumerator="Alle Lungenkrebs-Patienten mit Erstdiagnose eines Lungenkrebses" />
     </cp:qualityIndicator>
     <bpmn:dataObject id="DataObject_1kej7en" />
     <bpmn:textAnnotation id="TextAnnotation_0qqtisd">
-      <bpmn:text>administrative data: patient data, registering person, desired participants;
-medical data: anamnesis, disease, staging, typing, grading, results from imaging/ laboratory/ pathology, therapies carried out</bpmn:text>
+      <bpmn:text>Administrative Daten: Patientendaten, anmeldende Person, gewünschte Teilnehmende; Medizinische Daten: Anamnese, Erkrankung, Staging, Typisierung, Grading, Ergebnisse aus Bildgebung/Labor/Pathologie, durchgeführte Therapien</bpmn:text>
     </bpmn:textAnnotation>
     <bpmn:association id="Association_1kr0h9z" sourceRef="DataObjectReference_1mlu0z0" targetRef="TextAnnotation_0qqtisd" />
     <bpmn:textAnnotation id="TextAnnotation_042gz3u">
-      <bpmn:text>discussion; decision-making: further procedure therapy/no therapy, if necessary still missing diagnostics, if necessary re-presentation; if suitable, study recommendation</bpmn:text>
+      <bpmn:text>Diskussion und Entscheidungsfindung: weiteres Vorgehen Therapie/keine Therapie; falls nötig noch fehlende Diagnostik; falls nötig Wiedervorstellung; bei Eignung Studienempfehlung</bpmn:text>
     </bpmn:textAnnotation>
     <bpmn:association id="Association_0fk0lek" sourceRef="Activity_1e4jmjc" targetRef="TextAnnotation_042gz3u" />
     <bpmn:textAnnotation id="TextAnnotation_02vldql">
-      <bpmn:text>participants: pathology, radiology, tumour-specific departments, possibly other participants;
-projection of the case, if necessary projection pathology/imaging</bpmn:text>
+      <bpmn:text>Teilnehmende: Pathologie, Radiologie, tumorspezifische Fachabteilungen, gegebenenfalls weitere Teilnehmende; Darstellung des Falls, falls nötig Darstellung von Pathologie/Bildgebung</bpmn:text>
     </bpmn:textAnnotation>
     <bpmn:association id="Association_08afk0j" sourceRef="Activity_1e4jmjc" targetRef="TextAnnotation_02vldql" />
     <bpmn:textAnnotation id="TextAnnotation_1er2nm3">
-      <bpmn:text>main patient and treatment data are to be compiled in writing for the TB meeting; a pre-appraisal of suitable study patients is to be undertaken;
-invitation of TB participants</bpmn:text>
+      <bpmn:text>Die wesentlichen Patienten- und Behandlungsdaten sind für die Tumorboard-Vorstellung schriftlich zusammenzustellen; eine Vorprüfung geeigneter Studienpatienten soll erfolgen; Einladung der Teilnehmenden</bpmn:text>
     </bpmn:textAnnotation>
     <bpmn:association id="Association_1vzl3a6" sourceRef="Activity_1phtl9y" targetRef="TextAnnotation_1er2nm3" />
     <bpmn:association id="Association_0l6qj0j" sourceRef="Event_1gjnvno" targetRef="QualityIndicator_031h1lz" />

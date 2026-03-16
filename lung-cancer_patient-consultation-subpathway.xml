@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:bioc="http://bpmn.io/schema/bpmn/biocolor/1.0" xmlns:color="http://www.omg.org/spec/BPMN/non-normative/color/1.0" id="sample-diagram" targetNamespace="http://bpmn.io/schema/bpmn" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd">
   <bpmn2:collaboration id="Collaboration_1aftimr">
-    <bpmn2:participant id="Participant_10yfyq5" name="Patient Consultation - Lung Cancer" processRef="Process_1" />
+    <bpmn2:participant id="Participant_10yfyq5" name="Patientenkonsultation - Lungenkrebs" processRef="Process_1" />
   </bpmn2:collaboration>
   <bpmn2:process id="Process_1" isExecutable="false">
     <bpmn2:parallelGateway id="Gateway_1571lkc">
@@ -16,17 +16,17 @@
     <bpmn2:sequenceFlow id="Flow_0jy0obk" sourceRef="Gateway_1571lkc" targetRef="Activity_0ra0q8s" />
     <bpmn2:sequenceFlow id="Flow_0x1qn2w" sourceRef="Activity_0qyawac" targetRef="Gateway_1wgiiw1" />
     <bpmn2:sequenceFlow id="Flow_1rycc0a" sourceRef="Activity_0ra0q8s" targetRef="Gateway_1wgiiw1" />
-    <bpmn2:task id="Activity_0qyawac" name="general diagnostics">
+    <bpmn2:task id="Activity_0qyawac" name="Allgemeine Diagnostik">
       <bpmn2:incoming>Flow_0kpb4ca</bpmn2:incoming>
       <bpmn2:outgoing>Flow_0x1qn2w</bpmn2:outgoing>
     </bpmn2:task>
     <bpmn2:sequenceFlow id="Flow_1vrpequ" sourceRef="Gateway_1571lkc" targetRef="Activity_17aq5q2" />
-    <bpmn2:task id="Activity_17aq5q2" name="medical history">
+    <bpmn2:task id="Activity_17aq5q2" name="Anamnese">
       <bpmn2:incoming>Flow_1vrpequ</bpmn2:incoming>
       <bpmn2:outgoing>Flow_1rxvr0t</bpmn2:outgoing>
     </bpmn2:task>
     <bpmn2:sequenceFlow id="Flow_1rxvr0t" sourceRef="Activity_17aq5q2" targetRef="Gateway_1wgiiw1" />
-    <bpmn2:task id="Activity_05dte7n" name="patient information (esp. smoking cessation)">
+    <bpmn2:task id="Activity_05dte7n" name="Patienteninformation (insb. Rauchstopp)">
       <bpmn2:incoming>Flow_1negrcb</bpmn2:incoming>
       <bpmn2:outgoing>Flow_1rjo6db</bpmn2:outgoing>
     </bpmn2:task>
@@ -39,28 +39,28 @@
       <bpmn2:incoming>Flow_1rjo6db</bpmn2:incoming>
       <bpmn2:outgoing>Flow_1tbmxdj</bpmn2:outgoing>
     </bpmn2:parallelGateway>
-    <bpmn2:task id="Activity_0ra0q8s" name="laboratoy">
+    <bpmn2:task id="Activity_0ra0q8s" name="Labor">
       <bpmn2:incoming>Flow_0jy0obk</bpmn2:incoming>
       <bpmn2:outgoing>Flow_1rycc0a</bpmn2:outgoing>
     </bpmn2:task>
     <bpmn2:sequenceFlow id="Flow_1tbmxdj" sourceRef="Gateway_1wgiiw1" targetRef="Event_1mba99f" />
-    <bpmn2:endEvent id="Event_1mba99f" name="end of patient consultation">
+    <bpmn2:endEvent id="Event_1mba99f" name="Ende der Patientenkonsultation">
       <bpmn2:incoming>Flow_1tbmxdj</bpmn2:incoming>
     </bpmn2:endEvent>
-    <bpmn2:startEvent id="Event_0wmvigt" name="patient consulation appointment">
+    <bpmn2:startEvent id="Event_0wmvigt" name="Termin zur Patientenkonsultation">
       <bpmn2:outgoing>Flow_0qoydlu</bpmn2:outgoing>
       <bpmn2:timerEventDefinition id="TimerEventDefinition_0dt1ujw" />
     </bpmn2:startEvent>
     <bpmn2:textAnnotation id="TextAnnotation_0w6gmmc">
-      <bpmn2:text>physical examination, assessing comorbidities, performance status assessment (ECOG, Karnofsky Performance Status Scale)</bpmn2:text>
+      <bpmn2:text>Koerperliche Untersuchung, Erfassung von Komorbiditaeten, Beurteilung des Performance-Status (ECOG, Karnofsky-Performance-Status-Skala)</bpmn2:text>
     </bpmn2:textAnnotation>
     <bpmn2:association id="Association_1ok4jv0" sourceRef="Activity_0qyawac" targetRef="TextAnnotation_0w6gmmc" />
     <bpmn2:textAnnotation id="TextAnnotation_1vygda0">
-      <bpmn2:text>blood cell counts, renal function, liver enzymes, bone parameters, LDH, NSE</bpmn2:text>
+      <bpmn2:text>Blutbild, Nierenfunktion, Leberenzyme, Knochenparameter, LDH, NSE</bpmn2:text>
     </bpmn2:textAnnotation>
     <bpmn2:association id="Association_0e6gznm" sourceRef="Activity_0ra0q8s" targetRef="TextAnnotation_1vygda0" />
     <bpmn2:textAnnotation id="TextAnnotation_1wjgct1">
-      <bpmn2:text>medical history, family history, social history, smoking status (survey of current status), occupational exposure</bpmn2:text>
+      <bpmn2:text>Medizinische Anamnese, Familienanamnese, Sozialanamnese, Rauchstatus (Erhebung des aktuellen Status), berufliche Exposition</bpmn2:text>
     </bpmn2:textAnnotation>
     <bpmn2:association id="Association_0yp03zo" sourceRef="Activity_17aq5q2" targetRef="TextAnnotation_1wjgct1" />
   </bpmn2:process>

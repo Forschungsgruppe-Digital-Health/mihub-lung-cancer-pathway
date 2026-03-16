@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:cp="http://www.helict.de/bpmn4cp" xmlns:bioc="http://bpmn.io/schema/bpmn/biocolor/1.0" xmlns:color="http://www.omg.org/spec/BPMN/non-normative/color/1.0" id="sample-diagram" targetNamespace="http://bpmn.io/schema/bpmn" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd">
   <bpmn2:collaboration id="Collaboration_0mif9f6">
-    <bpmn2:participant id="Participant_0d4pi4v" name="Lung Cancer Patient Pathway Template for CCCNs" processRef="Process_1" />
+    <bpmn2:participant id="Participant_0d4pi4v" name="Vorlage fuer den Versorgungspfad von Lungenkrebspatienten fuer CCCNs" processRef="Process_1" />
     <bpmn2:group id="Group_01hutym" categoryValueRef="CategoryValue_09361cn" />
     <bpmn2:group id="Group_07drmqm" categoryValueRef="CategoryValue_1dj6f28" />
     <bpmn2:group id="Group_1hqhrf1" categoryValueRef="CategoryValue_1m9f9ue" />
@@ -12,7 +12,7 @@
   </bpmn2:collaboration>
   <bpmn2:process id="Process_1" isExecutable="false">
     <bpmn2:laneSet id="LaneSet_0s8yyt4">
-      <bpmn2:lane id="Lane_1coxctp" name="CCCN units">
+      <bpmn2:lane id="Lane_1coxctp" name="CCCN-Einheiten">
         <bpmn2:flowNodeRef>Event_0ae2j6h</bpmn2:flowNodeRef>
         <bpmn2:flowNodeRef>Event_0tdpt7a</bpmn2:flowNodeRef>
         <bpmn2:flowNodeRef>Event_1m37doe</bpmn2:flowNodeRef>
@@ -60,55 +60,55 @@
         <bpmn2:flowNodeRef>Activity_00jcqor</bpmn2:flowNodeRef>
       </bpmn2:lane>
     </bpmn2:laneSet>
-    <bpmn2:sequenceFlow id="Flow_0snmrit" name="no" sourceRef="Gateway_15a3cdo" targetRef="Gateway_0kn6v4a" />
+    <bpmn2:sequenceFlow id="Flow_0snmrit" name="nein" sourceRef="Gateway_15a3cdo" targetRef="Gateway_0kn6v4a" />
     <bpmn2:sequenceFlow id="Flow_082bfua" sourceRef="Activity_1oagskd" targetRef="Gateway_15a3cdo" />
-    <bpmn2:sequenceFlow id="Flow_1p26pel" name="yes" sourceRef="Gateway_15a3cdo" targetRef="Gateway_0bu2rhk" />
+    <bpmn2:sequenceFlow id="Flow_1p26pel" name="ja" sourceRef="Gateway_15a3cdo" targetRef="Gateway_0bu2rhk" />
     <bpmn2:sequenceFlow id="Flow_0fsr6ag" sourceRef="Activity_1f73x26" targetRef="Gateway_0gpo9ms" />
     <bpmn2:sequenceFlow id="Flow_0wagl5w" sourceRef="Activity_1lzf9md" targetRef="Gateway_057o3a9" />
     <bpmn2:sequenceFlow id="Flow_04e8iab" sourceRef="Event_0bfbqw9" targetRef="Activity_1o0prcl" />
     <bpmn2:sequenceFlow id="Flow_0ogopph" sourceRef="Gateway_057o3a9" targetRef="Event_0bfbqw9" />
     <bpmn2:sequenceFlow id="Flow_1g7oxkd" sourceRef="Activity_1o0prcl" targetRef="Gateway_0ql4uic" />
     <bpmn2:sequenceFlow id="Flow_1x62zjy" sourceRef="Activity_0sqh02u" targetRef="Activity_1lzf9md" />
-    <bpmn2:sequenceFlow id="Flow_110pitn" name="yes" sourceRef="Gateway_121hc5t" targetRef="Activity_0sqh02u" />
+    <bpmn2:sequenceFlow id="Flow_110pitn" name="ja" sourceRef="Gateway_121hc5t" targetRef="Activity_0sqh02u" />
     <bpmn2:sequenceFlow id="Flow_1f01g5l" sourceRef="Activity_0j2qg6r" targetRef="Gateway_0dy45pb" />
     <bpmn2:sequenceFlow id="Flow_0ch5uho" sourceRef="Gateway_1p3qvpd" targetRef="Activity_04dz2ib" />
-    <bpmn2:sequenceFlow id="Flow_0p8hlgd" name="continue/ adapt/ change treatment" sourceRef="Gateway_0dy45pb" targetRef="Gateway_1ortmgh" />
+    <bpmn2:sequenceFlow id="Flow_0p8hlgd" name="Behandlung fortfuehren/ anpassen/ aendern" sourceRef="Gateway_0dy45pb" targetRef="Gateway_1ortmgh" />
     <bpmn2:sequenceFlow id="Flow_0bwzsx9" sourceRef="Activity_1kfbd29" targetRef="Gateway_1ala23i" />
-    <bpmn2:sequenceFlow id="Flow_1y3u9cv" name="no" sourceRef="Gateway_0gpo9ms" targetRef="Gateway_0bu2rhk" />
-    <bpmn2:sequenceFlow id="Flow_01y64i7" name="suspicion of secondary metastases OR recurrence" sourceRef="Event_0wy6prt" targetRef="Gateway_16sz6ia" />
+    <bpmn2:sequenceFlow id="Flow_1y3u9cv" name="nein" sourceRef="Gateway_0gpo9ms" targetRef="Gateway_0bu2rhk" />
+    <bpmn2:sequenceFlow id="Flow_01y64i7" name="Verdacht auf Fernmetastasen ODER Rezidiv" sourceRef="Event_0wy6prt" targetRef="Gateway_16sz6ia" />
     <bpmn2:sequenceFlow id="Flow_0fyh4tp" sourceRef="Gateway_0fvha0n" targetRef="Gateway_09l9dd0" />
     <bpmn2:sequenceFlow id="Flow_1rekhqr" sourceRef="Activity_16oze6f" targetRef="Gateway_0fvha0n" />
     <bpmn2:sequenceFlow id="Flow_14ehe2c" sourceRef="Activity_1rdfhgh" targetRef="Gateway_0r2rbhc" />
     <bpmn2:sequenceFlow id="Flow_10mthhe" sourceRef="Activity_09q6006" targetRef="Event_1m37doe" />
     <bpmn2:sequenceFlow id="Flow_1r0w7x8" sourceRef="Event_0tdpt7a" targetRef="Gateway_16sz6ia" />
-    <bpmn2:sequenceFlow id="Flow_0vo0zum" name="no lung cancer confirmation" sourceRef="Gateway_0fvha0n" targetRef="Activity_08dp53e" />
+    <bpmn2:sequenceFlow id="Flow_0vo0zum" name="keine Bestaetigung von Lungenkrebs" sourceRef="Gateway_0fvha0n" targetRef="Activity_08dp53e" />
     <bpmn2:sequenceFlow id="Flow_194y7kd" sourceRef="Gateway_16sz6ia" targetRef="Activity_1rdfhgh" />
     <bpmn2:sequenceFlow id="Flow_05qzdqh" sourceRef="Event_0ae2j6h" targetRef="Gateway_16sz6ia" />
     <bpmn2:sequenceFlow id="Flow_06njbkm" sourceRef="Event_1m37doe" targetRef="Gateway_16sz6ia" />
     <bpmn2:sequenceFlow id="Flow_0njdnw0" sourceRef="Event_0lk7fnw" targetRef="Activity_09q6006" />
     <bpmn2:sequenceFlow id="Flow_17cqgt2" sourceRef="Gateway_057o3a9" targetRef="Event_0wy6prt" />
-    <bpmn2:sequenceFlow id="Flow_0ggiww7" name="yes" sourceRef="Gateway_0gpo9ms" targetRef="Gateway_0r2rbhc" />
+    <bpmn2:sequenceFlow id="Flow_0ggiww7" name="ja" sourceRef="Gateway_0gpo9ms" targetRef="Gateway_0r2rbhc" />
     <bpmn2:sequenceFlow id="Flow_06vrjpq" sourceRef="Gateway_0bu2rhk" targetRef="Activity_1kfbd29" />
-    <bpmn2:sequenceFlow id="Flow_0r03b4p" name="yes" sourceRef="Gateway_010d40p" targetRef="Activity_16oze6f" />
+    <bpmn2:sequenceFlow id="Flow_0r03b4p" name="ja" sourceRef="Gateway_010d40p" targetRef="Activity_16oze6f" />
     <bpmn2:sequenceFlow id="Flow_0jkro9e" sourceRef="Gateway_0kn6v4a" targetRef="Activity_1f73x26" />
-    <bpmn2:sequenceFlow id="Flow_1q8e4kn" name="BSC intend, no MTB needed" sourceRef="Gateway_0kn6v4a" targetRef="Gateway_0bu2rhk" />
-    <bpmn2:sequenceFlow id="Flow_07cyjbg" name="yes" sourceRef="Gateway_0dy45pb" targetRef="Gateway_0s9gq5f" />
-    <bpmn2:sequenceFlow id="Flow_1a9j8bh" name="no, continue with thterapy according to treatment plan" sourceRef="Gateway_18rchc7" targetRef="Gateway_1ortmgh" />
-    <bpmn2:sequenceFlow id="Flow_17b4j7t" name="no, end of end-of-life care/ best supportive care" sourceRef="Gateway_121hc5t" targetRef="Activity_1ssltri" />
-    <bpmn2:sequenceFlow id="Flow_1pzc55p" name="no" sourceRef="Gateway_010d40p" targetRef="Gateway_09l9dd0" />
-    <bpmn2:sequenceFlow id="Flow_10cfk73" name="no, end of therapy" sourceRef="Gateway_18rchc7" targetRef="Gateway_0s9gq5f" />
+    <bpmn2:sequenceFlow id="Flow_1q8e4kn" name="BSC-Intention, kein MTB erforderlich" sourceRef="Gateway_0kn6v4a" targetRef="Gateway_0bu2rhk" />
+    <bpmn2:sequenceFlow id="Flow_07cyjbg" name="ja" sourceRef="Gateway_0dy45pb" targetRef="Gateway_0s9gq5f" />
+    <bpmn2:sequenceFlow id="Flow_1a9j8bh" name="nein, Behandlung gemaess Behandlungsplan fortsetzen" sourceRef="Gateway_18rchc7" targetRef="Gateway_1ortmgh" />
+    <bpmn2:sequenceFlow id="Flow_17b4j7t" name="nein, Ende der Nachsorge/ Uebergang zu Versorgung am Lebensende/ Best Supportive Care" sourceRef="Gateway_121hc5t" targetRef="Activity_1ssltri" />
+    <bpmn2:sequenceFlow id="Flow_1pzc55p" name="nein" sourceRef="Gateway_010d40p" targetRef="Gateway_09l9dd0" />
+    <bpmn2:sequenceFlow id="Flow_10cfk73" name="nein, Ende der Therapie" sourceRef="Gateway_18rchc7" targetRef="Gateway_0s9gq5f" />
     <bpmn2:sequenceFlow id="Flow_09h4356" sourceRef="Gateway_0r2rbhc" targetRef="Gateway_010d40p" />
     <bpmn2:sequenceFlow id="Flow_00hd7md" sourceRef="Gateway_09l9dd0" targetRef="Activity_1oagskd" />
     <bpmn2:sequenceFlow id="Flow_1q15w7k" name="optional" sourceRef="Gateway_1p3qvpd" targetRef="Activity_0d6f9vx" />
     <bpmn2:sequenceFlow id="Flow_1m742gg" sourceRef="Activity_0d6f9vx" targetRef="Event_1e1jmpd" />
     <bpmn2:sequenceFlow id="Flow_1ow3f9j" sourceRef="Gateway_18pda8k" targetRef="Gateway_121hc5t" />
-    <bpmn2:startEvent id="Event_0ae2j6h" name="patient with histologically confirmed lung cancer">
+    <bpmn2:startEvent id="Event_0ae2j6h" name="Patient mit histologisch bestaetigtem Lungenkrebs">
       <bpmn2:outgoing>Flow_05qzdqh</bpmn2:outgoing>
     </bpmn2:startEvent>
-    <bpmn2:startEvent id="Event_0tdpt7a" name="patient with symptoms">
+    <bpmn2:startEvent id="Event_0tdpt7a" name="Patient mit Symptomen">
       <bpmn2:outgoing>Flow_1r0w7x8</bpmn2:outgoing>
     </bpmn2:startEvent>
-    <bpmn2:intermediateThrowEvent id="Event_1m37doe" name="citizen with positive lung cancer screening results">
+    <bpmn2:intermediateThrowEvent id="Event_1m37doe" name="Buerger mit positivem Lungenkrebs-Screeningbefund">
       <bpmn2:incoming>Flow_10mthhe</bpmn2:incoming>
       <bpmn2:outgoing>Flow_06njbkm</bpmn2:outgoing>
     </bpmn2:intermediateThrowEvent>
@@ -119,7 +119,7 @@
       <bpmn2:incoming>Flow_01y64i7</bpmn2:incoming>
       <bpmn2:outgoing>Flow_194y7kd</bpmn2:outgoing>
     </bpmn2:exclusiveGateway>
-    <bpmn2:subProcess id="Activity_1rdfhgh" name="patient consultation" cp:selectionBehavior="any">
+    <bpmn2:subProcess id="Activity_1rdfhgh" name="Patientenkonsultation" cp:selectionBehavior="any">
       <bpmn2:incoming>Flow_194y7kd</bpmn2:incoming>
       <bpmn2:outgoing>Flow_14ehe2c</bpmn2:outgoing>
     </bpmn2:subProcess>
@@ -128,7 +128,7 @@
       <bpmn2:incoming>Flow_0ggiww7</bpmn2:incoming>
       <bpmn2:outgoing>Flow_09h4356</bpmn2:outgoing>
     </bpmn2:exclusiveGateway>
-    <bpmn2:exclusiveGateway id="Gateway_010d40p" name="staging imaging  necessary?">
+    <bpmn2:exclusiveGateway id="Gateway_010d40p" name="Staging-Bildgebung notwendig?">
       <bpmn2:incoming>Flow_09h4356</bpmn2:incoming>
       <bpmn2:outgoing>Flow_0r03b4p</bpmn2:outgoing>
       <bpmn2:outgoing>Flow_1pzc55p</bpmn2:outgoing>
@@ -138,21 +138,21 @@
       <bpmn2:outgoing>Flow_0fyh4tp</bpmn2:outgoing>
       <bpmn2:outgoing>Flow_0vo0zum</bpmn2:outgoing>
     </bpmn2:exclusiveGateway>
-    <bpmn2:task id="Activity_08dp53e" name="CCCN discharge">
+    <bpmn2:task id="Activity_08dp53e" name="Entlassung aus dem CCCN">
       <bpmn2:incoming>Flow_0vo0zum</bpmn2:incoming>
       <bpmn2:outgoing>Flow_1b6rxta</bpmn2:outgoing>
     </bpmn2:task>
-    <bpmn2:subProcess id="Activity_16oze6f" name="staging diagnostics" cp:selectionBehavior="any">
+    <bpmn2:subProcess id="Activity_16oze6f" name="Staging-Diagnostik" cp:selectionBehavior="any">
       <bpmn2:incoming>Flow_0r03b4p</bpmn2:incoming>
       <bpmn2:outgoing>Flow_1rekhqr</bpmn2:outgoing>
       <bpmn2:startEvent id="Event_0yllhw4" />
     </bpmn2:subProcess>
-    <bpmn2:exclusiveGateway id="Gateway_15a3cdo" name="guideline-based treatment options given?">
+    <bpmn2:exclusiveGateway id="Gateway_15a3cdo" name="Leitlinienbasierte Behandlungsoptionen vorhanden?">
       <bpmn2:incoming>Flow_082bfua</bpmn2:incoming>
       <bpmn2:outgoing>Flow_0snmrit</bpmn2:outgoing>
       <bpmn2:outgoing>Flow_1p26pel</bpmn2:outgoing>
     </bpmn2:exclusiveGateway>
-    <bpmn2:subProcess id="Activity_1oagskd" name="standard tumorboard (TB) meeting" cp:selectionBehavior="any">
+    <bpmn2:subProcess id="Activity_1oagskd" name="Standard-Tumorboard-Sitzung (TB)" cp:selectionBehavior="any">
       <bpmn2:incoming>Flow_00hd7md</bpmn2:incoming>
       <bpmn2:outgoing>Flow_082bfua</bpmn2:outgoing>
       <bpmn2:dataOutputAssociation id="DataOutputAssociation_0okj96l">
@@ -169,23 +169,23 @@
       <bpmn2:outgoing>Flow_0jkro9e</bpmn2:outgoing>
       <bpmn2:outgoing>Flow_1q8e4kn</bpmn2:outgoing>
     </bpmn2:exclusiveGateway>
-    <bpmn2:subProcess id="Activity_1f73x26" name="molecular tumorboard (MTB) meeting" cp:selectionBehavior="any">
+    <bpmn2:subProcess id="Activity_1f73x26" name="Molekulares Tumorboard (MTB)" cp:selectionBehavior="any">
       <bpmn2:incoming>Flow_0jkro9e</bpmn2:incoming>
       <bpmn2:outgoing>Flow_0fsr6ag</bpmn2:outgoing>
       <bpmn2:dataOutputAssociation id="DataOutputAssociation_168o23q">
         <bpmn2:targetRef>DataObjectReference_1r8vt4f</bpmn2:targetRef>
       </bpmn2:dataOutputAssociation>
     </bpmn2:subProcess>
-    <cp:qualityIndicator id="QualityIndicator_14kij7y" name="#2 pretherapeutic TB/MDT meeting" dataObjectRef="DataObject_0zqpze6">
-      <cp:qIDefinition type="ratio" numerator="patients of the denominator presented in the pretherapeutic TB/MDT meeting" denumerator="all LC patients with first diagnosis of Lung Cancer" />
+    <cp:qualityIndicator id="QualityIndicator_14kij7y" name="#2 praetherapeutische TB/MDT-Sitzung" dataObjectRef="DataObject_0zqpze6">
+      <cp:qIDefinition type="ratio" numerator="Patienten des Nenners, die in der praetherapeutischen TB/MDT-Sitzung vorgestellt wurden" denumerator="alle LC-Patienten mit Erstdiagnose eines Lungenkrebses" />
     </cp:qualityIndicator>
     <bpmn2:dataObject id="DataObject_0zqpze6" />
-    <bpmn2:exclusiveGateway id="Gateway_0gpo9ms" name="further diagnostics necessary?">
+    <bpmn2:exclusiveGateway id="Gateway_0gpo9ms" name="Weitere Diagnostik notwendig?">
       <bpmn2:incoming>Flow_0fsr6ag</bpmn2:incoming>
       <bpmn2:outgoing>Flow_1y3u9cv</bpmn2:outgoing>
       <bpmn2:outgoing>Flow_0ggiww7</bpmn2:outgoing>
     </bpmn2:exclusiveGateway>
-    <bpmn2:task id="Activity_1kfbd29" name="patient consultation after diagnosis with shared decision-making">
+    <bpmn2:task id="Activity_1kfbd29" name="Patientenkonsultation nach Diagnose mit partizipativer Entscheidungsfindung">
       <bpmn2:incoming>Flow_06vrjpq</bpmn2:incoming>
       <bpmn2:outgoing>Flow_0bwzsx9</bpmn2:outgoing>
       <bpmn2:property id="Property_1y6qimr" name="__targetRef_placeholder" />
@@ -215,41 +215,41 @@
       <bpmn2:incoming>Flow_1q8e4kn</bpmn2:incoming>
       <bpmn2:outgoing>Flow_06vrjpq</bpmn2:outgoing>
     </bpmn2:exclusiveGateway>
-    <bpmn2:dataObjectReference id="DataObjectReference_0o96tjc" name="information materials (e.g., smoking cecassion)" dataObjectRef="DataObject_03wg6nc" />
+    <bpmn2:dataObjectReference id="DataObjectReference_0o96tjc" name="Informationsmaterialien (z. B. Rauchstopp)" dataObjectRef="DataObject_03wg6nc" />
     <bpmn2:dataObject id="DataObject_03wg6nc" />
-    <bpmn2:dataObjectReference id="DataObjectReference_0eekaxc" name="TB protocol with therapy recommendation" dataObjectRef="DataObject_1n1uqmh" />
+    <bpmn2:dataObjectReference id="DataObjectReference_0eekaxc" name="TB-Protokoll mit Therapieempfehlung" dataObjectRef="DataObject_1n1uqmh" />
     <bpmn2:dataObject id="DataObject_1n1uqmh" />
-    <cp:qualityIndicator id="QualityIndicator_0dir0ll" name="#2 pretherapeutic TB/MDT meeting" dataObjectRef="DataObject_11hg8h2">
-      <cp:qIDefinition type="ratio" numerator="patients of the denominator presented in the pretherapeutic TB/MDT meeting" denumerator="all LC patients with first diagnosis of Lung Cancer" />
+    <cp:qualityIndicator id="QualityIndicator_0dir0ll" name="#2 praetherapeutische TB/MDT-Sitzung" dataObjectRef="DataObject_11hg8h2">
+      <cp:qIDefinition type="ratio" numerator="Patienten des Nenners, die in der praetherapeutischen TB/MDT-Sitzung vorgestellt wurden" denumerator="alle LC-Patienten mit Erstdiagnose eines Lungenkrebses" />
     </cp:qualityIndicator>
     <bpmn2:dataObject id="DataObject_11hg8h2" />
-    <cp:qualityIndicator id="QualityIndicator_1cd4745" name="#18 clinical trials and research study access" dataObjectRef="DataObject_0wxe57i">
-      <cp:qIDefinition type="ratio" numerator="Number of patients with lung cancer enrolled in an interventional clinical trial or translational research." denumerator="All patients with lung cancer" />
+    <cp:qualityIndicator id="QualityIndicator_1cd4745" name="#18 Zugang zu klinischen Studien und Forschungsstudien" dataObjectRef="DataObject_0wxe57i">
+      <cp:qIDefinition type="ratio" numerator="Anzahl der Patienten mit Lungenkrebs, die in eine interventionelle klinische Studie oder translationale Forschung eingeschlossen sind." denumerator="Alle Patienten mit Lungenkrebs" />
     </cp:qualityIndicator>
     <bpmn2:dataObject id="DataObject_0wxe57i" />
-    <bpmn2:dataObjectReference id="DataObjectReference_1r8vt4f" name="MTB protocol with therapy recommendation" dataObjectRef="DataObject_0omq4in" />
+    <bpmn2:dataObjectReference id="DataObjectReference_1r8vt4f" name="MTB-Protokoll mit Therapieempfehlung" dataObjectRef="DataObject_0omq4in" />
     <bpmn2:dataObject id="DataObject_0omq4in" />
-    <cp:qualityIndicator id="QualityIndicator_1lrfw0z" name="#18 clinical trials and research study access" dataObjectRef="DataObject_0jy1szs">
-      <cp:qIDefinition type="ratio" numerator="Number of patients with Lung Cancer enrolled in an interventional clinical trial or translational research." denumerator="All patients with lung cancer" />
+    <cp:qualityIndicator id="QualityIndicator_1lrfw0z" name="#18 Zugang zu klinischen Studien und Forschungsstudien" dataObjectRef="DataObject_0jy1szs">
+      <cp:qIDefinition type="ratio" numerator="Anzahl der Patienten mit Lungenkrebs, die in eine interventionelle klinische Studie oder translationale Forschung eingeschlossen sind." denumerator="Alle Patienten mit Lungenkrebs" />
     </cp:qualityIndicator>
     <bpmn2:dataObject id="DataObject_0jy1szs" />
-    <cp:qualityIndicator id="QualityIndicator_0hag6dt" name="#6&#10;pre-treatment diagnosis" dataObjectRef="DataObject_1eo2ccv">
-      <cp:qIDefinition type="ratio" numerator="Number of patients who receive curative treatment (radical radiotherapy, radical chemoradiotherapy or surgical resection) that have a cytological / histological diagnosis prior to treatment." denumerator="All patients with Lung Cancer who receive curative treatment (radical radiotherapy, radical chemoradiotherapy or surgical resection). Excluding patients who refuse investigations." />
+    <cp:qualityIndicator id="QualityIndicator_0hag6dt" name="#6&#10;praetherapeutische Diagnose" dataObjectRef="DataObject_1eo2ccv">
+      <cp:qIDefinition type="ratio" numerator="Anzahl der Patienten, die eine kurative Behandlung erhalten (radikale Strahlentherapie, radikale Radiochemotherapie oder chirurgische Resektion) und vor der Behandlung eine zytologische / histologische Diagnose haben." denumerator="Alle Patienten mit Lungenkrebs, die eine kurative Behandlung erhalten (radikale Strahlentherapie, radikale Radiochemotherapie oder chirurgische Resektion). Ausgenommen sind Patienten, die Untersuchungen ablehnen." />
     </cp:qualityIndicator>
     <bpmn2:dataObject id="DataObject_1eo2ccv" />
-    <cp:qualityIndicator id="QualityIndicator_18co3hv" name="#5&#10;pathological diagnosis – tumour subtype" dataObjectRef="DataObject_1wjyoco">
-      <cp:qIDefinition type="ratio" numerator="Number of patients with a pathological diagnosis of NSCLC who have a tumour subtype identified." denumerator="All patients with a pathological diagnosis of NSCLC." />
+    <cp:qualityIndicator id="QualityIndicator_18co3hv" name="#5&#10;pathologische Diagnose - Tumorsubtyp" dataObjectRef="DataObject_1wjyoco">
+      <cp:qIDefinition type="ratio" numerator="Anzahl der Patienten mit einer pathologischen Diagnose eines NSCLC, bei denen ein Tumorsubtyp identifiziert wurde." denumerator="Alle Patienten mit einer pathologischen Diagnose eines NSCLC." />
     </cp:qualityIndicator>
     <bpmn2:dataObject id="DataObject_1wjyoco" />
-    <cp:qualityIndicator id="QualityIndicator_0fak6l3" name="#4&#10;pathological diagnosis" dataObjectRef="DataObject_0uwb70c">
-      <cp:qIDefinition type="ratio" numerator="Number of patients with Lung Cancer who have a pathological diagnosis (including following surgical resection)." denumerator="All patients with Lung Cancer." />
+    <cp:qualityIndicator id="QualityIndicator_0fak6l3" name="#4&#10;pathologische Diagnose" dataObjectRef="DataObject_0uwb70c">
+      <cp:qIDefinition type="ratio" numerator="Anzahl der Patienten mit Lungenkrebs, bei denen eine pathologische Diagnose vorliegt (einschliesslich nach chirurgischer Resektion)." denumerator="Alle Patienten mit Lungenkrebs." />
     </cp:qualityIndicator>
     <bpmn2:dataObject id="DataObject_0uwb70c" />
-    <bpmn2:sequenceFlow id="Flow_1hlxm15" name="yes" sourceRef="Gateway_18rchc7" targetRef="Activity_0j2qg6r" />
+    <bpmn2:sequenceFlow id="Flow_1hlxm15" name="ja" sourceRef="Gateway_18rchc7" targetRef="Activity_0j2qg6r" />
     <bpmn2:sequenceFlow id="Flow_14zzqu2" sourceRef="Event_0i29fxn" targetRef="Gateway_1p3qvpd" />
     <bpmn2:sequenceFlow id="Flow_0qwuxg3" sourceRef="Gateway_1p3qvpd" targetRef="Gateway_1ortmgh" />
     <bpmn2:sequenceFlow id="Flow_1dhpq0u" sourceRef="Gateway_1ortmgh" targetRef="Activity_00jcqor" />
-    <bpmn2:sequenceFlow id="Flow_0m3kybe" name="necessity for TB/MTB meeting?" sourceRef="Activity_00jcqor" targetRef="Gateway_18rchc7" />
+    <bpmn2:sequenceFlow id="Flow_0m3kybe" name="Notwendigkeit einer TB/MTB-Sitzung?" sourceRef="Activity_00jcqor" targetRef="Gateway_18rchc7" />
     <bpmn2:sequenceFlow id="Flow_18jfelb" sourceRef="Activity_04dz2ib" targetRef="Event_17wlt3t" />
     <bpmn2:sequenceFlow id="Flow_1tffw3i" sourceRef="Event_1e1jmpd" targetRef="Gateway_18pda8k" />
     <bpmn2:sequenceFlow id="Flow_1cspzvu" sourceRef="Event_17wlt3t" targetRef="Gateway_18pda8k" />
@@ -258,9 +258,9 @@
     <bpmn2:sequenceFlow id="Flow_18lfnxy" sourceRef="Gateway_0ql4uic" targetRef="Event_1obsuyc" />
     <bpmn2:sequenceFlow id="Flow_1s6lhu5" sourceRef="Activity_1ssltri" targetRef="Gateway_0ql4uic" />
     <bpmn2:sequenceFlow id="Flow_1b6rxta" sourceRef="Activity_08dp53e" targetRef="Gateway_0ql4uic" />
-    <bpmn2:dataObjectReference id="DataObjectReference_1g4talc" name="treatment plan" dataObjectRef="DataObject_1xjkfpw" />
+    <bpmn2:dataObjectReference id="DataObjectReference_1g4talc" name="Behandlungsplan" dataObjectRef="DataObject_1xjkfpw" />
     <bpmn2:dataObject id="DataObject_1xjkfpw" />
-    <bpmn2:intermediateThrowEvent id="Event_0i29fxn" name="treatment decision (shared decision-making)">
+    <bpmn2:intermediateThrowEvent id="Event_0i29fxn" name="Therapieentscheidung (partizipative Entscheidungsfindung)">
       <bpmn2:incoming>Flow_058yuu5</bpmn2:incoming>
       <bpmn2:outgoing>Flow_14zzqu2</bpmn2:outgoing>
     </bpmn2:intermediateThrowEvent>
@@ -276,7 +276,7 @@
       <bpmn2:outgoing>Flow_1q15w7k</bpmn2:outgoing>
       <bpmn2:outgoing>Flow_0qwuxg3</bpmn2:outgoing>
     </bpmn2:parallelGateway>
-    <bpmn2:subProcess id="Activity_00jcqor" name="treatment" cp:selectionBehavior="any">
+    <bpmn2:subProcess id="Activity_00jcqor" name="Behandlung" cp:selectionBehavior="any">
       <bpmn2:incoming>Flow_1dhpq0u</bpmn2:incoming>
       <bpmn2:outgoing>Flow_0m3kybe</bpmn2:outgoing>
       <bpmn2:property id="Property_0q4vxb2" name="__targetRef_placeholder" />
@@ -291,27 +291,27 @@
       <bpmn2:outgoing>Flow_10cfk73</bpmn2:outgoing>
       <bpmn2:outgoing>Flow_1a9j8bh</bpmn2:outgoing>
     </bpmn2:exclusiveGateway>
-    <bpmn2:task id="Activity_0j2qg6r" name="post-operative/-&#10;therapeutic/&#10;mid-therapeutic&#10;TB/MTB meeting">
+    <bpmn2:task id="Activity_0j2qg6r" name="postoperative/-&#10;therapeutische/&#10;mittendrin-therapeutische&#10;TB/MTB-Sitzung">
       <bpmn2:incoming>Flow_1hlxm15</bpmn2:incoming>
       <bpmn2:outgoing>Flow_1f01g5l</bpmn2:outgoing>
     </bpmn2:task>
-    <cp:qualityIndicator id="QualityIndicator_00gxcrq" name="#1: percentage of patients having surgery for a NSCLC discussed in a postoperative TB/MDT meeting" dataObjectRef="DataObject_1s0d0en">
-      <cp:qIDefinition type="ratio" numerator="patients of the denominator with discussion in a postoperative TB/MDT meeting" denumerator="all patients with NSCLC and surgery" />
+    <cp:qualityIndicator id="QualityIndicator_00gxcrq" name="#1: Anteil der operierten NSCLC-Patienten, die in einer postoperativen TB/MDT-Sitzung besprochen wurden" dataObjectRef="DataObject_1s0d0en">
+      <cp:qIDefinition type="ratio" numerator="Patienten des Nenners mit Besprechung in einer postoperativen TB/MDT-Sitzung" denumerator="alle Patienten mit NSCLC und Operation" />
     </cp:qualityIndicator>
     <bpmn2:dataObject id="DataObject_1s0d0en" />
-    <bpmn2:task id="Activity_0d6f9vx" name="rehabilitation (optional)">
+    <bpmn2:task id="Activity_0d6f9vx" name="Rehabilitation (optional)">
       <bpmn2:incoming>Flow_1q15w7k</bpmn2:incoming>
       <bpmn2:outgoing>Flow_1m742gg</bpmn2:outgoing>
     </bpmn2:task>
-    <bpmn2:task id="Activity_04dz2ib" name="supportive care/ early integration of palliative care">
+    <bpmn2:task id="Activity_04dz2ib" name="Supportivversorgung/ fruehe Integration der Palliativversorgung">
       <bpmn2:incoming>Flow_0ch5uho</bpmn2:incoming>
       <bpmn2:outgoing>Flow_18jfelb</bpmn2:outgoing>
     </bpmn2:task>
-    <cp:qualityIndicator id="QualityIndicator_1moaor7" name="#18 clinical trials and research study access" dataObjectRef="DataObject_14s8zgz">
-      <cp:qIDefinition type="ratio" numerator="Number of patients with lung cancer enrolled in an interventional clinical trial or translational research." denumerator="All patients with lung cancer" />
+    <cp:qualityIndicator id="QualityIndicator_1moaor7" name="#18 Zugang zu klinischen Studien und Forschungsstudien" dataObjectRef="DataObject_14s8zgz">
+      <cp:qIDefinition type="ratio" numerator="Anzahl der Patienten mit Lungenkrebs, die in eine interventionelle klinische Studie oder translationale Forschung eingeschlossen sind." denumerator="Alle Patienten mit Lungenkrebs" />
     </cp:qualityIndicator>
     <bpmn2:dataObject id="DataObject_14s8zgz" />
-    <bpmn2:intermediateThrowEvent id="Event_0a4ewoa" name="end of therapy">
+    <bpmn2:intermediateThrowEvent id="Event_0a4ewoa" name="Ende der Therapie">
       <bpmn2:incoming>Flow_1466mh4</bpmn2:incoming>
       <bpmn2:outgoing>Flow_11unpgh</bpmn2:outgoing>
     </bpmn2:intermediateThrowEvent>
@@ -320,16 +320,16 @@
       <bpmn2:incoming>Flow_10cfk73</bpmn2:incoming>
       <bpmn2:outgoing>Flow_1466mh4</bpmn2:outgoing>
     </bpmn2:exclusiveGateway>
-    <bpmn2:exclusiveGateway id="Gateway_0dy45pb" name="end of therapy?">
+    <bpmn2:exclusiveGateway id="Gateway_0dy45pb" name="Ende der Therapie?">
       <bpmn2:incoming>Flow_1f01g5l</bpmn2:incoming>
       <bpmn2:outgoing>Flow_07cyjbg</bpmn2:outgoing>
       <bpmn2:outgoing>Flow_0p8hlgd</bpmn2:outgoing>
     </bpmn2:exclusiveGateway>
-    <bpmn2:intermediateThrowEvent id="Event_17wlt3t" name="end of supportive care">
+    <bpmn2:intermediateThrowEvent id="Event_17wlt3t" name="Ende der Supportivversorgung">
       <bpmn2:incoming>Flow_18jfelb</bpmn2:incoming>
       <bpmn2:outgoing>Flow_1cspzvu</bpmn2:outgoing>
     </bpmn2:intermediateThrowEvent>
-    <bpmn2:intermediateThrowEvent id="Event_1e1jmpd" name="end of rehabilitation">
+    <bpmn2:intermediateThrowEvent id="Event_1e1jmpd" name="Ende der Rehabilitation">
       <bpmn2:incoming>Flow_1m742gg</bpmn2:incoming>
       <bpmn2:outgoing>Flow_1tffw3i</bpmn2:outgoing>
     </bpmn2:intermediateThrowEvent>
@@ -339,12 +339,12 @@
       <bpmn2:incoming>Flow_11unpgh</bpmn2:incoming>
       <bpmn2:outgoing>Flow_1ow3f9j</bpmn2:outgoing>
     </bpmn2:parallelGateway>
-    <bpmn2:exclusiveGateway id="Gateway_121hc5t" name="continue with follow-up care?">
+    <bpmn2:exclusiveGateway id="Gateway_121hc5t" name="Mit Nachsorge fortfahren?">
       <bpmn2:incoming>Flow_1ow3f9j</bpmn2:incoming>
       <bpmn2:outgoing>Flow_110pitn</bpmn2:outgoing>
       <bpmn2:outgoing>Flow_17b4j7t</bpmn2:outgoing>
     </bpmn2:exclusiveGateway>
-    <bpmn2:task id="Activity_0sqh02u" name="follow-up planning">
+    <bpmn2:task id="Activity_0sqh02u" name="Nachsorgeplanung">
       <bpmn2:incoming>Flow_110pitn</bpmn2:incoming>
       <bpmn2:outgoing>Flow_1x62zjy</bpmn2:outgoing>
       <bpmn2:property id="Property_1o4fddp" name="__targetRef_placeholder" />
@@ -353,7 +353,7 @@
         <bpmn2:targetRef>Property_1o4fddp</bpmn2:targetRef>
       </bpmn2:dataInputAssociation>
     </bpmn2:task>
-    <bpmn2:task id="Activity_1lzf9md" name="follow-up care, surveillance">
+    <bpmn2:task id="Activity_1lzf9md" name="Nachsorge, Ueberwachung">
       <bpmn2:incoming>Flow_1x62zjy</bpmn2:incoming>
       <bpmn2:outgoing>Flow_0wagl5w</bpmn2:outgoing>
       <bpmn2:standardLoopCharacteristics />
@@ -363,29 +363,29 @@
       <bpmn2:outgoing>Flow_0ogopph</bpmn2:outgoing>
       <bpmn2:outgoing>Flow_17cqgt2</bpmn2:outgoing>
     </bpmn2:eventBasedGateway>
-    <bpmn2:intermediateCatchEvent id="Event_0wy6prt" name="suspicion of secondary metastases OR recurrence">
+    <bpmn2:intermediateCatchEvent id="Event_0wy6prt" name="Verdacht auf Fernmetastasen ODER Rezidiv">
       <bpmn2:incoming>Flow_17cqgt2</bpmn2:incoming>
       <bpmn2:outgoing>Flow_01y64i7</bpmn2:outgoing>
       <bpmn2:conditionalEventDefinition id="ConditionalEventDefinition_0b0wvow">
         <bpmn2:condition xsi:type="bpmn2:tFormalExpression" />
       </bpmn2:conditionalEventDefinition>
     </bpmn2:intermediateCatchEvent>
-    <bpmn2:task id="Activity_1o0prcl" name="end of follow-up consultation">
+    <bpmn2:task id="Activity_1o0prcl" name="Ende der Nachsorgekonsultation">
       <bpmn2:incoming>Flow_04e8iab</bpmn2:incoming>
       <bpmn2:outgoing>Flow_1g7oxkd</bpmn2:outgoing>
     </bpmn2:task>
-    <bpmn2:intermediateCatchEvent id="Event_0bfbqw9" name="end of follow-up according to follow-up timeframes">
+    <bpmn2:intermediateCatchEvent id="Event_0bfbqw9" name="Ende der Nachsorge gemaess Nachsorgeintervallen">
       <bpmn2:incoming>Flow_0ogopph</bpmn2:incoming>
       <bpmn2:outgoing>Flow_04e8iab</bpmn2:outgoing>
       <bpmn2:timerEventDefinition id="TimerEventDefinition_0nkpgp1" />
     </bpmn2:intermediateCatchEvent>
-    <bpmn2:dataObjectReference id="DataObjectReference_07lhp7y" name="national lung cancer follow-up guidelines" dataObjectRef="DataObject_1tiexzy" />
+    <bpmn2:dataObjectReference id="DataObjectReference_07lhp7y" name="Nationale Leitlinien zur Nachsorge bei Lungenkrebs" dataObjectRef="DataObject_1tiexzy" />
     <bpmn2:dataObject id="DataObject_1tiexzy" />
-    <bpmn2:task id="Activity_1ssltri" name="end-of-life care / best supportive care">
+    <bpmn2:task id="Activity_1ssltri" name="Versorgung am Lebensende / Best Supportive Care">
       <bpmn2:incoming>Flow_17b4j7t</bpmn2:incoming>
       <bpmn2:outgoing>Flow_1s6lhu5</bpmn2:outgoing>
     </bpmn2:task>
-    <bpmn2:endEvent id="Event_1obsuyc" name="end of CCCN care">
+    <bpmn2:endEvent id="Event_1obsuyc" name="Ende der CCCN-Versorgung">
       <bpmn2:incoming>Flow_18lfnxy</bpmn2:incoming>
     </bpmn2:endEvent>
     <bpmn2:exclusiveGateway id="Gateway_0ql4uic">
@@ -395,18 +395,18 @@
       <bpmn2:outgoing>Flow_18lfnxy</bpmn2:outgoing>
     </bpmn2:exclusiveGateway>
     <bpmn2:sequenceFlow id="Flow_058yuu5" sourceRef="Gateway_1ala23i" targetRef="Event_0i29fxn" />
-    <bpmn2:task id="Activity_09q6006" name="screening (LDCT)">
+    <bpmn2:task id="Activity_09q6006" name="Screening (LDCT)">
       <bpmn2:incoming>Flow_0njdnw0</bpmn2:incoming>
       <bpmn2:outgoing>Flow_10mthhe</bpmn2:outgoing>
       <bpmn2:standardLoopCharacteristics />
     </bpmn2:task>
-    <bpmn2:startEvent id="Event_0lk7fnw" name="citizens with high risk for lung cancer">
+    <bpmn2:startEvent id="Event_0lk7fnw" name="Buerger mit hohem Risiko fuer Lungenkrebs">
       <bpmn2:outgoing>Flow_0njdnw0</bpmn2:outgoing>
     </bpmn2:startEvent>
     <cp:qualityIndicator id="QualityIndicator_1ul05ww" name="#4-5,7-12,19" dataObjectRef="DataObject_0cyj0z4" />
     <bpmn2:dataObject id="DataObject_0cyj0z4" />
-    <cp:qualityIndicator id="QualityIndicator_1rwdw1t" name="#18 clinical trials and research study access" dataObjectRef="DataObject_1cz1g5j">
-      <cp:qIDefinition type="ratio" numerator="Number of patients with lung cancer enrolled in an interventional clinical trial or translational research." denumerator="All patients with lung cancer" />
+    <cp:qualityIndicator id="QualityIndicator_1rwdw1t" name="#18 Zugang zu klinischen Studien und Forschungsstudien" dataObjectRef="DataObject_1cz1g5j">
+      <cp:qIDefinition type="ratio" numerator="Anzahl der Patienten mit Lungenkrebs, die in eine interventionelle klinische Studie oder translationale Forschung eingeschlossen sind." denumerator="Alle Patienten mit Lungenkrebs" />
     </cp:qualityIndicator>
     <bpmn2:dataObject id="DataObject_1cz1g5j" />
     <bpmn2:association id="Association_0twiyfj" sourceRef="Activity_1f73x26" targetRef="QualityIndicator_14kij7y" />
@@ -417,73 +417,73 @@
     <bpmn2:association id="Association_0qufkex" sourceRef="Activity_16oze6f" targetRef="QualityIndicator_18co3hv" />
     <bpmn2:association id="Association_1o5bjc7" sourceRef="Activity_16oze6f" targetRef="QualityIndicator_0fak6l3" />
     <bpmn2:textAnnotation id="TextAnnotation_0xbg3qo">
-      <bpmn2:text>see separate subprocess for patient consultation</bpmn2:text>
+      <bpmn2:text>siehe separaten Teilprozess fuer die Patientenkonsultation</bpmn2:text>
     </bpmn2:textAnnotation>
     <bpmn2:association id="Association_0raj8sn" sourceRef="Activity_1rdfhgh" targetRef="TextAnnotation_0xbg3qo" />
     <bpmn2:textAnnotation id="TextAnnotation_0liq8qc">
-      <bpmn2:text>see separate subprocess for staging diagnostics</bpmn2:text>
+      <bpmn2:text>siehe separaten Teilprozess fuer die Staging-Diagnostik</bpmn2:text>
     </bpmn2:textAnnotation>
     <bpmn2:association id="Association_0yu6r4i" sourceRef="Activity_16oze6f" targetRef="TextAnnotation_0liq8qc" />
     <bpmn2:textAnnotation id="TextAnnotation_00hwdxq">
-      <bpmn2:text>see seperate subprocess for MTB meeting</bpmn2:text>
+      <bpmn2:text>siehe separaten Teilprozess fuer die MTB-Sitzung</bpmn2:text>
     </bpmn2:textAnnotation>
     <bpmn2:association id="Association_1xxlv0d" sourceRef="Activity_1f73x26" targetRef="TextAnnotation_00hwdxq" />
     <bpmn2:textAnnotation id="TextAnnotation_1qqcmmx">
-      <bpmn2:text>see seperate subprocess for standard TB meeting</bpmn2:text>
+      <bpmn2:text>siehe separaten Teilprozess fuer die Standard-TB-Sitzung</bpmn2:text>
     </bpmn2:textAnnotation>
     <bpmn2:association id="Association_10b1xfr" sourceRef="Activity_1oagskd" targetRef="TextAnnotation_1qqcmmx" />
     <bpmn2:association id="Association_0p1a0ae" sourceRef="Activity_0j2qg6r" targetRef="QualityIndicator_00gxcrq" />
     <bpmn2:association id="Association_0w4au2s" sourceRef="Activity_04dz2ib" targetRef="QualityIndicator_1moaor7" />
     <bpmn2:textAnnotation id="TextAnnotation_0ar7hqt">
-      <bpmn2:text>* mandatory: post-operativ
-* MTB if necessary (see inclusion criteria in subprocess for MTB meeting); if necessary including staging diagnostics</bpmn2:text>
+      <bpmn2:text>* verpflichtend: postoperativ
+* MTB falls noetig (siehe Einschlusskriterien im Teilprozess fuer die MTB-Sitzung); falls noetig einschliesslich Staging-Diagnostik</bpmn2:text>
     </bpmn2:textAnnotation>
     <bpmn2:association id="Association_1e4fk0h" sourceRef="Activity_0j2qg6r" targetRef="TextAnnotation_0ar7hqt" />
     <bpmn2:textAnnotation id="TextAnnotation_00rg0wp">
-      <bpmn2:text>in parallel to therapy; aim: maintain and improve quality of life; e.g., by pain management according
-to the WHO pain management scheme, psycho-oncological care</bpmn2:text>
+      <bpmn2:text>parallel zur Therapie; Ziel: Erhalt und Verbesserung der Lebensqualitaet; z. B. durch Schmerztherapie gemaess
+dem WHO-Stufenschema, psychoonkologische Betreuung</bpmn2:text>
     </bpmn2:textAnnotation>
     <bpmn2:association id="Association_1pgun5c" sourceRef="Activity_04dz2ib" targetRef="TextAnnotation_00rg0wp" />
     <bpmn2:textAnnotation id="TextAnnotation_0bz1ngb">
-      <bpmn2:text>optional, according to national standards/ conditions</bpmn2:text>
+      <bpmn2:text>optional, gemaess nationalen Standards/ Rahmenbedingungen</bpmn2:text>
     </bpmn2:textAnnotation>
     <bpmn2:association id="Association_1l9iiws" sourceRef="Activity_0d6f9vx" targetRef="TextAnnotation_0bz1ngb" />
     <bpmn2:textAnnotation id="TextAnnotation_1hvq9ik">
-      <bpmn2:text>= exclusive, event-based gateway (when one of the following events happens, follow-up care is ending)</bpmn2:text>
+      <bpmn2:text>= exklusives, ereignisbasiertes Gateway (wenn eines der folgenden Ereignisse eintritt, endet die Nachsorge)</bpmn2:text>
     </bpmn2:textAnnotation>
     <bpmn2:association id="Association_199pfeh" sourceRef="Gateway_057o3a9" targetRef="TextAnnotation_1hvq9ik" />
     <bpmn2:textAnnotation id="TextAnnotation_1vyiqzt">
-      <bpmn2:text>in reference to national/ international lung cancer guidelines</bpmn2:text>
+      <bpmn2:text>in Anlehnung an nationale/ internationale Leitlinien zu Lungenkrebs</bpmn2:text>
     </bpmn2:textAnnotation>
     <bpmn2:association id="Association_0xgjfzc" sourceRef="Activity_00jcqor" targetRef="TextAnnotation_1vyiqzt" />
     <bpmn2:textAnnotation id="TextAnnotation_1t1txqb">
-      <bpmn2:text>May be offered to well-informed heavy smokers aged 55–74 years
-within a dedicated programme in experienced CT centres (ESMO)</bpmn2:text>
+      <bpmn2:text>Kann gut informierten starken Rauchern im Alter von 55-74 Jahren
+im Rahmen eines speziellen Programms in erfahrenen CT-Zentren angeboten werden (ESMO)</bpmn2:text>
     </bpmn2:textAnnotation>
     <bpmn2:association id="Association_0uvqsz7" sourceRef="Event_0lk7fnw" targetRef="TextAnnotation_1t1txqb" />
     <bpmn2:association id="Association_1hbl1tk" sourceRef="Activity_00jcqor" targetRef="QualityIndicator_1ul05ww" />
     <bpmn2:association id="Association_1exw5ku" sourceRef="Activity_1ssltri" targetRef="QualityIndicator_1rwdw1t" />
   </bpmn2:process>
   <bpmn2:category id="Category_1tporgd">
-    <bpmn2:categoryValue id="CategoryValue_09361cn" value="CCCN entry" />
+    <bpmn2:categoryValue id="CategoryValue_09361cn" value="CCCN-Aufnahme" />
   </bpmn2:category>
   <bpmn2:category id="Category_1hzxi5q">
-    <bpmn2:categoryValue id="CategoryValue_1dj6f28" value="staging diagnostics" />
+    <bpmn2:categoryValue id="CategoryValue_1dj6f28" value="Staging-Diagnostik" />
   </bpmn2:category>
   <bpmn2:category id="Category_1lj7vd7">
-    <bpmn2:categoryValue id="CategoryValue_1m9f9ue" value="treatment planning" />
+    <bpmn2:categoryValue id="CategoryValue_1m9f9ue" value="Behandlungsplanung" />
   </bpmn2:category>
   <bpmn2:category id="Category_1nzxu6u">
-    <bpmn2:categoryValue id="CategoryValue_151w00x" value="treatment" />
+    <bpmn2:categoryValue id="CategoryValue_151w00x" value="Behandlung" />
   </bpmn2:category>
   <bpmn2:category id="Category_0654i6a">
-    <bpmn2:categoryValue id="CategoryValue_116jo7b" value="end of CCCN care" />
+    <bpmn2:categoryValue id="CategoryValue_116jo7b" value="Ende der CCCN-Versorgung" />
   </bpmn2:category>
   <bpmn2:category id="Category_0t5u4rt">
-    <bpmn2:categoryValue id="CategoryValue_05ea948" value="follow-up/end-of-life care" />
+    <bpmn2:categoryValue id="CategoryValue_05ea948" value="Nachsorge/Versorgung am Lebensende" />
   </bpmn2:category>
   <bpmn2:category id="Category_1yz0mow">
-    <bpmn2:categoryValue id="CategoryValue_0s9m84z" value="screening" />
+    <bpmn2:categoryValue id="CategoryValue_0s9m84z" value="Screening" />
   </bpmn2:category>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_0mif9f6" border-color="#e40707" stroke="#e40707" background-color="#f21c1c" fill="#f21c1c">

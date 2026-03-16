@@ -1,68 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:cp="http://www.helict.de/bpmn4cp" xmlns:bioc="http://bpmn.io/schema/bpmn/biocolor/1.0" xmlns:color="http://www.omg.org/spec/BPMN/non-normative/color/1.0" id="sample-diagram" targetNamespace="http://bpmn.io/schema/bpmn" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd">
   <bpmn2:collaboration id="Collaboration_1cxznoy">
-    <bpmn2:participant id="Participant_07gxczs" name="Treatment - Lung Cancer" processRef="Process_1" />
+    <bpmn2:participant id="Participant_07gxczs" name="Behandlung - Lungenkrebs" processRef="Process_1" />
   </bpmn2:collaboration>
   <bpmn2:process id="Process_1" isExecutable="false">
-    <cp:qualityIndicator id="QualityIndicator_0h9k0bp" name="#5&#10;pathological diagnosis – tumour subtype" dataObjectRef="DataObject_0df1jaj" />
+    <cp:qualityIndicator id="QualityIndicator_0h9k0bp" name="#5&#10;pathologische Diagnose - Tumorsubtyp" dataObjectRef="DataObject_0df1jaj" />
     <bpmn2:dataObject id="DataObject_0df1jaj" />
-    <cp:qualityIndicator id="QualityIndicator_0jkrb8a" name="#4&#10;pathological diagnosis" dataObjectRef="DataObject_1pi5kx9" />
+    <cp:qualityIndicator id="QualityIndicator_0jkrb8a" name="#4&#10;pathologische Diagnose" dataObjectRef="DataObject_1pi5kx9" />
     <bpmn2:dataObject id="DataObject_1pi5kx9" />
-    <cp:qualityIndicator id="QualityIndicator_135vkyo" name="#20 maintenance therapy after definitive radiochemo-therapy" dataObjectRef="DataObject_0tskn8y" />
+    <cp:qualityIndicator id="QualityIndicator_135vkyo" name="#20 Erhaltungstherapie nach definitiver Radiochemotherapie" dataObjectRef="DataObject_0tskn8y" />
     <bpmn2:dataObject id="DataObject_0tskn8y" />
-    <cp:qualityIndicator id="QualityIndicator_01e3xuf" name="#16 interventional bronchoscopy" dataObjectRef="DataObject_1ewy8q0">
-      <cp:qIDefinition type="text" text="Interventional bronchoscopy (thermal procedures and stenting) for each service provider" />
+    <cp:qualityIndicator id="QualityIndicator_01e3xuf" name="#16 interventionelle Bronchoskopie" dataObjectRef="DataObject_1ewy8q0">
+      <cp:qIDefinition type="text" text="Interventionelle Bronchoskopie (thermische Verfahren und Stenting) fuer jeden Leistungserbringer" />
     </cp:qualityIndicator>
     <bpmn2:dataObject id="DataObject_1ewy8q0" />
-    <cp:qualityIndicator id="QualityIndicator_1513laz" name="#17&#10;chemo-immunotherapy in SCLC" dataObjectRef="DataObject_0cddcd5">
-      <cp:qIDefinition type="ratio" numerator="Primary cases of denominator with combination with PD-L1 antibody therapy (atezolizumab or durvalumab)" denumerator="Primary cases with SCLC stad. IV and chemotherapy (platinum/etoposide)" />
+    <cp:qualityIndicator id="QualityIndicator_1513laz" name="#17&#10;Chemo-Immuntherapie bei SCLC" dataObjectRef="DataObject_0cddcd5">
+      <cp:qIDefinition type="ratio" numerator="Primaerfaelle des Nenners mit Kombination mit PD-L1-Antikoerpertherapie (Atezolizumab oder Durvalumab)" denumerator="Primaerfaelle mit SCLC Stadium IV und Chemotherapie (Platin/Etoposid)" />
     </cp:qualityIndicator>
     <bpmn2:dataObject id="DataObject_0cddcd5" />
-    <cp:qualityIndicator id="QualityIndicator_0o2xqv5" name="#19&#10;post-operative bronchial stump/ anastomotic insufficiency" dataObjectRef="DataObject_03nt4ks">
-      <cp:qIDefinition type="ratio" numerator="Primary cases of the denominator with postoperative bronchial stump/anastomotic insufficiency" denumerator="Surgical primary cases for each department" />
+    <cp:qualityIndicator id="QualityIndicator_0o2xqv5" name="#19&#10;postoperative Bronchusstumpf-/ Anastomoseninsuffizienz" dataObjectRef="DataObject_03nt4ks">
+      <cp:qIDefinition type="ratio" numerator="Primaerfaelle des Nenners mit postoperativer Bronchusstumpf-/Anastomoseninsuffizienz" denumerator="Chirurgische Primaerfaelle je Abteilung" />
     </cp:qualityIndicator>
     <bpmn2:dataObject id="DataObject_03nt4ks" />
-    <cp:qualityIndicator id="QualityIndicator_19bmls8" name="#15&#10;SABR in inoperable&#10;stage I lung cancer" dataObjectRef="DataObject_051vpgx">
-      <cp:qIDefinition type="ratio" numerator="Number of patients with stage I Lung Cancer not undergoing surgery who receive SABR" denumerator="patients with stage I Lung Cancer not undergoing surgery Excluding Patients with small cell Lung Cancer (SCLC), Patients who refuse SABR, and Patients who die prior to treatment" />
+    <cp:qualityIndicator id="QualityIndicator_19bmls8" name="#15&#10;SABR bei inoperablem&#10;Lungenkrebs im Stadium I" dataObjectRef="DataObject_051vpgx">
+      <cp:qIDefinition type="ratio" numerator="Anzahl der Patienten mit Lungenkrebs im Stadium I, die nicht operiert werden und eine SABR erhalten" denumerator="Patienten mit Lungenkrebs im Stadium I, die nicht operiert werden. Ausgenommen sind Patienten mit kleinzelligem Lungenkrebs (SCLC), Patienten, die SABR ablehnen, und Patienten, die vor Behandlungsbeginn versterben" />
     </cp:qualityIndicator>
     <bpmn2:dataObject id="DataObject_051vpgx" />
-    <cp:qualityIndicator id="QualityIndicator_0yorsug" name="#14 adjuvant cisplatin-based chemotherapy stages II-IIIA1/2" dataObjectRef="DataObject_1aaj848">
-      <cp:qIDefinition type="ratio" numerator="Primary cases of the denominator with cisplatinbased chemotherapy" denumerator="R0 and lymph noderesected NSCLC primary cases with anatomical lung resection (NSCLC, stage II-IIIA1/2, with ECOG 0/1)" />
+    <cp:qualityIndicator id="QualityIndicator_0yorsug" name="#14 adjuvante cisplatinbasierte Chemotherapie Stadien II-IIIA1/2" dataObjectRef="DataObject_1aaj848">
+      <cp:qIDefinition type="ratio" numerator="Primaerfaelle des Nenners mit cisplatinbasierter Chemotherapie" denumerator="R0- und lymphknotenresezierte NSCLC-Primaerfaelle mit anatomischer Lungenresektion (NSCLC, Stadium II-IIIA1/2, mit ECOG 0/1)" />
     </cp:qualityIndicator>
     <bpmn2:dataObject id="DataObject_1aaj848" />
-    <cp:qualityIndicator id="QualityIndicator_0mh5qam" name="#13&#10;stage II-III &#10;NSCLC patients &#10;receiving chemo-radiation" dataObjectRef="DataObject_0k5hq14">
-      <cp:qIDefinition type="ratio" numerator="Receiving concomitant or sequential chemo-radiation" denumerator="NSCLC patients in stage II-III that did not receive surgery" />
+    <cp:qualityIndicator id="QualityIndicator_0mh5qam" name="#13&#10;NSCLC-Patienten&#10;im Stadium II-III&#10;mit Radiochemotherapie" dataObjectRef="DataObject_0k5hq14">
+      <cp:qIDefinition type="ratio" numerator="Erhalt einer simultanen oder sequenziellen Radiochemotherapie" denumerator="NSCLC-Patienten im Stadium II-III, die nicht operiert wurden" />
     </cp:qualityIndicator>
     <bpmn2:dataObject id="DataObject_0k5hq14" />
-    <cp:qualityIndicator id="QualityIndicator_08izefg" name="#12&#10;surgical lymph node staging &#62;=10 lymph nodes at resection" dataObjectRef="DataObject_1lb10e5">
-      <cp:qIDefinition type="ratio" numerator="Patients of the denominator with lymph node staging &#62;=10 lymph nodes" denumerator="All NSCLC patients stage Ia-IIB with surgical resection including lymph node staging" />
+    <cp:qualityIndicator id="QualityIndicator_08izefg" name="#12&#10;chirurgisches Lymphknoten-Staging &#62;=10 Lymphknoten bei Resektion" dataObjectRef="DataObject_1lb10e5">
+      <cp:qIDefinition type="ratio" numerator="Patienten des Nenners mit Lymphknoten-Staging &#62;=10 Lymphknoten" denumerator="Alle NSCLC-Patienten im Stadium Ia-IIB mit chirurgischer Resektion einschliesslich Lymphknoten-Staging" />
     </cp:qualityIndicator>
     <bpmn2:dataObject id="DataObject_1lb10e5" />
-    <cp:qualityIndicator id="QualityIndicator_178v666" name="#11&#10;anatomical pulmonary&#10;resection" dataObjectRef="DataObject_1p6w8eo">
-      <cp:qIDefinition type="ratio" numerator="Patients of the denominator with anatomical pulmonary resection (no segmentectomy)" denumerator="All NSCLC patients stage I/II, with a tumour &#62;= 2cm and resection" />
+    <cp:qualityIndicator id="QualityIndicator_178v666" name="#11&#10;anatomische pulmonale&#10;Resektion" dataObjectRef="DataObject_1p6w8eo">
+      <cp:qIDefinition type="ratio" numerator="Patienten des Nenners mit anatomischer pulmonaler Resektion (keine Segmentektomie)" denumerator="Alle NSCLC-Patienten im Stadium I/II mit einem Tumor &#62;= 2 cm und Resektion" />
     </cp:qualityIndicator>
     <bpmn2:dataObject id="DataObject_1p6w8eo" />
-    <cp:qualityIndicator id="QualityIndicator_0un4v2r" name="#10&#10;local R0 resections in stages IIIA/B" dataObjectRef="DataObject_1c7sxkz">
-      <cp:qIDefinition type="ratio" numerator="Primary cases of the denominator with (local) R0 resections after completion of surgical treatment" denumerator="Surgical primary cases in stages IIIA/B with anatomical lung resection" />
+    <cp:qualityIndicator id="QualityIndicator_0un4v2r" name="#10&#10;lokale R0-Resektionen in den Stadien IIIA/B" dataObjectRef="DataObject_1c7sxkz">
+      <cp:qIDefinition type="ratio" numerator="Primaerfaelle des Nenners mit (lokalen) R0-Resektionen nach Abschluss der chirurgischen Behandlung" denumerator="Chirurgische Primaerfaelle in den Stadien IIIA/B mit anatomischer Lungenresektion" />
     </cp:qualityIndicator>
     <bpmn2:dataObject id="DataObject_1c7sxkz" />
-    <cp:qualityIndicator id="QualityIndicator_152kpit" name="#9&#10;local R0 resections in stages IA/B and IIA/B" dataObjectRef="DataObject_1ghq0yf">
-      <cp:qIDefinition type="ratio" numerator="Primary cases of the denominator with (local) R0 resections after completion of surgical treatment" denumerator="Surgical primary cases in stages IA/B and IIA/B with anatomical lung resection" />
+    <cp:qualityIndicator id="QualityIndicator_152kpit" name="#9&#10;lokale R0-Resektionen in den Stadien IA/B und IIA/B" dataObjectRef="DataObject_1ghq0yf">
+      <cp:qIDefinition type="ratio" numerator="Primaerfaelle des Nenners mit (lokalen) R0-Resektionen nach Abschluss der chirurgischen Behandlung" denumerator="Chirurgische Primaerfaelle in den Stadien IA/B und IIA/B mit anatomischer Lungenresektion" />
     </cp:qualityIndicator>
     <bpmn2:dataObject id="DataObject_1ghq0yf" />
-    <cp:qualityIndicator id="QualityIndicator_1gzyx9s" name="#8&#10;VATS and RATS anatomical resections" dataObjectRef="DataObject_0gaancu">
-      <cp:qIDefinition type="ratio" numerator="Operations of the denominator performed videothoracoscopically (VATS) and/or robotassisted (RATS)" denumerator="Surgical primary cases ( number of anatomical resections (ICD-10 C34.0- 9, C78.0)" />
+    <cp:qualityIndicator id="QualityIndicator_1gzyx9s" name="#8&#10;VATS- und RATS-anatomische Resektionen" dataObjectRef="DataObject_0gaancu">
+      <cp:qIDefinition type="ratio" numerator="Operationen des Nenners, die videothorakoskopisch (VATS) und/oder roboterassistiert (RATS) durchgefuehrt wurden" denumerator="Chirurgische Primaerfaelle (Anzahl anatomischer Resektionen (ICD-10 C34.0-9, C78.0))" />
     </cp:qualityIndicator>
     <bpmn2:dataObject id="DataObject_0gaancu" />
-    <cp:qualityIndicator id="QualityIndicator_1cjd7kn" name="#7&#10;surgical expertise: number of lung resections" dataObjectRef="DataObject_11ftxz6">
-      <cp:qIDefinition type="text" text="Surgical expertise, number anatomical resections (ICD-10 C34.0-9, C78.0)" />
+    <cp:qualityIndicator id="QualityIndicator_1cjd7kn" name="#7&#10;chirurgische Expertise: Anzahl der Lungenresektionen" dataObjectRef="DataObject_11ftxz6">
+      <cp:qIDefinition type="text" text="Chirurgische Expertise, Anzahl anatomischer Resektionen (ICD-10 C34.0-9, C78.0)" />
     </cp:qualityIndicator>
     <bpmn2:dataObject id="DataObject_11ftxz6" />
-    <cp:qualityIndicator id="QualityIndicator_1dhf0or" name="#3&#10;PD-L1 testing for NSCLC in stage III with radio-chemotherapy" dataObjectRef="DataObject_14hj1rz">
-      <cp:qIDefinition type="ratio" numerator="Primary cases of the denominator with PD-L1 testing before starting radio-chemotherapy" denumerator="Primary cases with NSCLC stage III with radio-chemotherapy" />
+    <cp:qualityIndicator id="QualityIndicator_1dhf0or" name="#3&#10;PD-L1-Testung bei NSCLC im Stadium III mit Radiochemotherapie" dataObjectRef="DataObject_14hj1rz">
+      <cp:qIDefinition type="ratio" numerator="Primaerfaelle des Nenners mit PD-L1-Testung vor Beginn der Radiochemotherapie" denumerator="Primaerfaelle mit NSCLC Stadium III mit Radiochemotherapie" />
     </cp:qualityIndicator>
     <bpmn2:dataObject id="DataObject_14hj1rz" />
-    <bpmn2:task id="Activity_1vyn60u" name="end-of-life care/ best supportive care">
+    <bpmn2:task id="Activity_1vyn60u" name="Versorgung am Lebensende/ Best Supportive Care">
       <bpmn2:incoming>Flow_197q463</bpmn2:incoming>
       <bpmn2:outgoing>Flow_1khlgzy</bpmn2:outgoing>
       <bpmn2:property id="Property_1jhfz3n" name="__targetRef_placeholder" />
@@ -71,7 +71,7 @@
         <bpmn2:targetRef>Property_1jhfz3n</bpmn2:targetRef>
       </bpmn2:dataInputAssociation>
     </bpmn2:task>
-    <bpmn2:task id="Activity_1mvnvbc" name="other therapy">
+    <bpmn2:task id="Activity_1mvnvbc" name="Sonstige Therapie">
       <bpmn2:incoming>Flow_1qfpve4</bpmn2:incoming>
       <bpmn2:outgoing>Flow_1yinlre</bpmn2:outgoing>
       <bpmn2:property id="Property_0nwcvdi" name="__targetRef_placeholder" />
@@ -80,7 +80,7 @@
         <bpmn2:targetRef>Property_0nwcvdi</bpmn2:targetRef>
       </bpmn2:dataInputAssociation>
     </bpmn2:task>
-    <bpmn2:task id="Activity_0vb4x4m" name="radio(chemo)-therapy">
+    <bpmn2:task id="Activity_0vb4x4m" name="Radio(chemo)therapie">
       <bpmn2:incoming>Flow_0tqhe2w</bpmn2:incoming>
       <bpmn2:outgoing>Flow_014jrkw</bpmn2:outgoing>
       <bpmn2:property id="Property_0ev6izv" name="__targetRef_placeholder" />
@@ -89,7 +89,7 @@
         <bpmn2:targetRef>Property_0ev6izv</bpmn2:targetRef>
       </bpmn2:dataInputAssociation>
     </bpmn2:task>
-    <bpmn2:task id="Activity_1fc895b" name="systemic therapy">
+    <bpmn2:task id="Activity_1fc895b" name="Systemische Therapie">
       <bpmn2:incoming>Flow_1cncnz2</bpmn2:incoming>
       <bpmn2:outgoing>Flow_0t3sp60</bpmn2:outgoing>
       <bpmn2:property id="Property_1u9s9xz" name="__targetRef_placeholder" />
@@ -98,7 +98,7 @@
         <bpmn2:targetRef>Property_1u9s9xz</bpmn2:targetRef>
       </bpmn2:dataInputAssociation>
     </bpmn2:task>
-    <bpmn2:task id="Activity_1tnk1np" name="surgery">
+    <bpmn2:task id="Activity_1tnk1np" name="Operation">
       <bpmn2:incoming>Flow_1u2qdgn</bpmn2:incoming>
       <bpmn2:outgoing>Flow_0z2ew4o</bpmn2:outgoing>
       <bpmn2:property id="Property_1mojhlk" name="__targetRef_placeholder" />
@@ -107,7 +107,7 @@
         <bpmn2:targetRef>Property_1mojhlk</bpmn2:targetRef>
       </bpmn2:dataInputAssociation>
     </bpmn2:task>
-    <bpmn2:startEvent id="Event_0g57y3w" name="beginning of treatment phase">
+    <bpmn2:startEvent id="Event_0g57y3w" name="Beginn der Behandlungsphase">
       <bpmn2:outgoing>Flow_0nwqknl</bpmn2:outgoing>
     </bpmn2:startEvent>
     <bpmn2:inclusiveGateway id="Gateway_18pkxio">
@@ -118,7 +118,7 @@
       <bpmn2:outgoing>Flow_1cncnz2</bpmn2:outgoing>
       <bpmn2:outgoing>Flow_1u2qdgn</bpmn2:outgoing>
     </bpmn2:inclusiveGateway>
-    <bpmn2:endEvent id="Event_1462a1h" name="end of treatment phase">
+    <bpmn2:endEvent id="Event_1462a1h" name="Ende der Behandlungsphase">
       <bpmn2:incoming>Flow_0gxbwg6</bpmn2:incoming>
     </bpmn2:endEvent>
     <bpmn2:inclusiveGateway id="Gateway_19kiq8e">
@@ -129,7 +129,7 @@
       <bpmn2:incoming>Flow_0z2ew4o</bpmn2:incoming>
       <bpmn2:outgoing>Flow_0gxbwg6</bpmn2:outgoing>
     </bpmn2:inclusiveGateway>
-    <bpmn2:dataObjectReference id="DataObjectReference_0m7dszd" name="treatment plan" dataObjectRef="DataObject_1nbszs6" />
+    <bpmn2:dataObjectReference id="DataObjectReference_0m7dszd" name="Behandlungsplan" dataObjectRef="DataObject_1nbszs6" />
     <bpmn2:dataObject id="DataObject_1nbszs6" />
     <bpmn2:sequenceFlow id="Flow_197q463" sourceRef="Gateway_18pkxio" targetRef="Activity_1vyn60u" />
     <bpmn2:sequenceFlow id="Flow_1khlgzy" sourceRef="Activity_1vyn60u" targetRef="Gateway_19kiq8e" />
@@ -144,15 +144,15 @@
     <bpmn2:sequenceFlow id="Flow_0nwqknl" sourceRef="Event_0g57y3w" targetRef="Gateway_18pkxio" />
     <bpmn2:sequenceFlow id="Flow_0gxbwg6" sourceRef="Gateway_19kiq8e" targetRef="Event_1462a1h" />
     <bpmn2:textAnnotation id="TextAnnotation_02gcplv">
-      <bpmn2:text>inclusive gateway activates one or more branches, i.e. combined therapy</bpmn2:text>
+      <bpmn2:text>Das inklusive Gateway aktiviert einen oder mehrere Pfade, d. h. eine Kombinationstherapie</bpmn2:text>
     </bpmn2:textAnnotation>
     <bpmn2:textAnnotation id="TextAnnotation_1asddeq">
-      <bpmn2:text>e.g., in case of malignant pleural effusion, hemoptysis, superior vena cava syndrome, tracheobronchial tumour obstruction; specific treatment of metastases</bpmn2:text>
+      <bpmn2:text>z. B. bei malignem Pleuraerguss, Haemoptysen, Vena-cava-superior-Syndrom, tracheobronchialer Tumorobstruktion; spezifische Behandlung von Metastasen</bpmn2:text>
     </bpmn2:textAnnotation>
     <bpmn2:textAnnotation id="TextAnnotation_1ltbheu">
-      <bpmn2:text>i.e., all
-active incoming branches of the treatment plan must be
-completed before merging</bpmn2:text>
+      <bpmn2:text>d. h., alle
+aktiven eingehenden Pfade des Behandlungsplans muessen
+vor der Zusammenfuehrung abgeschlossen sein</bpmn2:text>
     </bpmn2:textAnnotation>
     <bpmn2:association id="Association_19i52op" sourceRef="Activity_1tnk1np" targetRef="QualityIndicator_0h9k0bp" />
     <bpmn2:association id="Association_1f06h2l" sourceRef="Activity_1tnk1np" targetRef="QualityIndicator_0jkrb8a" />

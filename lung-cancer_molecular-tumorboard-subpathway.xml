@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:bioc="http://bpmn.io/schema/bpmn/biocolor/1.0" xmlns:color="http://www.omg.org/spec/BPMN/non-normative/color/1.0" xmlns:cp="http://www.helict.de/bpmn4cp" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Web Modeler" exporterVersion="a6952c8" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.2.0" camunda:diagramRelationId="8f6a5808-ba20-4af2-a6fe-1c5c782e86b6">
   <bpmn:collaboration id="Collaboration_1e2foqa">
-    <bpmn:participant id="Participant_0phwomt" name="Molecular Tumorboard Meeting (MTB) - Lung Cancer" processRef="Process_e2faa7c4-7c7e-4408-82ce-89d081ca8a1b" />
+    <bpmn:participant id="Participant_0phwomt" name="Molekulares Tumorboard (MTB)" processRef="Process_e2faa7c4-7c7e-4408-82ce-89d081ca8a1b" />
     <bpmn:group id="Group_0os8wk0" categoryValueRef="CategoryValue_0k3p2j8" />
   </bpmn:collaboration>
   <bpmn:process id="Process_e2faa7c4-7c7e-4408-82ce-89d081ca8a1b" isExecutable="false">
     <bpmn:startEvent id="StartEvent_1">
       <bpmn:outgoing>Flow_1qy0fno</bpmn:outgoing>
     </bpmn:startEvent>
-    <bpmn:task id="Activity_1vtq62m" name="1st presentation in MTB (optional)">
+    <bpmn:task id="Activity_1vtq62m" name="Vorstellung im MTB (optional)">
       <bpmn:incoming>Flow_1nrnll4</bpmn:incoming>
       <bpmn:outgoing>Flow_0l1taeb</bpmn:outgoing>
     </bpmn:task>
@@ -20,91 +20,91 @@
     <bpmn:sequenceFlow id="Flow_1lywfmp" sourceRef="Event_0zr1wmc" targetRef="Activity_1phtl9y" />
     <bpmn:sequenceFlow id="Flow_00acios" sourceRef="Activity_1phtl9y" targetRef="Event_0cokjfx" />
     <bpmn:sequenceFlow id="Flow_0l1taeb" sourceRef="Activity_1vtq62m" targetRef="Activity_010pmlt" />
-    <bpmn:task id="Activity_010pmlt" name="request for human genetic/ molecular pathological analysis">
+    <bpmn:task id="Activity_010pmlt" name="Antrag auf menschliche genetische/ molekulare pathologische Analyse">
       <bpmn:incoming>Flow_0l1taeb</bpmn:incoming>
       <bpmn:outgoing>Flow_1fu9wq0</bpmn:outgoing>
     </bpmn:task>
-    <bpmn:task id="Activity_05w6tvq" name="bioinformatic analysis and processing">
+    <bpmn:task id="Activity_05w6tvq" name="Bioinformatische Analyse und Verarbeitung">
       <bpmn:incoming>Flow_1fu9wq0</bpmn:incoming>
       <bpmn:outgoing>Flow_0kozhwr</bpmn:outgoing>
     </bpmn:task>
-    <bpmn:task id="Activity_0n7syw4" name="preparation of findings/ reporting">
+    <bpmn:task id="Activity_0n7syw4" name="Vorbereitung der Ergebnisse/ Berichterstattung">
       <bpmn:incoming>Flow_0kozhwr</bpmn:incoming>
       <bpmn:outgoing>Flow_0nnxd81</bpmn:outgoing>
     </bpmn:task>
-    <bpmn:task id="Activity_1azhtk5" name="registration of patient for MTB">
+    <bpmn:task id="Activity_1azhtk5" name="Registrierung des Patienten für das MTB">
       <bpmn:incoming>Flow_1qy0fno</bpmn:incoming>
       <bpmn:outgoing>Flow_1nrnll4</bpmn:outgoing>
     </bpmn:task>
-    <bpmn:task id="Activity_1phtl9y" name="(2nd) presentation in MTB (therapy recommen-dation)">
+    <bpmn:task id="Activity_1phtl9y" name="Vorstellung im MTB (Therapieempfehlung)">
       <bpmn:incoming>Flow_1lywfmp</bpmn:incoming>
       <bpmn:outgoing>Flow_00acios</bpmn:outgoing>
       <bpmn:dataOutputAssociation id="DataOutputAssociation_0nadoyo">
         <bpmn:targetRef>DataObjectReference_0oer6b2</bpmn:targetRef>
       </bpmn:dataOutputAssociation>
     </bpmn:task>
-    <bpmn:intermediateCatchEvent id="Event_0zr1wmc" name="genetic findings with annotated variants">
+    <bpmn:intermediateCatchEvent id="Event_0zr1wmc" name="Molekulargenetischer Befundbericht (detektierte Varianten)">
       <bpmn:incoming>Flow_0nnxd81</bpmn:incoming>
       <bpmn:outgoing>Flow_1lywfmp</bpmn:outgoing>
       <bpmn:messageEventDefinition id="MessageEventDefinition_1fohka4" />
     </bpmn:intermediateCatchEvent>
-    <bpmn:dataObjectReference id="DataObjectReference_0oer6b2" name="MTB protocol with therapy recommendation" dataObjectRef="DataObject_10gjgna" />
+    <bpmn:dataObjectReference id="DataObjectReference_0oer6b2" name="MTB-Protokoll mit Therapieempfehlung" dataObjectRef="DataObject_10gjgna" />
     <bpmn:dataObject id="DataObject_10gjgna" />
-    <bpmn:endEvent id="Event_0cokjfx" name="end of MTB">
+    <bpmn:endEvent id="Event_0cokjfx" name="Abschluss der MTB-Vorstellung">
       <bpmn:incoming>Flow_00acios</bpmn:incoming>
     </bpmn:endEvent>
-    <cp:qualityIndicator id="QualityIndicator_1jvrzkg" name="#18&#10;&#39;clinical trials and research study access" dataObjectRef="DataObject_01lkryh">
-      <cp:qIDefinition type="ratio" numerator="Number of patients with Lung Cancer enrolled in an interventional clinical trial or translational research." denumerator="All patients with lung cancer" />
+    <cp:qualityIndicator id="QualityIndicator_1jvrzkg" name="#18&#10;Zugang zu klinischen Studien und Forschungsvorhaben" dataObjectRef="DataObject_01lkryh">
+      <cp:qIDefinition type="ratio" numerator="Anzahl der Patienten mit Lungenkrebs, die in eine interventionelle klinische Studie oder translationale Forschung eingeschlossen sind." denumerator="Alle Patienten mit Lungenkrebs" />
     </cp:qualityIndicator>
     <bpmn:dataObject id="DataObject_01lkryh" />
-    <cp:qualityIndicator id="QualityIndicator_17fkpb1" name="#2 pretherapeutic TB/MDT meeting" dataObjectRef="DataObject_1yvxnfd">
-      <cp:qIDefinition type="ratio" numerator="patients of the denominator presented in the pretherapeutic TB/MDT meeting" denumerator="all LC patients with first diagnosis of Lung Cancer" />
+    <cp:qualityIndicator id="QualityIndicator_17fkpb1" name="#2 Prätherapeutische TB/MTB-Vorstellung" dataObjectRef="DataObject_1yvxnfd">
+      <cp:qIDefinition type="ratio" numerator="Patienten des Nenners, die in der prätherapeutischen TB/MTB-Vorstellung vorgestellt wurden" denumerator="Alle Lungenkrebs-Patienten mit erster Diagnose von Lungenkrebs" />
     </cp:qualityIndicator>
     <bpmn:dataObject id="DataObject_1yvxnfd" />
     <bpmn:textAnnotation id="TextAnnotation_0rm75di">
-      <bpmn:text>documentation of the analysis tools, among others:
-* designation/naming of the tools used with the corresponding versions
-* definition and indication of the calculation of metrics such as TMB (tumor mutational burden), HRD, MSI
-* specification of databases
-* indication of the cut-offs (tolerance values) for the individual calculations</bpmn:text>
+      <bpmn:text>Dokumentation der Analysewerkzeuge, unter anderem:
+* Bezeichnung/Benennung der verwendeten Werkzeuge mit den entsprechenden Versionen
+* Definition und Angabe der Berechnung von Metriken wie TMB (Tumormutationslast), HRD, MSI
+* Spezifikation der Datenbanken
+* Angabe der Cut-offs (Toleranzwerte) fuer die einzelnen Berechnungen</bpmn:text>
     </bpmn:textAnnotation>
     <bpmn:association id="Association_1abjmmj" sourceRef="Activity_05w6tvq" targetRef="TextAnnotation_0rm75di" />
     <bpmn:textAnnotation id="TextAnnotation_1er2nm3">
-      <bpmn:text>participants: pathologist, human genetics, haematology/ oncology specialist, tumour-specific disciplines (tumor entity expert)</bpmn:text>
+      <bpmn:text>Teilnehmende: Pathologe, Humangenetik, Haematologie-/Onkologie-Facharzt, tumorspezifische Fachdisziplinen (Tumorentitaets-Experte)</bpmn:text>
     </bpmn:textAnnotation>
     <bpmn:association id="Association_0fbn0uq" sourceRef="Activity_1vtq62m" targetRef="TextAnnotation_1er2nm3" />
     <bpmn:textAnnotation id="TextAnnotation_01o8n4o">
       <bpmn:text>Next-Generation Sequencing (NGS):
 * DNA: Panel
-* or WES, (WGS)
-if necessary, additional diagnostics:
-* RNA panel, transcriptome
-* other optional methods
-in case of abnormalities, validation by standard sequencing methods</bpmn:text>
+* oder WES, (WGS)
+falls noetig, zusaetzliche Diagnostik:
+* RNA-Panel, Transkriptom
+* weitere optionale Methoden
+bei Auffaelligkeiten Validierung durch Standard-Sequenzierungsmethoden</bpmn:text>
     </bpmn:textAnnotation>
     <bpmn:association id="Association_1mxuqd3" sourceRef="Activity_010pmlt" targetRef="TextAnnotation_01o8n4o" />
     <bpmn:textAnnotation id="TextAnnotation_0nfd44x">
-      <bpmn:text>presentation based on documented recommendation of a tumour entity or organ-specific tumour conference:
-- Patients with advanced or rare cancer,
-- who have progressed through guideline-based therapy,
-- who clinically qualify for molecular-based therapy, and
-- who agree in principle to a possible therapy based on
-the molecular findings (see e.g. patient information).</bpmn:text>
+      <bpmn:text>Vorstellung auf Basis einer dokumentierten Empfehlung einer tumorspezifischen oder organspezifischen Tumorkonferenz:
+- Patienten mit fortgeschrittener oder seltener Krebserkrankung,
+- die unter einer leitlinienbasierten Therapie progredient sind,
+- die klinisch fuer eine molekularbasierte Therapie infrage kommen, und
+- die einer moeglichen Therapie auf Grundlage
+der molekularen Befunde grundsaetzlich zustimmen (siehe z. B. Patienteninformation).</bpmn:text>
     </bpmn:textAnnotation>
     <bpmn:association id="Association_1qba4nr" sourceRef="StartEvent_1" targetRef="TextAnnotation_0nfd44x" />
     <bpmn:textAnnotation id="TextAnnotation_0ckkl82">
-      <bpmn:text>participants: bioinformatician, molecular biology, pathologist, human genetics, haematology/ oncology specialist, tumour-specific disciplines (tumor entity expert)</bpmn:text>
+      <bpmn:text>Teilnehmende: Bioinformatiker, Molekularbiologie, Pathologe, Humangenetik, Haematologie-/Onkologie-Facharzt, tumorspezifische Fachdisziplinen (Tumorentitaets-Experte)</bpmn:text>
     </bpmn:textAnnotation>
     <bpmn:association id="Association_0uxqf6y" sourceRef="Activity_1phtl9y" targetRef="TextAnnotation_0ckkl82" />
     <bpmn:textAnnotation id="TextAnnotation_116k17m">
-      <bpmn:text>study participation (early phase), off-label therapy, no further therapy</bpmn:text>
+      <bpmn:text>Studienteilnahme (fruehe Phase), Off-Label-Therapie, keine weitere Therapie</bpmn:text>
     </bpmn:textAnnotation>
     <bpmn:association id="Association_1pctzl9" sourceRef="Event_0cokjfx" targetRef="TextAnnotation_116k17m" />
     <bpmn:association id="Association_0r978rr" sourceRef="Event_0cokjfx" targetRef="QualityIndicator_1jvrzkg" />
     <bpmn:association id="Association_0yxrote" sourceRef="Event_0cokjfx" targetRef="QualityIndicator_17fkpb1" />
   </bpmn:process>
   <bpmn:category id="Category_0nb44in">
-    <bpmn:categoryValue id="CategoryValue_0k3p2j8" value="molecular diagnostics" />
+    <bpmn:categoryValue id="CategoryValue_0k3p2j8" value="molekulare Diagnostik" />
   </bpmn:category>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_1e2foqa">
