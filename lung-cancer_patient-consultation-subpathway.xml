@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:bioc="http://bpmn.io/schema/bpmn/biocolor/1.0" xmlns:color="http://www.omg.org/spec/BPMN/non-normative/color/1.0" id="sample-diagram" targetNamespace="http://bpmn.io/schema/bpmn" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd">
+  <bpmn2:collaboration id="Collaboration_1aftimr">
+    <bpmn2:participant id="Participant_10yfyq5" name="Patient Consultation - Lung Cancer" processRef="Process_1" />
+  </bpmn2:collaboration>
+  <bpmn2:process id="Process_1" isExecutable="false">
+    <bpmn2:parallelGateway id="Gateway_1571lkc">
+      <bpmn2:incoming>Flow_0qoydlu</bpmn2:incoming>
+      <bpmn2:outgoing>Flow_0kpb4ca</bpmn2:outgoing>
+      <bpmn2:outgoing>Flow_0jy0obk</bpmn2:outgoing>
+      <bpmn2:outgoing>Flow_1vrpequ</bpmn2:outgoing>
+      <bpmn2:outgoing>Flow_1negrcb</bpmn2:outgoing>
+    </bpmn2:parallelGateway>
+    <bpmn2:sequenceFlow id="Flow_0qoydlu" sourceRef="Event_0wmvigt" targetRef="Gateway_1571lkc" />
+    <bpmn2:sequenceFlow id="Flow_0kpb4ca" sourceRef="Gateway_1571lkc" targetRef="Activity_0qyawac" />
+    <bpmn2:sequenceFlow id="Flow_0jy0obk" sourceRef="Gateway_1571lkc" targetRef="Activity_0ra0q8s" />
+    <bpmn2:sequenceFlow id="Flow_0x1qn2w" sourceRef="Activity_0qyawac" targetRef="Gateway_1wgiiw1" />
+    <bpmn2:sequenceFlow id="Flow_1rycc0a" sourceRef="Activity_0ra0q8s" targetRef="Gateway_1wgiiw1" />
+    <bpmn2:task id="Activity_0qyawac" name="general diagnostics">
+      <bpmn2:incoming>Flow_0kpb4ca</bpmn2:incoming>
+      <bpmn2:outgoing>Flow_0x1qn2w</bpmn2:outgoing>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="Flow_1vrpequ" sourceRef="Gateway_1571lkc" targetRef="Activity_17aq5q2" />
+    <bpmn2:task id="Activity_17aq5q2" name="medical history">
+      <bpmn2:incoming>Flow_1vrpequ</bpmn2:incoming>
+      <bpmn2:outgoing>Flow_1rxvr0t</bpmn2:outgoing>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="Flow_1rxvr0t" sourceRef="Activity_17aq5q2" targetRef="Gateway_1wgiiw1" />
+    <bpmn2:task id="Activity_05dte7n" name="patient information (esp. smoking cessation)">
+      <bpmn2:incoming>Flow_1negrcb</bpmn2:incoming>
+      <bpmn2:outgoing>Flow_1rjo6db</bpmn2:outgoing>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="Flow_1negrcb" sourceRef="Gateway_1571lkc" targetRef="Activity_05dte7n" />
+    <bpmn2:sequenceFlow id="Flow_1rjo6db" sourceRef="Activity_05dte7n" targetRef="Gateway_1wgiiw1" />
+    <bpmn2:parallelGateway id="Gateway_1wgiiw1">
+      <bpmn2:incoming>Flow_0x1qn2w</bpmn2:incoming>
+      <bpmn2:incoming>Flow_1rycc0a</bpmn2:incoming>
+      <bpmn2:incoming>Flow_1rxvr0t</bpmn2:incoming>
+      <bpmn2:incoming>Flow_1rjo6db</bpmn2:incoming>
+      <bpmn2:outgoing>Flow_1tbmxdj</bpmn2:outgoing>
+    </bpmn2:parallelGateway>
+    <bpmn2:task id="Activity_0ra0q8s" name="laboratoy">
+      <bpmn2:incoming>Flow_0jy0obk</bpmn2:incoming>
+      <bpmn2:outgoing>Flow_1rycc0a</bpmn2:outgoing>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="Flow_1tbmxdj" sourceRef="Gateway_1wgiiw1" targetRef="Event_1mba99f" />
+    <bpmn2:endEvent id="Event_1mba99f" name="end of patient consultation">
+      <bpmn2:incoming>Flow_1tbmxdj</bpmn2:incoming>
+    </bpmn2:endEvent>
+    <bpmn2:startEvent id="Event_0wmvigt" name="patient consulation appointment">
+      <bpmn2:outgoing>Flow_0qoydlu</bpmn2:outgoing>
+      <bpmn2:timerEventDefinition id="TimerEventDefinition_0dt1ujw" />
+    </bpmn2:startEvent>
+    <bpmn2:textAnnotation id="TextAnnotation_0w6gmmc">
+      <bpmn2:text>physical examination, assessing comorbidities, performance status assessment (ECOG, Karnofsky Performance Status Scale)</bpmn2:text>
+    </bpmn2:textAnnotation>
+    <bpmn2:association id="Association_1ok4jv0" sourceRef="Activity_0qyawac" targetRef="TextAnnotation_0w6gmmc" />
+    <bpmn2:textAnnotation id="TextAnnotation_1vygda0">
+      <bpmn2:text>blood cell counts, renal function, liver enzymes, bone parameters, LDH, NSE</bpmn2:text>
+    </bpmn2:textAnnotation>
+    <bpmn2:association id="Association_0e6gznm" sourceRef="Activity_0ra0q8s" targetRef="TextAnnotation_1vygda0" />
+    <bpmn2:textAnnotation id="TextAnnotation_1wjgct1">
+      <bpmn2:text>medical history, family history, social history, smoking status (survey of current status), occupational exposure</bpmn2:text>
+    </bpmn2:textAnnotation>
+    <bpmn2:association id="Association_0yp03zo" sourceRef="Activity_17aq5q2" targetRef="TextAnnotation_1wjgct1" />
+  </bpmn2:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_1aftimr">
+      <bpmndi:BPMNShape id="Participant_10yfyq5_di" bpmnElement="Participant_10yfyq5" isHorizontal="true">
+        <dc:Bounds x="180" y="20" width="680" height="660" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_1v4c5hf_di" bpmnElement="Gateway_1571lkc">
+        <dc:Bounds x="334" y="295" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0qyawac_di" bpmnElement="Activity_0qyawac">
+        <dc:Bounds x="420" y="280" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_17aq5q2_di" bpmnElement="Activity_17aq5q2">
+        <dc:Bounds x="420" y="110" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_05dte7n_di" bpmnElement="Activity_05dte7n">
+        <dc:Bounds x="420" y="564" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_1nyof4u_di" bpmnElement="Gateway_1wgiiw1">
+        <dc:Bounds x="695" y="295" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="621" y="265" width="79" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0ra0q8s_di" bpmnElement="Activity_0ra0q8s">
+        <dc:Bounds x="420" y="430" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1mba99f_di" bpmnElement="Event_1mba99f">
+        <dc:Bounds x="792" y="302" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="776" y="345" width="70" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1hbhgh8_di" bpmnElement="Event_0wmvigt" bioc:stroke="#000000" color:border-color="#000000">
+        <dc:Bounds x="241" y="302" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="230" y="345" width="61" height="40" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_0w6gmmc_di" bpmnElement="TextAnnotation_0w6gmmc">
+        <dc:Bounds x="520" y="200" width="205" height="68" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_1vygda0_di" bpmnElement="TextAnnotation_1vygda0">
+        <dc:Bounds x="520" y="370" width="190" height="53" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_1wjgct1_di" bpmnElement="TextAnnotation_1wjgct1">
+        <dc:Bounds x="520" y="40" width="190" height="68" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_0qoydlu_di" bpmnElement="Flow_0qoydlu">
+        <di:waypoint x="277" y="320" />
+        <di:waypoint x="334" y="320" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0kpb4ca_di" bpmnElement="Flow_0kpb4ca">
+        <di:waypoint x="384" y="320" />
+        <di:waypoint x="420" y="320" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0jy0obk_di" bpmnElement="Flow_0jy0obk">
+        <di:waypoint x="359" y="345" />
+        <di:waypoint x="359" y="470" />
+        <di:waypoint x="420" y="470" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0x1qn2w_di" bpmnElement="Flow_0x1qn2w">
+        <di:waypoint x="520" y="320" />
+        <di:waypoint x="695" y="320" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1rycc0a_di" bpmnElement="Flow_1rycc0a">
+        <di:waypoint x="520" y="470" />
+        <di:waypoint x="720" y="470" />
+        <di:waypoint x="720" y="345" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1vrpequ_di" bpmnElement="Flow_1vrpequ">
+        <di:waypoint x="359" y="295" />
+        <di:waypoint x="359" y="150" />
+        <di:waypoint x="420" y="150" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1rxvr0t_di" bpmnElement="Flow_1rxvr0t">
+        <di:waypoint x="520" y="150" />
+        <di:waypoint x="720" y="150" />
+        <di:waypoint x="720" y="295" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1negrcb_di" bpmnElement="Flow_1negrcb">
+        <di:waypoint x="359" y="345" />
+        <di:waypoint x="359" y="604" />
+        <di:waypoint x="420" y="604" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1rjo6db_di" bpmnElement="Flow_1rjo6db">
+        <di:waypoint x="520" y="604" />
+        <di:waypoint x="720" y="604" />
+        <di:waypoint x="720" y="345" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1tbmxdj_di" bpmnElement="Flow_1tbmxdj">
+        <di:waypoint x="745" y="320" />
+        <di:waypoint x="792" y="320" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_1ok4jv0_di" bpmnElement="Association_1ok4jv0">
+        <di:waypoint x="475" y="280" />
+        <di:waypoint x="520" y="240" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_0e6gznm_di" bpmnElement="Association_0e6gznm">
+        <di:waypoint x="478" y="430" />
+        <di:waypoint x="520" y="399" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_0yp03zo_di" bpmnElement="Association_0yp03zo">
+        <di:waypoint x="474" y="110" />
+        <di:waypoint x="520" y="67" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn2:definitions>
