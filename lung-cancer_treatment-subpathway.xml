@@ -1,70 +1,86 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<bpmn:definitions xmlns:bioc="http://bpmn.io/schema/bpmn/biocolor/1.0"
-  xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL"
-  xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
-  xmlns:color="http://www.omg.org/spec/BPMN/non-normative/color/1.0"
-  xmlns:cp="http://www.helict.de/bpmn4cp" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC"
-  xmlns:di="http://www.omg.org/spec/DD/20100524/DI"
-  xmlns:i18n="http://www.omg.org/spec/BPMN/non-normative/extensions/i18n/1.0"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" id="sample-diagram"
-  targetNamespace="http://bpmn.io/schema/bpmn"
-  xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd"
-  xml:lang="de">
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bioc="http://bpmn.io/schema/bpmn/biocolor/1.0" xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:color="http://www.omg.org/spec/BPMN/non-normative/color/1.0" xmlns:cp="http://www.helict.de/bpmn4cp" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:i18n="http://www.omg.org/spec/BPMN/non-normative/extensions/i18n/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="sample-diagram" targetNamespace="http://bpmn.io/schema/bpmn" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd" xml:lang="de">
   <bpmn:collaboration id="Collaboration_1cxznoy">
-    <bpmn:participant id="Participant_07gxczs" name="Behandlung - Lungenkrebs"
-      processRef="Process_1">
+    <bpmn:participant id="Participant_07gxczs" name="Behandlung" processRef="Process_1">
       <bpmn:extensionElements>
-        <i18n:translation target="@name" xml:lang="en">Treatment - Lung Cancer</i18n:translation>
-        <i18n:translation target="@name" xml:lang="de">Behandlung - Lungenkrebs</i18n:translation>
+        <i18n:translation xml:lang="en">Treatment - Lung Cancer</i18n:translation>
+        <i18n:translation xml:lang="de">Behandlung</i18n:translation>
       </bpmn:extensionElements>
     </bpmn:participant>
+    <bpmn:textAnnotation id="TextAnnotation_02gcplv">
+      <bpmn:extensionElements>
+        <i18n:translation target="@text" xml:lang="en">inclusive gateway activates one or more
+          branches, i.e. combined therapy</i18n:translation>
+        <i18n:translation target="@text" xml:lang="de">Inklusives Gateway aktiviert einen oder
+          mehrere Pfade, d. h. eine Kombinationstherapie</i18n:translation>
+      </bpmn:extensionElements>
+      <bpmn:text>Inklusives Gateway aktiviert einen oder
+          mehrere Pfade, d. h. eine Kombinationstherapie</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:textAnnotation id="TextAnnotation_1asddeq">
+      <bpmn:extensionElements>
+        <i18n:translation target="@text" xml:lang="en">e.g., in case of malignant pleural effusion,
+          hemoptysis, superior vena cava syndrome, tracheobronchial tumour obstruction; specific
+          treatment of metastases</i18n:translation>
+        <i18n:translation target="@text" xml:lang="de">z. B. bei malignem Pleuraerguss, Hämoptyse,
+          Vena-cava-superior-Syndrom, tracheobronchialer Tumorobstruktion; spezifische Behandlung
+          von Metastasen</i18n:translation>
+      </bpmn:extensionElements>
+      <bpmn:text>z. B. bei malignem Pleuraerguss, Hämoptyse,
+          Vena-cava-superior-Syndrom, tracheobronchialer Tumorobstruktion; spezifische Behandlung
+          von Metastasen</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_0348d32" sourceRef="Activity_1mvnvbc" targetRef="TextAnnotation_1asddeq" />
+    <bpmn:textAnnotation id="TextAnnotation_1ltbheu">
+      <bpmn:extensionElements>
+        <i18n:translation target="@text" xml:lang="en">i.e., all
+          active incoming branches of the treatment plan must be
+          completed before merging</i18n:translation>
+        <i18n:translation target="@text" xml:lang="de">d. h. alle
+          aktiven eingehenden Pfade des Behandlungsplans müssen
+          vor dem Zusammenführen abgeschlossen sein</i18n:translation>
+      </bpmn:extensionElements>
+      <bpmn:text>d. h. alle
+          aktiven eingehenden Pfade des Behandlungsplans müssen
+          vor dem Zusammenführen abgeschlossen sein</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_0m4nli6" sourceRef="Gateway_18pkxio" targetRef="TextAnnotation_02gcplv" />
+    <bpmn:association id="Association_1sv6uxf" sourceRef="Gateway_19kiq8e" targetRef="TextAnnotation_1ltbheu" />
   </bpmn:collaboration>
   <bpmn:process id="Process_1" isExecutable="false">
-    <cp:qualityIndicator id="QualityIndicator_0h9k0bp"
-      name="#5&#10;pathologische Diagnose – Tumorsubtyp"
-      zeebe:modelerTemplateIcon="data:image/svg+xml;utf8,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%0A%3C!--%20created%20with%20bpmn-js%20%2F%20http%3A%2F%2Fbpmn.io%20--%3E%0A%3C!DOCTYPE%20svg%20PUBLIC%20%22-%2F%2FW3C%2F%2FDTD%20SVG%201.1%2F%2FEN%22%20%22http%3A%2F%2Fwww.w3.org%2FGraphics%2FSVG%2F1.1%2FDTD%2Fsvg11.dtd%22%3E%0A%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20width%3D%2246%22%20height%3D%2246%22%0A%20%20%20%20%20viewBox%3D%22387%20357%2046%2046%22%20version%3D%221.1%22%3E%0A%20%20%20%20%3Cg%20transform%3D%22matrix(1%200%200%201%20392%20362)%22%3E%0A%20%20%20%20%20%20%20%20%3Ccircle%20cx%3D%2218%22%20cy%3D%2218%22%20r%3D%2218%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20style%3D%22stroke-linecap%3A%20round%3B%20stroke-linejoin%3A%20round%3B%20stroke%3A%20rgb(34%2C%2036%2C%2042)%3B%20stroke-width%3A%202px%3B%20fill%3A%20white%3B%20fill-opacity%3A%200.95%3B%22%2F%3E%0A%20%20%20%20%20%20%20%20%3Cpath%20d%3D%22m%200%2C0%20m%2019.699%2C12.899%20c%20-1.079%2C-1.183%20-2.637%2C-1.774%20-4.672%2C-1.774%20c%20-2.038%2C0%20-3.602%2C0.588%20-4.695%2C1.76%20c%20-1.09%2C1.172%20-1.633%2C2.87%20-1.633%2C5.094%20c%200%2C2.224%200.543%2C3.929%201.633%2C5.119%20c%201.086%2C1.186%202.647%2C1.777%204.678%2C1.777%20c%200%2C0%200.21%2C0%200.21%2C0%20c%200%2C0%202.427%2C3.094%202.427%2C3.094%20c%200%2C0%203.599%2C0%203.599%2C0%20c%200%2C0%20-3.19%2C-3.689%20-3.19%2C-3.689%20c%201.069%2C-0.495%201.88%2C-1.272%202.434%2C-2.334%20c%200.553%2C-1.062%200.831%2C-2.378%200.831%2C-3.953%20c%200%2C-2.214%20-0.539%2C-3.915%20-1.622%2C-5.094%20zm%20-7.209%2C1.705%20c%200.571%2C-0.76%201.417%2C-1.142%202.537%2C-1.142%20c%202.231%2C0%203.345%2C1.513%203.345%2C4.531%20c%200%2C3.018%20-1.121%2C4.524%20-3.369%2C4.524%20c%20-1.117%2C0%20-1.956%2C-0.378%20-2.516%2C-1.138%20c%20-0.564%2C-0.76%20-0.846%2C-1.887%20-0.846%2C-3.386%20c%200%2C-1.499%200.282%2C-2.626%200.849%2C-3.389%20zm%2014.4%2C9.927%20c%200%2C0%200%2C-13.406%200%2C-13.406%20c%200%2C0%20-2.808%2C0%20-2.808%2C0%20c%200%2C0%200%2C13.406%200%2C13.406%20c%200%2C0%202.808%2C0%202.808%2C0%20z%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20style%3D%22fill%3A%20rgb(34%2C%2036%2C%2042)%3B%20stroke-linecap%3A%20round%3B%20stroke-linejoin%3A%20round%3B%20stroke%3A%20none%3B%20stroke-width%3A%202px%3B%20fill-opacity%3A%200.95%3B%22%2F%3E%0A%20%20%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E%0A%0A"
-      dataObjectRef="DataObject_0df1jaj">
+    <cp:qualityIndicator id="QualityIndicator_0h9k0bp" name="#5&#10;          pathologische Diagnose – Tumorsubtyp" dataObjectRef="DataObject_0df1jaj">
       <bpmn:extensionElements>
-        <i18n:translation target="@name" xml:lang="en">#5
+        <i18n:translation xml:lang="en">#5
           pathological diagnosis – tumour subtype</i18n:translation>
-        <i18n:translation target="@name" xml:lang="de">#5
+        <i18n:translation xml:lang="de">#5
           pathologische Diagnose – Tumorsubtyp</i18n:translation>
       </bpmn:extensionElements>
     </cp:qualityIndicator>
     <bpmn:dataObject id="DataObject_0df1jaj" />
-    <cp:qualityIndicator id="QualityIndicator_0jkrb8a" name="#4&#10;pathologische Diagnose"
-      zeebe:modelerTemplateIcon="data:image/svg+xml;utf8,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%0A%3C!--%20created%20with%20bpmn-js%20%2F%20http%3A%2F%2Fbpmn.io%20--%3E%0A%3C!DOCTYPE%20svg%20PUBLIC%20%22-%2F%2FW3C%2F%2FDTD%20SVG%201.1%2F%2FEN%22%20%22http%3A%2F%2Fwww.w3.org%2FGraphics%2FSVG%2F1.1%2FDTD%2Fsvg11.dtd%22%3E%0A%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20width%3D%2246%22%20height%3D%2246%22%0A%20%20%20%20%20viewBox%3D%22387%20357%2046%2046%22%20version%3D%221.1%22%3E%0A%20%20%20%20%3Cg%20transform%3D%22matrix(1%200%200%201%20392%20362)%22%3E%0A%20%20%20%20%20%20%20%20%3Ccircle%20cx%3D%2218%22%20cy%3D%2218%22%20r%3D%2218%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20style%3D%22stroke-linecap%3A%20round%3B%20stroke-linejoin%3A%20round%3B%20stroke%3A%20rgb(34%2C%2036%2C%2042)%3B%20stroke-width%3A%202px%3B%20fill%3A%20white%3B%20fill-opacity%3A%200.95%3B%22%2F%3E%0A%20%20%20%20%20%20%20%20%3Cpath%20d%3D%22m%200%2C0%20m%2019.699%2C12.899%20c%20-1.079%2C-1.183%20-2.637%2C-1.774%20-4.672%2C-1.774%20c%20-2.038%2C0%20-3.602%2C0.588%20-4.695%2C1.76%20c%20-1.09%2C1.172%20-1.633%2C2.87%20-1.633%2C5.094%20c%200%2C2.224%200.543%2C3.929%201.633%2C5.119%20c%201.086%2C1.186%202.647%2C1.777%204.678%2C1.777%20c%200%2C0%200.21%2C0%200.21%2C0%20c%200%2C0%202.427%2C3.094%202.427%2C3.094%20c%200%2C0%203.599%2C0%203.599%2C0%20c%200%2C0%20-3.19%2C-3.689%20-3.19%2C-3.689%20c%201.069%2C-0.495%201.88%2C-1.272%202.434%2C-2.334%20c%200.553%2C-1.062%200.831%2C-2.378%200.831%2C-3.953%20c%200%2C-2.214%20-0.539%2C-3.915%20-1.622%2C-5.094%20zm%20-7.209%2C1.705%20c%200.571%2C-0.76%201.417%2C-1.142%202.537%2C-1.142%20c%202.231%2C0%203.345%2C1.513%203.345%2C4.531%20c%200%2C3.018%20-1.121%2C4.524%20-3.369%2C4.524%20c%20-1.117%2C0%20-1.956%2C-0.378%20-2.516%2C-1.138%20c%20-0.564%2C-0.76%20-0.846%2C-1.887%20-0.846%2C-3.386%20c%200%2C-1.499%200.282%2C-2.626%200.849%2C-3.389%20zm%2014.4%2C9.927%20c%200%2C0%200%2C-13.406%200%2C-13.406%20c%200%2C0%20-2.808%2C0%20-2.808%2C0%20c%200%2C0%200%2C13.406%200%2C13.406%20c%200%2C0%202.808%2C0%202.808%2C0%20z%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20style%3D%22fill%3A%20rgb(34%2C%2036%2C%2042)%3B%20stroke-linecap%3A%20round%3B%20stroke-linejoin%3A%20round%3B%20stroke%3A%20none%3B%20stroke-width%3A%202px%3B%20fill-opacity%3A%200.95%3B%22%2F%3E%0A%20%20%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E%0A%0A"
-      dataObjectRef="DataObject_1pi5kx9">
+    <cp:qualityIndicator id="QualityIndicator_0jkrb8a" name="#4&#10;          pathologische Diagnose" dataObjectRef="DataObject_1pi5kx9">
       <bpmn:extensionElements>
-        <i18n:translation target="@name" xml:lang="en">#4
+        <i18n:translation xml:lang="en">#4
           pathological diagnosis</i18n:translation>
-        <i18n:translation target="@name" xml:lang="de">#4
+        <i18n:translation xml:lang="de">#4
           pathologische Diagnose</i18n:translation>
       </bpmn:extensionElements>
     </cp:qualityIndicator>
     <bpmn:dataObject id="DataObject_1pi5kx9" />
-    <cp:qualityIndicator id="QualityIndicator_135vkyo"
-      name="#20 Erhaltungstherapie nach definitiver Radiochemotherapie"
-      zeebe:modelerTemplateIcon="data:image/svg+xml;utf8,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%0A%3C!--%20created%20with%20bpmn-js%20%2F%20http%3A%2F%2Fbpmn.io%20--%3E%0A%3C!DOCTYPE%20svg%20PUBLIC%20%22-%2F%2FW3C%2F%2FDTD%20SVG%201.1%2F%2FEN%22%20%22http%3A%2F%2Fwww.w3.org%2FGraphics%2FSVG%2F1.1%2FDTD%2Fsvg11.dtd%22%3E%0A%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20width%3D%2246%22%20height%3D%2246%22%0A%20%20%20%20%20viewBox%3D%22387%20357%2046%2046%22%20version%3D%221.1%22%3E%0A%20%20%20%20%3Cg%20transform%3D%22matrix(1%200%200%201%20392%20362)%22%3E%0A%20%20%20%20%20%20%20%20%3Ccircle%20cx%3D%2218%22%20cy%3D%2218%22%20r%3D%2218%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20style%3D%22stroke-linecap%3A%20round%3B%20stroke-linejoin%3A%20round%3B%20stroke%3A%20rgb(34%2C%2036%2C%2042)%3B%20stroke-width%3A%202px%3B%20fill%3A%20white%3B%20fill-opacity%3A%200.95%3B%22%2F%3E%0A%20%20%20%20%20%20%20%20%3Cpath%20d%3D%22m%200%2C0%20m%2019.699%2C12.899%20c%20-1.079%2C-1.183%20-2.637%2C-1.774%20-4.672%2C-1.774%20c%20-2.038%2C0%20-3.602%2C0.588%20-4.695%2C1.76%20c%20-1.09%2C1.172%20-1.633%2C2.87%20-1.633%2C5.094%20c%200%2C2.224%200.543%2C3.929%201.633%2C5.119%20c%201.086%2C1.186%202.647%2C1.777%204.678%2C1.777%20c%200%2C0%200.21%2C0%200.21%2C0%20c%200%2C0%202.427%2C3.094%202.427%2C3.094%20c%200%2C0%203.599%2C0%203.599%2C0%20c%200%2C0%20-3.19%2C-3.689%20-3.19%2C-3.689%20c%201.069%2C-0.495%201.88%2C-1.272%202.434%2C-2.334%20c%200.553%2C-1.062%200.831%2C-2.378%200.831%2C-3.953%20c%200%2C-2.214%20-0.539%2C-3.915%20-1.622%2C-5.094%20zm%20-7.209%2C1.705%20c%200.571%2C-0.76%201.417%2C-1.142%202.537%2C-1.142%20c%202.231%2C0%203.345%2C1.513%203.345%2C4.531%20c%200%2C3.018%20-1.121%2C4.524%20-3.369%2C4.524%20c%20-1.117%2C0%20-1.956%2C-0.378%20-2.516%2C-1.138%20c%20-0.564%2C-0.76%20-0.846%2C-1.887%20-0.846%2C-3.386%20c%200%2C-1.499%200.282%2C-2.626%200.849%2C-3.389%20zm%2014.4%2C9.927%20c%200%2C0%200%2C-13.406%200%2C-13.406%20c%200%2C0%20-2.808%2C0%20-2.808%2C0%20c%200%2C0%200%2C13.406%200%2C13.406%20c%200%2C0%202.808%2C0%202.808%2C0%20z%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20style%3D%22fill%3A%20rgb(34%2C%2036%2C%2042)%3B%20stroke-linecap%3A%20round%3B%20stroke-linejoin%3A%20round%3B%20stroke%3A%20none%3B%20stroke-width%3A%202px%3B%20fill-opacity%3A%200.95%3B%22%2F%3E%0A%20%20%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E%0A%0A"
-      dataObjectRef="DataObject_0tskn8y">
+    <cp:qualityIndicator id="QualityIndicator_135vkyo" name="#20 Erhaltungstherapie nach definitiver&#10;          Radiochemotherapie" dataObjectRef="DataObject_0tskn8y">
       <bpmn:extensionElements>
-        <i18n:translation target="@name" xml:lang="en">#20 maintenance therapy after definitive
+        <i18n:translation xml:lang="en">#20 maintenance therapy after definitive
           radiochemo-therapy</i18n:translation>
-        <i18n:translation target="@name" xml:lang="de">#20 Erhaltungstherapie nach definitiver
+        <i18n:translation xml:lang="de">#20 Erhaltungstherapie nach definitiver
           Radiochemotherapie</i18n:translation>
       </bpmn:extensionElements>
     </cp:qualityIndicator>
     <bpmn:dataObject id="DataObject_0tskn8y" />
-    <cp:qualityIndicator id="QualityIndicator_01e3xuf" name="#16 interventionelle Bronchoskopie"
-      zeebe:modelerTemplateIcon="data:image/svg+xml;utf8,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%0A%3C!--%20created%20with%20bpmn-js%20%2F%20http%3A%2F%2Fbpmn.io%20--%3E%0A%3C!DOCTYPE%20svg%20PUBLIC%20%22-%2F%2FW3C%2F%2FDTD%20SVG%201.1%2F%2FEN%22%20%22http%3A%2F%2Fwww.w3.org%2FGraphics%2FSVG%2F1.1%2FDTD%2Fsvg11.dtd%22%3E%0A%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20width%3D%2246%22%20height%3D%2246%22%0A%20%20%20%20%20viewBox%3D%22387%20357%2046%2046%22%20version%3D%221.1%22%3E%0A%20%20%20%20%3Cg%20transform%3D%22matrix(1%200%200%201%20392%20362)%22%3E%0A%20%20%20%20%20%20%20%20%3Ccircle%20cx%3D%2218%22%20cy%3D%2218%22%20r%3D%2218%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20style%3D%22stroke-linecap%3A%20round%3B%20stroke-linejoin%3A%20round%3B%20stroke%3A%20rgb(34%2C%2036%2C%2042)%3B%20stroke-width%3A%202px%3B%20fill%3A%20white%3B%20fill-opacity%3A%200.95%3B%22%2F%3E%0A%20%20%20%20%20%20%20%20%3Cpath%20d%3D%22m%200%2C0%20m%2019.699%2C12.899%20c%20-1.079%2C-1.183%20-2.637%2C-1.774%20-4.672%2C-1.774%20c%20-2.038%2C0%20-3.602%2C0.588%20-4.695%2C1.76%20c%20-1.09%2C1.172%20-1.633%2C2.87%20-1.633%2C5.094%20c%200%2C2.224%200.543%2C3.929%201.633%2C5.119%20c%201.086%2C1.186%202.647%2C1.777%204.678%2C1.777%20c%200%2C0%200.21%2C0%200.21%2C0%20c%200%2C0%202.427%2C3.094%202.427%2C3.094%20c%200%2C0%203.599%2C0%203.599%2C0%20c%200%2C0%20-3.19%2C-3.689%20-3.19%2C-3.689%20c%201.069%2C-0.495%201.88%2C-1.272%202.434%2C-2.334%20c%200.553%2C-1.062%200.831%2C-2.378%200.831%2C-3.953%20c%200%2C-2.214%20-0.539%2C-3.915%20-1.622%2C-5.094%20zm%20-7.209%2C1.705%20c%200.571%2C-0.76%201.417%2C-1.142%202.537%2C-1.142%20c%202.231%2C0%203.345%2C1.513%203.345%2C4.531%20c%200%2C3.018%20-1.121%2C4.524%20-3.369%2C4.524%20c%20-1.117%2C0%20-1.956%2C-0.378%20-2.516%2C-1.138%20c%20-0.564%2C-0.76%20-0.846%2C-1.887%20-0.846%2C-3.386%20c%200%2C-1.499%200.282%2C-2.626%200.849%2C-3.389%20zm%2014.4%2C9.927%20c%200%2C0%200%2C-13.406%200%2C-13.406%20c%200%2C0%20-2.808%2C0%20-2.808%2C0%20c%200%2C0%200%2C13.406%200%2C13.406%20c%200%2C0%202.808%2C0%202.808%2C0%20z%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20style%3D%22fill%3A%20rgb(34%2C%2036%2C%2042)%3B%20stroke-linecap%3A%20round%3B%20stroke-linejoin%3A%20round%3B%20stroke%3A%20none%3B%20stroke-width%3A%202px%3B%20fill-opacity%3A%200.95%3B%22%2F%3E%0A%20%20%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E%0A%0A"
-      dataObjectRef="DataObject_1ewy8q0">
+    <cp:qualityIndicator id="QualityIndicator_01e3xuf" name="#16 interventionelle Bronchoskopie" dataObjectRef="DataObject_1ewy8q0">
       <bpmn:extensionElements>
-        <i18n:translation target="@name" xml:lang="en">#16 interventional bronchoscopy</i18n:translation>
-        <i18n:translation target="@name" xml:lang="de">#16 interventionelle Bronchoskopie</i18n:translation>
+        <i18n:translation xml:lang="en">#16 interventional bronchoscopy</i18n:translation>
+        <i18n:translation xml:lang="de">#16 interventionelle Bronchoskopie</i18n:translation>
       </bpmn:extensionElements>
-      <cp:qIDefinition type="text"
-        text="Interventionelle Bronchoskopie (thermische Verfahren und Stenting) für jeden Leistungserbringer">
+      <cp:qIDefinition type="text" text="Interventionelle Bronchoskopie (thermische Verfahren und Stenting) für jeden Leistungserbringer">
         <bpmn:extensionElements>
           <i18n:translation target="@text" xml:lang="en">Interventional bronchoscopy (thermal
             procedures and stenting) for each service provider</i18n:translation>
@@ -74,18 +90,14 @@
       </cp:qIDefinition>
     </cp:qualityIndicator>
     <bpmn:dataObject id="DataObject_1ewy8q0" />
-    <cp:qualityIndicator id="QualityIndicator_1513laz" name="#17&#10;Chemo-Immuntherapie bei SCLC"
-      zeebe:modelerTemplateIcon="data:image/svg+xml;utf8,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%0A%3C!--%20created%20with%20bpmn-js%20%2F%20http%3A%2F%2Fbpmn.io%20--%3E%0A%3C!DOCTYPE%20svg%20PUBLIC%20%22-%2F%2FW3C%2F%2FDTD%20SVG%201.1%2F%2FEN%22%20%22http%3A%2F%2Fwww.w3.org%2FGraphics%2FSVG%2F1.1%2FDTD%2Fsvg11.dtd%22%3E%0A%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20width%3D%2246%22%20height%3D%2246%22%0A%20%20%20%20%20viewBox%3D%22387%20357%2046%2046%22%20version%3D%221.1%22%3E%0A%20%20%20%20%3Cg%20transform%3D%22matrix(1%200%200%201%20392%20362)%22%3E%0A%20%20%20%20%20%20%20%20%3Ccircle%20cx%3D%2218%22%20cy%3D%2218%22%20r%3D%2218%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20style%3D%22stroke-linecap%3A%20round%3B%20stroke-linejoin%3A%20round%3B%20stroke%3A%20rgb(34%2C%2036%2C%2042)%3B%20stroke-width%3A%202px%3B%20fill%3A%20white%3B%20fill-opacity%3A%200.95%3B%22%2F%3E%0A%20%20%20%20%20%20%20%20%3Cpath%20d%3D%22m%200%2C0%20m%2019.699%2C12.899%20c%20-1.079%2C-1.183%20-2.637%2C-1.774%20-4.672%2C-1.774%20c%20-2.038%2C0%20-3.602%2C0.588%20-4.695%2C1.76%20c%20-1.09%2C1.172%20-1.633%2C2.87%20-1.633%2C5.094%20c%200%2C2.224%200.543%2C3.929%201.633%2C5.119%20c%201.086%2C1.186%202.647%2C1.777%204.678%2C1.777%20c%200%2C0%200.21%2C0%200.21%2C0%20c%200%2C0%202.427%2C3.094%202.427%2C3.094%20c%200%2C0%203.599%2C0%203.599%2C0%20c%200%2C0%20-3.19%2C-3.689%20-3.19%2C-3.689%20c%201.069%2C-0.495%201.88%2C-1.272%202.434%2C-2.334%20c%200.553%2C-1.062%200.831%2C-2.378%200.831%2C-3.953%20c%200%2C-2.214%20-0.539%2C-3.915%20-1.622%2C-5.094%20zm%20-7.209%2C1.705%20c%200.571%2C-0.76%201.417%2C-1.142%202.537%2C-1.142%20c%202.231%2C0%203.345%2C1.513%203.345%2C4.531%20c%200%2C3.018%20-1.121%2C4.524%20-3.369%2C4.524%20c%20-1.117%2C0%20-1.956%2C-0.378%20-2.516%2C-1.138%20c%20-0.564%2C-0.76%20-0.846%2C-1.887%20-0.846%2C-3.386%20c%200%2C-1.499%200.282%2C-2.626%200.849%2C-3.389%20zm%2014.4%2C9.927%20c%200%2C0%200%2C-13.406%200%2C-13.406%20c%200%2C0%20-2.808%2C0%20-2.808%2C0%20c%200%2C0%200%2C13.406%200%2C13.406%20c%200%2C0%202.808%2C0%202.808%2C0%20z%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20style%3D%22fill%3A%20rgb(34%2C%2036%2C%2042)%3B%20stroke-linecap%3A%20round%3B%20stroke-linejoin%3A%20round%3B%20stroke%3A%20none%3B%20stroke-width%3A%202px%3B%20fill-opacity%3A%200.95%3B%22%2F%3E%0A%20%20%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E%0A%0A"
-      dataObjectRef="DataObject_0cddcd5">
+    <cp:qualityIndicator id="QualityIndicator_1513laz" name="#17&#10;          Chemo-Immuntherapie bei SCLC" dataObjectRef="DataObject_0cddcd5">
       <bpmn:extensionElements>
-        <i18n:translation target="@name" xml:lang="en">#17
+        <i18n:translation xml:lang="en">#17
           chemo-immunotherapy in SCLC</i18n:translation>
-        <i18n:translation target="@name" xml:lang="de">#17
+        <i18n:translation xml:lang="de">#17
           Chemo-Immuntherapie bei SCLC</i18n:translation>
       </bpmn:extensionElements>
-      <cp:qIDefinition type="ratio"
-        numerator="Primärfälle des Denominators mit Kombination mit PD-L1-Antikörpertherapie (Atezolizumab oder Durvalumab)"
-        denumerator="Primärfälle mit SCLC Stadium IV und Chemotherapie (Platin/Etoposid)">
+      <cp:qIDefinition type="ratio" numerator="Primärfälle des Denominators mit Kombination mit PD-L1-Antikörpertherapie (Atezolizumab oder Durvalumab)" denumerator="Primärfälle mit SCLC Stadium IV und Chemotherapie (Platin/Etoposid)">
         <bpmn:extensionElements>
           <i18n:translation target="@numerator" xml:lang="en">Primary cases of denominator with
             combination with PD-L1 antibody therapy (atezolizumab or durvalumab)</i18n:translation>
@@ -99,19 +111,14 @@
       </cp:qIDefinition>
     </cp:qualityIndicator>
     <bpmn:dataObject id="DataObject_0cddcd5" />
-    <cp:qualityIndicator id="QualityIndicator_0o2xqv5"
-      name="#19&#10;post-operative bronchial stump/ anastomotic insufficiency"
-      zeebe:modelerTemplateIcon="data:image/svg+xml;utf8,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%0A%3C!--%20created%20with%20bpmn-js%20%2F%20http%3A%2F%2Fbpmn.io%20--%3E%0A%3C!DOCTYPE%20svg%20PUBLIC%20%22-%2F%2FW3C%2F%2FDTD%20SVG%201.1%2F%2FEN%22%20%22http%3A%2F%2Fwww.w3.org%2FGraphics%2FSVG%2F1.1%2FDTD%2Fsvg11.dtd%22%3E%0A%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20width%3D%2246%22%20height%3D%2246%22%0A%20%20%20%20%20viewBox%3D%22387%20357%2046%2046%22%20version%3D%221.1%22%3E%0A%20%20%20%20%3Cg%20transform%3D%22matrix(1%200%200%201%20392%20362)%22%3E%0A%20%20%20%20%20%20%20%20%3Ccircle%20cx%3D%2218%22%20cy%3D%2218%22%20r%3D%2218%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20style%3D%22stroke-linecap%3A%20round%3B%20stroke-linejoin%3A%20round%3B%20stroke%3A%20rgb(34%2C%2036%2C%2042)%3B%20stroke-width%3A%202px%3B%20fill%3A%20white%3B%20fill-opacity%3A%200.95%3B%22%2F%3E%0A%20%20%20%20%20%20%20%20%3Cpath%20d%3D%22m%200%2C0%20m%2019.699%2C12.899%20c%20-1.079%2C-1.183%20-2.637%2C-1.774%20-4.672%2C-1.774%20c%20-2.038%2C0%20-3.602%2C0.588%20-4.695%2C1.76%20c%20-1.09%2C1.172%20-1.633%2C2.87%20-1.633%2C5.094%20c%200%2C2.224%200.543%2C3.929%201.633%2C5.119%20c%201.086%2C1.186%202.647%2C1.777%204.678%2C1.777%20c%200%2C0%200.21%2C0%200.21%2C0%20c%200%2C0%202.427%2C3.094%202.427%2C3.094%20c%200%2C0%203.599%2C0%203.599%2C0%20c%200%2C0%20-3.19%2C-3.689%20-3.19%2C-3.689%20c%201.069%2C-0.495%201.88%2C-1.272%202.434%2C-2.334%20c%200.553%2C-1.062%200.831%2C-2.378%200.831%2C-3.953%20c%200%2C-2.214%20-0.539%2C-3.915%20-1.622%2C-5.094%20zm%20-7.209%2C1.705%20c%200.571%2C-0.76%201.417%2C-1.142%202.537%2C-1.142%20c%202.231%2C0%203.345%2C1.513%203.345%2C4.531%20c%200%2C3.018%20-1.121%2C4.524%20-3.369%2C4.524%20c%20-1.117%2C0%20-1.956%2C-0.378%20-2.516%2C-1.138%20c%20-0.564%2C-0.76%20-0.846%2C-1.887%20-0.846%2C-3.386%20c%200%2C-1.499%200.282%2C-2.626%200.849%2C-3.389%20zm%2014.4%2C9.927%20c%200%2C0%200%2C-13.406%200%2C-13.406%20c%200%2C0%20-2.808%2C0%20-2.808%2C0%20c%200%2C0%200%2C13.406%200%2C13.406%20c%200%2C0%202.808%2C0%202.808%2C0%20z%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20style%3D%22fill%3A%20rgb(34%2C%2036%2C%2042)%3B%20stroke-linecap%3A%20round%3B%20stroke-linejoin%3A%20round%3B%20stroke%3A%20none%3B%20stroke-width%3A%202px%3B%20fill-opacity%3A%200.95%3B%22%2F%3E%0A%20%20%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E%0A%0A"
-      dataObjectRef="DataObject_03nt4ks">
+    <cp:qualityIndicator id="QualityIndicator_0o2xqv5" name="#19&#10;          postoperative Bronchusstumpf-/Anastomoseninsuffizienz" dataObjectRef="DataObject_03nt4ks">
       <bpmn:extensionElements>
-        <i18n:translation target="@name" xml:lang="en">#19
+        <i18n:translation xml:lang="en">#19
           post-operative bronchial stump/ anastomotic insufficiency</i18n:translation>
-        <i18n:translation target="@name" xml:lang="de">#19
+        <i18n:translation xml:lang="de">#19
           postoperative Bronchusstumpf-/Anastomoseninsuffizienz</i18n:translation>
       </bpmn:extensionElements>
-      <cp:qIDefinition type="ratio"
-        numerator="Primärfälle des Denominators mit postoperativer Bronchusstumpf-/Anastomoseninsuffizienz"
-        denumerator="Chirurgische Primärfälle pro Abteilung">
+      <cp:qIDefinition type="ratio" numerator="Primärfälle des Denominators mit postoperativer Bronchusstumpf-/Anastomoseninsuffizienz" denumerator="Chirurgische Primärfälle pro Abteilung">
         <bpmn:extensionElements>
           <i18n:translation target="@numerator" xml:lang="en">Primary cases of the denominator with
             postoperative bronchial stump/anastomotic insufficiency</i18n:translation>
@@ -125,21 +132,16 @@
       </cp:qIDefinition>
     </cp:qualityIndicator>
     <bpmn:dataObject id="DataObject_03nt4ks" />
-    <cp:qualityIndicator id="QualityIndicator_19bmls8"
-      name="#15&#10;SABR bei inoperablem&#10;Lungenkrebs im Stadium I"
-      zeebe:modelerTemplateIcon="data:image/svg+xml;utf8,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%0A%3C!--%20created%20with%20bpmn-js%20%2F%20http%3A%2F%2Fbpmn.io%20--%3E%0A%3C!DOCTYPE%20svg%20PUBLIC%20%22-%2F%2FW3C%2F%2FDTD%20SVG%201.1%2F%2FEN%22%20%22http%3A%2F%2Fwww.w3.org%2FGraphics%2FSVG%2F1.1%2FDTD%2Fsvg11.dtd%22%3E%0A%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20width%3D%2246%22%20height%3D%2246%22%0A%20%20%20%20%20viewBox%3D%22387%20357%2046%2046%22%20version%3D%221.1%22%3E%0A%20%20%20%20%3Cg%20transform%3D%22matrix(1%200%200%201%20392%20362)%22%3E%0A%20%20%20%20%20%20%20%20%3Ccircle%20cx%3D%2218%22%20cy%3D%2218%22%20r%3D%2218%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20style%3D%22stroke-linecap%3A%20round%3B%20stroke-linejoin%3A%20round%3B%20stroke%3A%20rgb(34%2C%2036%2C%2042)%3B%20stroke-width%3A%202px%3B%20fill%3A%20white%3B%20fill-opacity%3A%200.95%3B%22%2F%3E%0A%20%20%20%20%20%20%20%20%3Cpath%20d%3D%22m%200%2C0%20m%2019.699%2C12.899%20c%20-1.079%2C-1.183%20-2.637%2C-1.774%20-4.672%2C-1.774%20c%20-2.038%2C0%20-3.602%2C0.588%20-4.695%2C1.76%20c%20-1.09%2C1.172%20-1.633%2C2.87%20-1.633%2C5.094%20c%200%2C2.224%200.543%2C3.929%201.633%2C5.119%20c%201.086%2C1.186%202.647%2C1.777%204.678%2C1.777%20c%200%2C0%200.21%2C0%200.21%2C0%20c%200%2C0%202.427%2C3.094%202.427%2C3.094%20c%200%2C0%203.599%2C0%203.599%2C0%20c%200%2C0%20-3.19%2C-3.689%20-3.19%2C-3.689%20c%201.069%2C-0.495%201.88%2C-1.272%202.434%2C-2.334%20c%200.553%2C-1.062%200.831%2C-2.378%200.831%2C-3.953%20c%200%2C-2.214%20-0.539%2C-3.915%20-1.622%2C-5.094%20zm%20-7.209%2C1.705%20c%200.571%2C-0.76%201.417%2C-1.142%202.537%2C-1.142%20c%202.231%2C0%203.345%2C1.513%203.345%2C4.531%20c%200%2C3.018%20-1.121%2C4.524%20-3.369%2C4.524%20c%20-1.117%2C0%20-1.956%2C-0.378%20-2.516%2C-1.138%20c%20-0.564%2C-0.76%20-0.846%2C-1.887%20-0.846%2C-3.386%20c%200%2C-1.499%200.282%2C-2.626%200.849%2C-3.389%20zm%2014.4%2C9.927%20c%200%2C0%200%2C-13.406%200%2C-13.406%20c%200%2C0%20-2.808%2C0%20-2.808%2C0%20c%200%2C0%200%2C13.406%200%2C13.406%20c%200%2C0%202.808%2C0%202.808%2C0%20z%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20style%3D%22fill%3A%20rgb(34%2C%2036%2C%2042)%3B%20stroke-linecap%3A%20round%3B%20stroke-linejoin%3A%20round%3B%20stroke%3A%20none%3B%20stroke-width%3A%202px%3B%20fill-opacity%3A%200.95%3B%22%2F%3E%0A%20%20%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E%0A%0A"
-      dataObjectRef="DataObject_051vpgx">
+    <cp:qualityIndicator id="QualityIndicator_19bmls8" name="#15&#10;          SABR bei inoperablem&#10;          Lungenkrebs im Stadium I" dataObjectRef="DataObject_051vpgx">
       <bpmn:extensionElements>
-        <i18n:translation target="@name" xml:lang="en">#15
+        <i18n:translation xml:lang="en">#15
           SABR in inoperable
           stage I lung cancer</i18n:translation>
-        <i18n:translation target="@name" xml:lang="de">#15
+        <i18n:translation xml:lang="de">#15
           SABR bei inoperablem
           Lungenkrebs im Stadium I</i18n:translation>
       </bpmn:extensionElements>
-      <cp:qIDefinition type="ratio"
-        numerator="Anzahl der Patienten mit Lungenkrebs im Stadium I ohne Operation, die SABR erhalten"
-        denumerator="Patienten mit Lungenkrebs im Stadium I ohne Operation, ausgenommen Patienten mit kleinzelligem Lungenkrebs (SCLC), Patienten, die SABR ablehnen, und Patienten, die vor Behandlungsbeginn versterben">
+      <cp:qIDefinition type="ratio" numerator="Anzahl der Patienten mit Lungenkrebs im Stadium I ohne Operation, die SABR erhalten" denumerator="Patienten mit Lungenkrebs im Stadium I ohne Operation, ausgenommen Patienten mit kleinzelligem Lungenkrebs (SCLC), Patienten, die SABR ablehnen, und Patienten, die vor Behandlungsbeginn versterben">
         <bpmn:extensionElements>
           <i18n:translation target="@numerator" xml:lang="en">Number of patients with stage I Lung
             Cancer not undergoing surgery who receive SABR</i18n:translation>
@@ -155,19 +157,14 @@
       </cp:qIDefinition>
     </cp:qualityIndicator>
     <bpmn:dataObject id="DataObject_051vpgx" />
-    <cp:qualityIndicator id="QualityIndicator_0yorsug"
-      name="#14 adjuvante cisplatinbasierte Chemotherapie in den Stadien II-IIIA1/2"
-      zeebe:modelerTemplateIcon="data:image/svg+xml;utf8,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%0A%3C!--%20created%20with%20bpmn-js%20%2F%20http%3A%2F%2Fbpmn.io%20--%3E%0A%3C!DOCTYPE%20svg%20PUBLIC%20%22-%2F%2FW3C%2F%2FDTD%20SVG%201.1%2F%2FEN%22%20%22http%3A%2F%2Fwww.w3.org%2FGraphics%2FSVG%2F1.1%2FDTD%2Fsvg11.dtd%22%3E%0A%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20width%3D%2246%22%20height%3D%2246%22%0A%20%20%20%20%20viewBox%3D%22387%20357%2046%2046%22%20version%3D%221.1%22%3E%0A%20%20%20%20%3Cg%20transform%3D%22matrix(1%200%200%201%20392%20362)%22%3E%0A%20%20%20%20%20%20%20%20%3Ccircle%20cx%3D%2218%22%20cy%3D%2218%22%20r%3D%2218%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20style%3D%22stroke-linecap%3A%20round%3B%20stroke-linejoin%3A%20round%3B%20stroke%3A%20rgb(34%2C%2036%2C%2042)%3B%20stroke-width%3A%202px%3B%20fill%3A%20white%3B%20fill-opacity%3A%200.95%3B%22%2F%3E%0A%20%20%20%20%20%20%20%20%3Cpath%20d%3D%22m%200%2C0%20m%2019.699%2C12.899%20c%20-1.079%2C-1.183%20-2.637%2C-1.774%20-4.672%2C-1.774%20c%20-2.038%2C0%20-3.602%2C0.588%20-4.695%2C1.76%20c%20-1.09%2C1.172%20-1.633%2C2.87%20-1.633%2C5.094%20c%200%2C2.224%200.543%2C3.929%201.633%2C5.119%20c%201.086%2C1.186%202.647%2C1.777%204.678%2C1.777%20c%200%2C0%200.21%2C0%200.21%2C0%20c%200%2C0%202.427%2C3.094%202.427%2C3.094%20c%200%2C0%203.599%2C0%203.599%2C0%20c%200%2C0%20-3.19%2C-3.689%20-3.19%2C-3.689%20c%201.069%2C-0.495%201.88%2C-1.272%202.434%2C-2.334%20c%200.553%2C-1.062%200.831%2C-2.378%200.831%2C-3.953%20c%200%2C-2.214%20-0.539%2C-3.915%20-1.622%2C-5.094%20zm%20-7.209%2C1.705%20c%200.571%2C-0.76%201.417%2C-1.142%202.537%2C-1.142%20c%202.231%2C0%203.345%2C1.513%203.345%2C4.531%20c%200%2C3.018%20-1.121%2C4.524%20-3.369%2C4.524%20c%20-1.117%2C0%20-1.956%2C-0.378%20-2.516%2C-1.138%20c%20-0.564%2C-0.76%20-0.846%2C-1.887%20-0.846%2C-3.386%20c%200%2C-1.499%200.282%2C-2.626%200.849%2C-3.389%20zm%2014.4%2C9.927%20c%200%2C0%200%2C-13.406%200%2C-13.406%20c%200%2C0%20-2.808%2C0%20-2.808%2C0%20c%200%2C0%200%2C13.406%200%2C13.406%20c%200%2C0%202.808%2C0%202.808%2C0%20z%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20style%3D%22fill%3A%20rgb(34%2C%2036%2C%2042)%3B%20stroke-linecap%3A%20round%3B%20stroke-linejoin%3A%20round%3B%20stroke%3A%20none%3B%20stroke-width%3A%202px%3B%20fill-opacity%3A%200.95%3B%22%2F%3E%0A%20%20%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E%0A%0A"
-      dataObjectRef="DataObject_1aaj848">
+    <cp:qualityIndicator id="QualityIndicator_0yorsug" name="#14 adjuvante cisplatinbasierte Chemotherapie&#10;          in den Stadien II-IIIA1/2" dataObjectRef="DataObject_1aaj848">
       <bpmn:extensionElements>
-        <i18n:translation target="@name" xml:lang="en">#14 adjuvant cisplatin-based chemotherapy
+        <i18n:translation xml:lang="en">#14 adjuvant cisplatin-based chemotherapy
           stages II-IIIA1/2</i18n:translation>
-        <i18n:translation target="@name" xml:lang="de">#14 adjuvante cisplatinbasierte Chemotherapie
+        <i18n:translation xml:lang="de">#14 adjuvante cisplatinbasierte Chemotherapie
           in den Stadien II-IIIA1/2</i18n:translation>
       </bpmn:extensionElements>
-      <cp:qIDefinition type="ratio"
-        numerator="Primärfälle des Denominators mit cisplatinbasierter Chemotherapie"
-        denumerator="R0- und lymphknotenresezierte NSCLC-Primärfälle mit anatomischer Lungenresektion (NSCLC, Stadium II-IIIA1/2, mit ECOG 0/1)">
+      <cp:qIDefinition type="ratio" numerator="Primärfälle des Denominators mit cisplatinbasierter Chemotherapie" denumerator="R0- und lymphknotenresezierte NSCLC-Primärfälle mit anatomischer Lungenresektion (NSCLC, Stadium II-IIIA1/2, mit ECOG 0/1)">
         <bpmn:extensionElements>
           <i18n:translation target="@numerator" xml:lang="en">Primary cases of the denominator with
             cisplatinbased chemotherapy</i18n:translation>
@@ -182,22 +179,17 @@
       </cp:qIDefinition>
     </cp:qualityIndicator>
     <bpmn:dataObject id="DataObject_1aaj848" />
-    <cp:qualityIndicator id="QualityIndicator_0mh5qam"
-      name="#13&#10;NSCLC-Patienten in Stadium II-III&#10;mit Radiochemotherapie"
-      zeebe:modelerTemplateIcon="data:image/svg+xml;utf8,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%0A%3C!--%20created%20with%20bpmn-js%20%2F%20http%3A%2F%2Fbpmn.io%20--%3E%0A%3C!DOCTYPE%20svg%20PUBLIC%20%22-%2F%2FW3C%2F%2FDTD%20SVG%201.1%2F%2FEN%22%20%22http%3A%2F%2Fwww.w3.org%2FGraphics%2FSVG%2F1.1%2FDTD%2Fsvg11.dtd%22%3E%0A%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20width%3D%2246%22%20height%3D%2246%22%0A%20%20%20%20%20viewBox%3D%22387%20357%2046%2046%22%20version%3D%221.1%22%3E%0A%20%20%20%20%3Cg%20transform%3D%22matrix(1%200%200%201%20392%20362)%22%3E%0A%20%20%20%20%20%20%20%20%3Ccircle%20cx%3D%2218%22%20cy%3D%2218%22%20r%3D%2218%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20style%3D%22stroke-linecap%3A%20round%3B%20stroke-linejoin%3A%20round%3B%20stroke%3A%20rgb(34%2C%2036%2C%2042)%3B%20stroke-width%3A%202px%3B%20fill%3A%20white%3B%20fill-opacity%3A%200.95%3B%22%2F%3E%0A%20%20%20%20%20%20%20%20%3Cpath%20d%3D%22m%200%2C0%20m%2019.699%2C12.899%20c%20-1.079%2C-1.183%20-2.637%2C-1.774%20-4.672%2C-1.774%20c%20-2.038%2C0%20-3.602%2C0.588%20-4.695%2C1.76%20c%20-1.09%2C1.172%20-1.633%2C2.87%20-1.633%2C5.094%20c%200%2C2.224%200.543%2C3.929%201.633%2C5.119%20c%201.086%2C1.186%202.647%2C1.777%204.678%2C1.777%20c%200%2C0%200.21%2C0%200.21%2C0%20c%200%2C0%202.427%2C3.094%202.427%2C3.094%20c%200%2C0%203.599%2C0%203.599%2C0%20c%200%2C0%20-3.19%2C-3.689%20-3.19%2C-3.689%20c%201.069%2C-0.495%201.88%2C-1.272%202.434%2C-2.334%20c%200.553%2C-1.062%200.831%2C-2.378%200.831%2C-3.953%20c%200%2C-2.214%20-0.539%2C-3.915%20-1.622%2C-5.094%20zm%20-7.209%2C1.705%20c%200.571%2C-0.76%201.417%2C-1.142%202.537%2C-1.142%20c%202.231%2C0%203.345%2C1.513%203.345%2C4.531%20c%200%2C3.018%20-1.121%2C4.524%20-3.369%2C4.524%20c%20-1.117%2C0%20-1.956%2C-0.378%20-2.516%2C-1.138%20c%20-0.564%2C-0.76%20-0.846%2C-1.887%20-0.846%2C-3.386%20c%200%2C-1.499%200.282%2C-2.626%200.849%2C-3.389%20zm%2014.4%2C9.927%20c%200%2C0%200%2C-13.406%200%2C-13.406%20c%200%2C0%20-2.808%2C0%20-2.808%2C0%20c%200%2C0%200%2C13.406%200%2C13.406%20c%200%2C0%202.808%2C0%202.808%2C0%20z%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20style%3D%22fill%3A%20rgb(34%2C%2036%2C%2042)%3B%20stroke-linecap%3A%20round%3B%20stroke-linejoin%3A%20round%3B%20stroke%3A%20none%3B%20stroke-width%3A%202px%3B%20fill-opacity%3A%200.95%3B%22%2F%3E%0A%20%20%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E%0A%0A"
-      dataObjectRef="DataObject_0k5hq14">
+    <cp:qualityIndicator id="QualityIndicator_0mh5qam" name="#13&#10;          NSCLC-Patienten in Stadium II-III&#10;          mit Radiochemotherapie" dataObjectRef="DataObject_0k5hq14">
       <bpmn:extensionElements>
-        <i18n:translation target="@name" xml:lang="en">#13
+        <i18n:translation xml:lang="en">#13
           stage II-III
           NSCLC patients
           receiving chemo-radiation</i18n:translation>
-        <i18n:translation target="@name" xml:lang="de">#13
+        <i18n:translation xml:lang="de">#13
           NSCLC-Patienten in Stadium II-III
           mit Radiochemotherapie</i18n:translation>
       </bpmn:extensionElements>
-      <cp:qIDefinition type="ratio"
-        numerator="Erhalt einer simultanen oder sequenziellen Radiochemotherapie"
-        denumerator="NSCLC-Patienten im Stadium II-III, die nicht operiert wurden">
+      <cp:qIDefinition type="ratio" numerator="Erhalt einer simultanen oder sequenziellen Radiochemotherapie" denumerator="NSCLC-Patienten im Stadium II-III, die nicht operiert wurden">
         <bpmn:extensionElements>
           <i18n:translation target="@numerator" xml:lang="en">Receiving concomitant or sequential
             chemo-radiation</i18n:translation>
@@ -211,19 +203,14 @@
       </cp:qIDefinition>
     </cp:qualityIndicator>
     <bpmn:dataObject id="DataObject_0k5hq14" />
-    <cp:qualityIndicator id="QualityIndicator_08izefg"
-      name="#12&#10;chirurgisches Lymphknoten-Staging &gt;=10 Lymphknoten bei Resektion"
-      zeebe:modelerTemplateIcon="data:image/svg+xml;utf8,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%0A%3C!--%20created%20with%20bpmn-js%20%2F%20http%3A%2F%2Fbpmn.io%20--%3E%0A%3C!DOCTYPE%20svg%20PUBLIC%20%22-%2F%2FW3C%2F%2FDTD%20SVG%201.1%2F%2FEN%22%20%22http%3A%2F%2Fwww.w3.org%2FGraphics%2FSVG%2F1.1%2FDTD%2Fsvg11.dtd%22%3E%0A%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20width%3D%2246%22%20height%3D%2246%22%0A%20%20%20%20%20viewBox%3D%22387%20357%2046%2046%22%20version%3D%221.1%22%3E%0A%20%20%20%20%3Cg%20transform%3D%22matrix(1%200%200%201%20392%20362)%22%3E%0A%20%20%20%20%20%20%20%20%3Ccircle%20cx%3D%2218%22%20cy%3D%2218%22%20r%3D%2218%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20style%3D%22stroke-linecap%3A%20round%3B%20stroke-linejoin%3A%20round%3B%20stroke%3A%20rgb(34%2C%2036%2C%2042)%3B%20stroke-width%3A%202px%3B%20fill%3A%20white%3B%20fill-opacity%3A%200.95%3B%22%2F%3E%0A%20%20%20%20%20%20%20%20%3Cpath%20d%3D%22m%200%2C0%20m%2019.699%2C12.899%20c%20-1.079%2C-1.183%20-2.637%2C-1.774%20-4.672%2C-1.774%20c%20-2.038%2C0%20-3.602%2C0.588%20-4.695%2C1.76%20c%20-1.09%2C1.172%20-1.633%2C2.87%20-1.633%2C5.094%20c%200%2C2.224%200.543%2C3.929%201.633%2C5.119%20c%201.086%2C1.186%202.647%2C1.777%204.678%2C1.777%20c%200%2C0%200.21%2C0%200.21%2C0%20c%200%2C0%202.427%2C3.094%202.427%2C3.094%20c%200%2C0%203.599%2C0%203.599%2C0%20c%200%2C0%20-3.19%2C-3.689%20-3.19%2C-3.689%20c%201.069%2C-0.495%201.88%2C-1.272%202.434%2C-2.334%20c%200.553%2C-1.062%200.831%2C-2.378%200.831%2C-3.953%20c%200%2C-2.214%20-0.539%2C-3.915%20-1.622%2C-5.094%20zm%20-7.209%2C1.705%20c%200.571%2C-0.76%201.417%2C-1.142%202.537%2C-1.142%20c%202.231%2C0%203.345%2C1.513%203.345%2C4.531%20c%200%2C3.018%20-1.121%2C4.524%20-3.369%2C4.524%20c%20-1.117%2C0%20-1.956%2C-0.378%20-2.516%2C-1.138%20c%20-0.564%2C-0.76%20-0.846%2C-1.887%20-0.846%2C-3.386%20c%200%2C-1.499%200.282%2C-2.626%200.849%2C-3.389%20zm%2014.4%2C9.927%20c%200%2C0%200%2C-13.406%200%2C-13.406%20c%200%2C0%20-2.808%2C0%20-2.808%2C0%20c%200%2C0%200%2C13.406%200%2C13.406%20c%200%2C0%202.808%2C0%202.808%2C0%20z%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20style%3D%22fill%3A%20rgb(34%2C%2036%2C%2042)%3B%20stroke-linecap%3A%20round%3B%20stroke-linejoin%3A%20round%3B%20stroke%3A%20none%3B%20stroke-width%3A%202px%3B%20fill-opacity%3A%200.95%3B%22%2F%3E%0A%20%20%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E%0A%0A"
-      dataObjectRef="DataObject_1lb10e5">
+    <cp:qualityIndicator id="QualityIndicator_08izefg" name="#12&#10;          chirurgisches Lymphknoten-Staging &#62;=10 Lymphknoten bei Resektion" dataObjectRef="DataObject_1lb10e5">
       <bpmn:extensionElements>
-        <i18n:translation target="@name" xml:lang="en">#12
+        <i18n:translation xml:lang="en">#12
           surgical lymph node staging &gt;=10 lymph nodes at resection</i18n:translation>
-        <i18n:translation target="@name" xml:lang="de">#12
+        <i18n:translation xml:lang="de">#12
           chirurgisches Lymphknoten-Staging &gt;=10 Lymphknoten bei Resektion</i18n:translation>
       </bpmn:extensionElements>
-      <cp:qIDefinition type="ratio"
-        numerator="Patienten des Denominators mit Lymphknoten-Staging &gt;=10 Lymphknoten"
-        denumerator="Alle NSCLC-Patienten im Stadium Ia-IIB mit chirurgischer Resektion einschließlich Lymphknoten-Staging">
+      <cp:qIDefinition type="ratio" numerator="Patienten des Denominators mit Lymphknoten-Staging &#62;=10 Lymphknoten" denumerator="Alle NSCLC-Patienten im Stadium Ia-IIB mit chirurgischer Resektion einschließlich Lymphknoten-Staging">
         <bpmn:extensionElements>
           <i18n:translation target="@numerator" xml:lang="en">Patients of the denominator with lymph
             node staging &gt;=10 lymph nodes</i18n:translation>
@@ -237,21 +224,16 @@
       </cp:qIDefinition>
     </cp:qualityIndicator>
     <bpmn:dataObject id="DataObject_1lb10e5" />
-    <cp:qualityIndicator id="QualityIndicator_178v666"
-      name="#11&#10;anatomical pulmonary&#10;resection"
-      zeebe:modelerTemplateIcon="data:image/svg+xml;utf8,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%0A%3C!--%20created%20with%20bpmn-js%20%2F%20http%3A%2F%2Fbpmn.io%20--%3E%0A%3C!DOCTYPE%20svg%20PUBLIC%20%22-%2F%2FW3C%2F%2FDTD%20SVG%201.1%2F%2FEN%22%20%22http%3A%2F%2Fwww.w3.org%2FGraphics%2FSVG%2F1.1%2FDTD%2Fsvg11.dtd%22%3E%0A%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20width%3D%2246%22%20height%3D%2246%22%0A%20%20%20%20%20viewBox%3D%22387%20357%2046%2046%22%20version%3D%221.1%22%3E%0A%20%20%20%20%3Cg%20transform%3D%22matrix(1%200%200%201%20392%20362)%22%3E%0A%20%20%20%20%20%20%20%20%3Ccircle%20cx%3D%2218%22%20cy%3D%2218%22%20r%3D%2218%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20style%3D%22stroke-linecap%3A%20round%3B%20stroke-linejoin%3A%20round%3B%20stroke%3A%20rgb(34%2C%2036%2C%2042)%3B%20stroke-width%3A%202px%3B%20fill%3A%20white%3B%20fill-opacity%3A%200.95%3B%22%2F%3E%0A%20%20%20%20%20%20%20%20%3Cpath%20d%3D%22m%200%2C0%20m%2019.699%2C12.899%20c%20-1.079%2C-1.183%20-2.637%2C-1.774%20-4.672%2C-1.774%20c%20-2.038%2C0%20-3.602%2C0.588%20-4.695%2C1.76%20c%20-1.09%2C1.172%20-1.633%2C2.87%20-1.633%2C5.094%20c%200%2C2.224%200.543%2C3.929%201.633%2C5.119%20c%201.086%2C1.186%202.647%2C1.777%204.678%2C1.777%20c%200%2C0%200.21%2C0%200.21%2C0%20c%200%2C0%202.427%2C3.094%202.427%2C3.094%20c%200%2C0%203.599%2C0%203.599%2C0%20c%200%2C0%20-3.19%2C-3.689%20-3.19%2C-3.689%20c%201.069%2C-0.495%201.88%2C-1.272%202.434%2C-2.334%20c%200.553%2C-1.062%200.831%2C-2.378%200.831%2C-3.953%20c%200%2C-2.214%20-0.539%2C-3.915%20-1.622%2C-5.094%20zm%20-7.209%2C1.705%20c%200.571%2C-0.76%201.417%2C-1.142%202.537%2C-1.142%20c%202.231%2C0%203.345%2C1.513%203.345%2C4.531%20c%200%2C3.018%20-1.121%2C4.524%20-3.369%2C4.524%20c%20-1.117%2C0%20-1.956%2C-0.378%20-2.516%2C-1.138%20c%20-0.564%2C-0.76%20-0.846%2C-1.887%20-0.846%2C-3.386%20c%200%2C-1.499%200.282%2C-2.626%200.849%2C-3.389%20zm%2014.4%2C9.927%20c%200%2C0%200%2C-13.406%200%2C-13.406%20c%200%2C0%20-2.808%2C0%20-2.808%2C0%20c%200%2C0%200%2C13.406%200%2C13.406%20c%200%2C0%202.808%2C0%202.808%2C0%20z%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20style%3D%22fill%3A%20rgb(34%2C%2036%2C%2042)%3B%20stroke-linecap%3A%20round%3B%20stroke-linejoin%3A%20round%3B%20stroke%3A%20none%3B%20stroke-width%3A%202px%3B%20fill-opacity%3A%200.95%3B%22%2F%3E%0A%20%20%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E%0A%0A"
-      dataObjectRef="DataObject_1p6w8eo">
+    <cp:qualityIndicator id="QualityIndicator_178v666" name="#11&#10;          anatomische pulmonale&#10;          Resektion" dataObjectRef="DataObject_1p6w8eo">
       <bpmn:extensionElements>
-        <i18n:translation target="@name" xml:lang="en">#11
+        <i18n:translation xml:lang="en">#11
           anatomical pulmonary
           resection</i18n:translation>
-        <i18n:translation target="@name" xml:lang="de">#11
+        <i18n:translation xml:lang="de">#11
           anatomische pulmonale
           Resektion</i18n:translation>
       </bpmn:extensionElements>
-      <cp:qIDefinition type="ratio"
-        numerator="Patienten des Denominators mit anatomischer pulmonaler Resektion (keine Segmentektomie)"
-        denumerator="Alle NSCLC-Patienten im Stadium I/II mit einem Tumor &gt;= 2 cm und Resektion">
+      <cp:qIDefinition type="ratio" numerator="Patienten des Denominators mit anatomischer pulmonaler Resektion (keine Segmentektomie)" denumerator="Alle NSCLC-Patienten im Stadium I/II mit einem Tumor &#62;= 2 cm und Resektion">
         <bpmn:extensionElements>
           <i18n:translation target="@numerator" xml:lang="en">Patients of the denominator with
             anatomical pulmonary resection (no segmentectomy)</i18n:translation>
@@ -265,19 +247,14 @@
       </cp:qIDefinition>
     </cp:qualityIndicator>
     <bpmn:dataObject id="DataObject_1p6w8eo" />
-    <cp:qualityIndicator id="QualityIndicator_0un4v2r"
-      name="#10&#10;local R0 resections in stages IIIA/B"
-      zeebe:modelerTemplateIcon="data:image/svg+xml;utf8,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%0A%3C!--%20created%20with%20bpmn-js%20%2F%20http%3A%2F%2Fbpmn.io%20--%3E%0A%3C!DOCTYPE%20svg%20PUBLIC%20%22-%2F%2FW3C%2F%2FDTD%20SVG%201.1%2F%2FEN%22%20%22http%3A%2F%2Fwww.w3.org%2FGraphics%2FSVG%2F1.1%2FDTD%2Fsvg11.dtd%22%3E%0A%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20width%3D%2246%22%20height%3D%2246%22%0A%20%20%20%20%20viewBox%3D%22387%20357%2046%2046%22%20version%3D%221.1%22%3E%0A%20%20%20%20%3Cg%20transform%3D%22matrix(1%200%200%201%20392%20362)%22%3E%0A%20%20%20%20%20%20%20%20%3Ccircle%20cx%3D%2218%22%20cy%3D%2218%22%20r%3D%2218%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20style%3D%22stroke-linecap%3A%20round%3B%20stroke-linejoin%3A%20round%3B%20stroke%3A%20rgb(34%2C%2036%2C%2042)%3B%20stroke-width%3A%202px%3B%20fill%3A%20white%3B%20fill-opacity%3A%200.95%3B%22%2F%3E%0A%20%20%20%20%20%20%20%20%3Cpath%20d%3D%22m%200%2C0%20m%2019.699%2C12.899%20c%20-1.079%2C-1.183%20-2.637%2C-1.774%20-4.672%2C-1.774%20c%20-2.038%2C0%20-3.602%2C0.588%20-4.695%2C1.76%20c%20-1.09%2C1.172%20-1.633%2C2.87%20-1.633%2C5.094%20c%200%2C2.224%200.543%2C3.929%201.633%2C5.119%20c%201.086%2C1.186%202.647%2C1.777%204.678%2C1.777%20c%200%2C0%200.21%2C0%200.21%2C0%20c%200%2C0%202.427%2C3.094%202.427%2C3.094%20c%200%2C0%203.599%2C0%203.599%2C0%20c%200%2C0%20-3.19%2C-3.689%20-3.19%2C-3.689%20c%201.069%2C-0.495%201.88%2C-1.272%202.434%2C-2.334%20c%200.553%2C-1.062%200.831%2C-2.378%200.831%2C-3.953%20c%200%2C-2.214%20-0.539%2C-3.915%20-1.622%2C-5.094%20zm%20-7.209%2C1.705%20c%200.571%2C-0.76%201.417%2C-1.142%202.537%2C-1.142%20c%202.231%2C0%203.345%2C1.513%203.345%2C4.531%20c%200%2C3.018%20-1.121%2C4.524%20-3.369%2C4.524%20c%20-1.117%2C0%20-1.956%2C-0.378%20-2.516%2C-1.138%20c%20-0.564%2C-0.76%20-0.846%2C-1.887%20-0.846%2C-3.386%20c%200%2C-1.499%200.282%2C-2.626%200.849%2C-3.389%20zm%2014.4%2C9.927%20c%200%2C0%200%2C-13.406%200%2C-13.406%20c%200%2C0%20-2.808%2C0%20-2.808%2C0%20c%200%2C0%200%2C13.406%200%2C13.406%20c%200%2C0%202.808%2C0%202.808%2C0%20z%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20style%3D%22fill%3A%20rgb(34%2C%2036%2C%2042)%3B%20stroke-linecap%3A%20round%3B%20stroke-linejoin%3A%20round%3B%20stroke%3A%20none%3B%20stroke-width%3A%202px%3B%20fill-opacity%3A%200.95%3B%22%2F%3E%0A%20%20%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E%0A%0A"
-      dataObjectRef="DataObject_1c7sxkz">
+    <cp:qualityIndicator id="QualityIndicator_0un4v2r" name="#10&#10;          lokale R0-Resektionen in den Stadien IIIA/B" dataObjectRef="DataObject_1c7sxkz">
       <bpmn:extensionElements>
-        <i18n:translation target="@name" xml:lang="en">#10
+        <i18n:translation xml:lang="en">#10
           local R0 resections in stages IIIA/B</i18n:translation>
-        <i18n:translation target="@name" xml:lang="de">#10
+        <i18n:translation xml:lang="de">#10
           lokale R0-Resektionen in den Stadien IIIA/B</i18n:translation>
       </bpmn:extensionElements>
-      <cp:qIDefinition type="ratio"
-        numerator="Primärfälle des Denominators mit (lokalen) R0-Resektionen nach Abschluss der chirurgischen Behandlung"
-        denumerator="Chirurgische Primärfälle in den Stadien IIIA/B mit anatomischer Lungenresektion">
+      <cp:qIDefinition type="ratio" numerator="Primärfälle des Denominators mit (lokalen) R0-Resektionen nach Abschluss der chirurgischen Behandlung" denumerator="Chirurgische Primärfälle in den Stadien IIIA/B mit anatomischer Lungenresektion">
         <bpmn:extensionElements>
           <i18n:translation target="@numerator" xml:lang="en">Primary cases of the denominator with
             (local) R0 resections after completion of surgical treatment</i18n:translation>
@@ -291,19 +268,14 @@
       </cp:qIDefinition>
     </cp:qualityIndicator>
     <bpmn:dataObject id="DataObject_1c7sxkz" />
-    <cp:qualityIndicator id="QualityIndicator_152kpit"
-      name="#9&#10;local R0 resections in stages IA/B and IIA/B"
-      zeebe:modelerTemplateIcon="data:image/svg+xml;utf8,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%0A%3C!--%20created%20with%20bpmn-js%20%2F%20http%3A%2F%2Fbpmn.io%20--%3E%0A%3C!DOCTYPE%20svg%20PUBLIC%20%22-%2F%2FW3C%2F%2FDTD%20SVG%201.1%2F%2FEN%22%20%22http%3A%2F%2Fwww.w3.org%2FGraphics%2FSVG%2F1.1%2FDTD%2Fsvg11.dtd%22%3E%0A%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20width%3D%2246%22%20height%3D%2246%22%0A%20%20%20%20%20viewBox%3D%22387%20357%2046%2046%22%20version%3D%221.1%22%3E%0A%20%20%20%20%3Cg%20transform%3D%22matrix(1%200%200%201%20392%20362)%22%3E%0A%20%20%20%20%20%20%20%20%3Ccircle%20cx%3D%2218%22%20cy%3D%2218%22%20r%3D%2218%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20style%3D%22stroke-linecap%3A%20round%3B%20stroke-linejoin%3A%20round%3B%20stroke%3A%20rgb(34%2C%2036%2C%2042)%3B%20stroke-width%3A%202px%3B%20fill%3A%20white%3B%20fill-opacity%3A%200.95%3B%22%2F%3E%0A%20%20%20%20%20%20%20%20%3Cpath%20d%3D%22m%200%2C0%20m%2019.699%2C12.899%20c%20-1.079%2C-1.183%20-2.637%2C-1.774%20-4.672%2C-1.774%20c%20-2.038%2C0%20-3.602%2C0.588%20-4.695%2C1.76%20c%20-1.09%2C1.172%20-1.633%2C2.87%20-1.633%2C5.094%20c%200%2C2.224%200.543%2C3.929%201.633%2C5.119%20c%201.086%2C1.186%202.647%2C1.777%204.678%2C1.777%20c%200%2C0%200.21%2C0%200.21%2C0%20c%200%2C0%202.427%2C3.094%202.427%2C3.094%20c%200%2C0%203.599%2C0%203.599%2C0%20c%200%2C0%20-3.19%2C-3.689%20-3.19%2C-3.689%20c%201.069%2C-0.495%201.88%2C-1.272%202.434%2C-2.334%20c%200.553%2C-1.062%200.831%2C-2.378%200.831%2C-3.953%20c%200%2C-2.214%20-0.539%2C-3.915%20-1.622%2C-5.094%20zm%20-7.209%2C1.705%20c%200.571%2C-0.76%201.417%2C-1.142%202.537%2C-1.142%20c%202.231%2C0%203.345%2C1.513%203.345%2C4.531%20c%200%2C3.018%20-1.121%2C4.524%20-3.369%2C4.524%20c%20-1.117%2C0%20-1.956%2C-0.378%20-2.516%2C-1.138%20c%20-0.564%2C-0.76%20-0.846%2C-1.887%20-0.846%2C-3.386%20c%200%2C-1.499%200.282%2C-2.626%200.849%2C-3.389%20zm%2014.4%2C9.927%20c%200%2C0%200%2C-13.406%200%2C-13.406%20c%200%2C0%20-2.808%2C0%20-2.808%2C0%20c%200%2C0%200%2C13.406%200%2C13.406%20c%200%2C0%202.808%2C0%202.808%2C0%20z%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20style%3D%22fill%3A%20rgb(34%2C%2036%2C%2042)%3B%20stroke-linecap%3A%20round%3B%20stroke-linejoin%3A%20round%3B%20stroke%3A%20none%3B%20stroke-width%3A%202px%3B%20fill-opacity%3A%200.95%3B%22%2F%3E%0A%20%20%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E%0A%0A"
-      dataObjectRef="DataObject_1ghq0yf">
+    <cp:qualityIndicator id="QualityIndicator_152kpit" name="#9&#10;          lokale R0-Resektionen in den Stadien IA/B und IIA/B" dataObjectRef="DataObject_1ghq0yf">
       <bpmn:extensionElements>
-        <i18n:translation target="@name" xml:lang="en">#9
+        <i18n:translation xml:lang="en">#9
           local R0 resections in stages IA/B and IIA/B</i18n:translation>
-        <i18n:translation target="@name" xml:lang="de">#9
+        <i18n:translation xml:lang="de">#9
           lokale R0-Resektionen in den Stadien IA/B und IIA/B</i18n:translation>
       </bpmn:extensionElements>
-      <cp:qIDefinition type="ratio"
-        numerator="Primärfälle des Denominators mit (lokalen) R0-Resektionen nach Abschluss der chirurgischen Behandlung"
-        denumerator="Chirurgische Primärfälle in den Stadien IA/B und IIA/B mit anatomischer Lungenresektion">
+      <cp:qIDefinition type="ratio" numerator="Primärfälle des Denominators mit (lokalen) R0-Resektionen nach Abschluss der chirurgischen Behandlung" denumerator="Chirurgische Primärfälle in den Stadien IA/B und IIA/B mit anatomischer Lungenresektion">
         <bpmn:extensionElements>
           <i18n:translation target="@numerator" xml:lang="en">Primary cases of the denominator with
             (local) R0 resections after completion of surgical treatment</i18n:translation>
@@ -317,19 +289,14 @@
       </cp:qIDefinition>
     </cp:qualityIndicator>
     <bpmn:dataObject id="DataObject_1ghq0yf" />
-    <cp:qualityIndicator id="QualityIndicator_1gzyx9s"
-      name="#8&#10;VATS and RATS anatomical resections"
-      zeebe:modelerTemplateIcon="data:image/svg+xml;utf8,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%0A%3C!--%20created%20with%20bpmn-js%20%2F%20http%3A%2F%2Fbpmn.io%20--%3E%0A%3C!DOCTYPE%20svg%20PUBLIC%20%22-%2F%2FW3C%2F%2FDTD%20SVG%201.1%2F%2FEN%22%20%22http%3A%2F%2Fwww.w3.org%2FGraphics%2FSVG%2F1.1%2FDTD%2Fsvg11.dtd%22%3E%0A%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20width%3D%2246%22%20height%3D%2246%22%0A%20%20%20%20%20viewBox%3D%22387%20357%2046%2046%22%20version%3D%221.1%22%3E%0A%20%20%20%20%3Cg%20transform%3D%22matrix(1%200%200%201%20392%20362)%22%3E%0A%20%20%20%20%20%20%20%20%3Ccircle%20cx%3D%2218%22%20cy%3D%2218%22%20r%3D%2218%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20style%3D%22stroke-linecap%3A%20round%3B%20stroke-linejoin%3A%20round%3B%20stroke%3A%20rgb(34%2C%2036%2C%2042)%3B%20stroke-width%3A%202px%3B%20fill%3A%20white%3B%20fill-opacity%3A%200.95%3B%22%2F%3E%0A%20%20%20%20%20%20%20%20%3Cpath%20d%3D%22m%200%2C0%20m%2019.699%2C12.899%20c%20-1.079%2C-1.183%20-2.637%2C-1.774%20-4.672%2C-1.774%20c%20-2.038%2C0%20-3.602%2C0.588%20-4.695%2C1.76%20c%20-1.09%2C1.172%20-1.633%2C2.87%20-1.633%2C5.094%20c%200%2C2.224%200.543%2C3.929%201.633%2C5.119%20c%201.086%2C1.186%202.647%2C1.777%204.678%2C1.777%20c%200%2C0%200.21%2C0%200.21%2C0%20c%200%2C0%202.427%2C3.094%202.427%2C3.094%20c%200%2C0%203.599%2C0%203.599%2C0%20c%200%2C0%20-3.19%2C-3.689%20-3.19%2C-3.689%20c%201.069%2C-0.495%201.88%2C-1.272%202.434%2C-2.334%20c%200.553%2C-1.062%200.831%2C-2.378%200.831%2C-3.953%20c%200%2C-2.214%20-0.539%2C-3.915%20-1.622%2C-5.094%20zm%20-7.209%2C1.705%20c%200.571%2C-0.76%201.417%2C-1.142%202.537%2C-1.142%20c%202.231%2C0%203.345%2C1.513%203.345%2C4.531%20c%200%2C3.018%20-1.121%2C4.524%20-3.369%2C4.524%20c%20-1.117%2C0%20-1.956%2C-0.378%20-2.516%2C-1.138%20c%20-0.564%2C-0.76%20-0.846%2C-1.887%20-0.846%2C-3.386%20c%200%2C-1.499%200.282%2C-2.626%200.849%2C-3.389%20zm%2014.4%2C9.927%20c%200%2C0%200%2C-13.406%200%2C-13.406%20c%200%2C0%20-2.808%2C0%20-2.808%2C0%20c%200%2C0%200%2C13.406%200%2C13.406%20c%200%2C0%202.808%2C0%202.808%2C0%20z%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20style%3D%22fill%3A%20rgb(34%2C%2036%2C%2042)%3B%20stroke-linecap%3A%20round%3B%20stroke-linejoin%3A%20round%3B%20stroke%3A%20none%3B%20stroke-width%3A%202px%3B%20fill-opacity%3A%200.95%3B%22%2F%3E%0A%20%20%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E%0A%0A"
-      dataObjectRef="DataObject_0gaancu">
+    <cp:qualityIndicator id="QualityIndicator_1gzyx9s" name="#8&#10;          VATS- und RATS-anatomische Resektionen" dataObjectRef="DataObject_0gaancu">
       <bpmn:extensionElements>
-        <i18n:translation target="@name" xml:lang="en">#8
+        <i18n:translation xml:lang="en">#8
           VATS and RATS anatomical resections</i18n:translation>
-        <i18n:translation target="@name" xml:lang="de">#8
+        <i18n:translation xml:lang="de">#8
           VATS- und RATS-anatomische Resektionen</i18n:translation>
       </bpmn:extensionElements>
-      <cp:qIDefinition type="ratio"
-        numerator="Operationen des Denominators, die videothorakoskopisch (VATS) und/oder roboterassistiert (RATS) durchgeführt wurden"
-        denumerator="Chirurgische Primärfälle (Anzahl anatomischer Resektionen (ICD-10 C34.0-9, C78.0))">
+      <cp:qIDefinition type="ratio" numerator="Operationen des Denominators, die videothorakoskopisch (VATS) und/oder roboterassistiert (RATS) durchgeführt wurden" denumerator="Chirurgische Primärfälle (Anzahl anatomischer Resektionen (ICD-10 C34.0-9, C78.0))">
         <bpmn:extensionElements>
           <i18n:translation target="@numerator" xml:lang="en">Operations of the denominator
             performed videothoracoscopically (VATS) and/or robotassisted (RATS)</i18n:translation>
@@ -343,18 +310,14 @@
       </cp:qIDefinition>
     </cp:qualityIndicator>
     <bpmn:dataObject id="DataObject_0gaancu" />
-    <cp:qualityIndicator id="QualityIndicator_1cjd7kn"
-      name="#7&#10;chirurgische Expertise: Anzahl der Lungenresektionen"
-      zeebe:modelerTemplateIcon="data:image/svg+xml;utf8,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%0A%3C!--%20created%20with%20bpmn-js%20%2F%20http%3A%2F%2Fbpmn.io%20--%3E%0A%3C!DOCTYPE%20svg%20PUBLIC%20%22-%2F%2FW3C%2F%2FDTD%20SVG%201.1%2F%2FEN%22%20%22http%3A%2F%2Fwww.w3.org%2FGraphics%2FSVG%2F1.1%2FDTD%2Fsvg11.dtd%22%3E%0A%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20width%3D%2246%22%20height%3D%2246%22%0A%20%20%20%20%20viewBox%3D%22387%20357%2046%2046%22%20version%3D%221.1%22%3E%0A%20%20%20%20%3Cg%20transform%3D%22matrix(1%200%200%201%20392%20362)%22%3E%0A%20%20%20%20%20%20%20%20%3Ccircle%20cx%3D%2218%22%20cy%3D%2218%22%20r%3D%2218%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20style%3D%22stroke-linecap%3A%20round%3B%20stroke-linejoin%3A%20round%3B%20stroke%3A%20rgb(34%2C%2036%2C%2042)%3B%20stroke-width%3A%202px%3B%20fill%3A%20white%3B%20fill-opacity%3A%200.95%3B%22%2F%3E%0A%20%20%20%20%20%20%20%20%3Cpath%20d%3D%22m%200%2C0%20m%2019.699%2C12.899%20c%20-1.079%2C-1.183%20-2.637%2C-1.774%20-4.672%2C-1.774%20c%20-2.038%2C0%20-3.602%2C0.588%20-4.695%2C1.76%20c%20-1.09%2C1.172%20-1.633%2C2.87%20-1.633%2C5.094%20c%200%2C2.224%200.543%2C3.929%201.633%2C5.119%20c%201.086%2C1.186%202.647%2C1.777%204.678%2C1.777%20c%200%2C0%200.21%2C0%200.21%2C0%20c%200%2C0%202.427%2C3.094%202.427%2C3.094%20c%200%2C0%203.599%2C0%203.599%2C0%20c%200%2C0%20-3.19%2C-3.689%20-3.19%2C-3.689%20c%201.069%2C-0.495%201.88%2C-1.272%202.434%2C-2.334%20c%200.553%2C-1.062%200.831%2C-2.378%200.831%2C-3.953%20c%200%2C-2.214%20-0.539%2C-3.915%20-1.622%2C-5.094%20zm%20-7.209%2C1.705%20c%200.571%2C-0.76%201.417%2C-1.142%202.537%2C-1.142%20c%202.231%2C0%203.345%2C1.513%203.345%2C4.531%20c%200%2C3.018%20-1.121%2C4.524%20-3.369%2C4.524%20c%20-1.117%2C0%20-1.956%2C-0.378%20-2.516%2C-1.138%20c%20-0.564%2C-0.76%20-0.846%2C-1.887%20-0.846%2C-3.386%20c%200%2C-1.499%200.282%2C-2.626%200.849%2C-3.389%20zm%2014.4%2C9.927%20c%200%2C0%200%2C-13.406%200%2C-13.406%20c%200%2C0%20-2.808%2C0%20-2.808%2C0%20c%200%2C0%200%2C13.406%200%2C13.406%20c%200%2C0%202.808%2C0%202.808%2C0%20z%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20style%3D%22fill%3A%20rgb(34%2C%2036%2C%2042)%3B%20stroke-linecap%3A%20round%3B%20stroke-linejoin%3A%20round%3B%20stroke%3A%20none%3B%20stroke-width%3A%202px%3B%20fill-opacity%3A%200.95%3B%22%2F%3E%0A%20%20%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E%0A%0A"
-      dataObjectRef="DataObject_11ftxz6">
+    <cp:qualityIndicator id="QualityIndicator_1cjd7kn" name="#7&#10;          chirurgische Expertise: Anzahl der Lungenresektionen" dataObjectRef="DataObject_11ftxz6">
       <bpmn:extensionElements>
-        <i18n:translation target="@name" xml:lang="en">#7
+        <i18n:translation xml:lang="en">#7
           surgical expertise: number of lung resections</i18n:translation>
-        <i18n:translation target="@name" xml:lang="de">#7
+        <i18n:translation xml:lang="de">#7
           chirurgische Expertise: Anzahl der Lungenresektionen</i18n:translation>
       </bpmn:extensionElements>
-      <cp:qIDefinition type="text"
-        text="Chirurgische Expertise, Anzahl anatomischer Resektionen (ICD-10 C34.0-9, C78.0)">
+      <cp:qIDefinition type="text" text="Chirurgische Expertise, Anzahl anatomischer Resektionen (ICD-10 C34.0-9, C78.0)">
         <bpmn:extensionElements>
           <i18n:translation target="@text" xml:lang="en">Surgical expertise, number anatomical
             resections (ICD-10 C34.0-9, C78.0)</i18n:translation>
@@ -364,19 +327,14 @@
       </cp:qIDefinition>
     </cp:qualityIndicator>
     <bpmn:dataObject id="DataObject_11ftxz6" />
-    <cp:qualityIndicator id="QualityIndicator_1dhf0or"
-      name="#3&#10;PD-L1-Testung bei NSCLC im Stadium III mit Radiochemotherapie"
-      zeebe:modelerTemplateIcon="data:image/svg+xml;utf8,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%0A%3C!--%20created%20with%20bpmn-js%20%2F%20http%3A%2F%2Fbpmn.io%20--%3E%0A%3C!DOCTYPE%20svg%20PUBLIC%20%22-%2F%2FW3C%2F%2FDTD%20SVG%201.1%2F%2FEN%22%20%22http%3A%2F%2Fwww.w3.org%2FGraphics%2FSVG%2F1.1%2FDTD%2Fsvg11.dtd%22%3E%0A%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20width%3D%2246%22%20height%3D%2246%22%0A%20%20%20%20%20viewBox%3D%22387%20357%2046%2046%22%20version%3D%221.1%22%3E%0A%20%20%20%20%3Cg%20transform%3D%22matrix(1%200%200%201%20392%20362)%22%3E%0A%20%20%20%20%20%20%20%20%3Ccircle%20cx%3D%2218%22%20cy%3D%2218%22%20r%3D%2218%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20style%3D%22stroke-linecap%3A%20round%3B%20stroke-linejoin%3A%20round%3B%20stroke%3A%20rgb(34%2C%2036%2C%2042)%3B%20stroke-width%3A%202px%3B%20fill%3A%20white%3B%20fill-opacity%3A%200.95%3B%22%2F%3E%0A%20%20%20%20%20%20%20%20%3Cpath%20d%3D%22m%200%2C0%20m%2019.699%2C12.899%20c%20-1.079%2C-1.183%20-2.637%2C-1.774%20-4.672%2C-1.774%20c%20-2.038%2C0%20-3.602%2C0.588%20-4.695%2C1.76%20c%20-1.09%2C1.172%20-1.633%2C2.87%20-1.633%2C5.094%20c%200%2C2.224%200.543%2C3.929%201.633%2C5.119%20c%201.086%2C1.186%202.647%2C1.777%204.678%2C1.777%20c%200%2C0%200.21%2C0%200.21%2C0%20c%200%2C0%202.427%2C3.094%202.427%2C3.094%20c%200%2C0%203.599%2C0%203.599%2C0%20c%200%2C0%20-3.19%2C-3.689%20-3.19%2C-3.689%20c%201.069%2C-0.495%201.88%2C-1.272%202.434%2C-2.334%20c%200.553%2C-1.062%200.831%2C-2.378%200.831%2C-3.953%20c%200%2C-2.214%20-0.539%2C-3.915%20-1.622%2C-5.094%20zm%20-7.209%2C1.705%20c%200.571%2C-0.76%201.417%2C-1.142%202.537%2C-1.142%20c%202.231%2C0%203.345%2C1.513%203.345%2C4.531%20c%200%2C3.018%20-1.121%2C4.524%20-3.369%2C4.524%20c%20-1.117%2C0%20-1.956%2C-0.378%20-2.516%2C-1.138%20c%20-0.564%2C-0.76%20-0.846%2C-1.887%20-0.846%2C-3.386%20c%200%2C-1.499%200.282%2C-2.626%200.849%2C-3.389%20zm%2014.4%2C9.927%20c%200%2C0%200%2C-13.406%200%2C-13.406%20c%200%2C0%20-2.808%2C0%20-2.808%2C0%20c%200%2C0%200%2C13.406%200%2C13.406%20c%200%2C0%202.808%2C0%202.808%2C0%20z%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20style%3D%22fill%3A%20rgb(34%2C%2036%2C%2042)%3B%20stroke-linecap%3A%20round%3B%20stroke-linejoin%3A%20round%3B%20stroke%3A%20none%3B%20stroke-width%3A%202px%3B%20fill-opacity%3A%200.95%3B%22%2F%3E%0A%20%20%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E%0A%0A"
-      dataObjectRef="DataObject_14hj1rz">
+    <cp:qualityIndicator id="QualityIndicator_1dhf0or" name="#3&#10;          PD-L1-Testung bei NSCLC im Stadium III mit Radiochemotherapie" dataObjectRef="DataObject_14hj1rz">
       <bpmn:extensionElements>
-        <i18n:translation target="@name" xml:lang="en">#3
+        <i18n:translation xml:lang="en">#3
           PD-L1 testing for NSCLC in stage III with radio-chemotherapy</i18n:translation>
-        <i18n:translation target="@name" xml:lang="de">#3
+        <i18n:translation xml:lang="de">#3
           PD-L1-Testung bei NSCLC im Stadium III mit Radiochemotherapie</i18n:translation>
       </bpmn:extensionElements>
-      <cp:qIDefinition type="ratio"
-        numerator="Primärfälle des Denominators mit PD-L1-Testung vor Beginn der Radiochemotherapie"
-        denumerator="Primärfälle mit NSCLC Stadium III unter Radiochemotherapie">
+      <cp:qIDefinition type="ratio" numerator="Primärfälle des Denominators mit PD-L1-Testung vor Beginn der Radiochemotherapie" denumerator="Primärfälle mit NSCLC Stadium III unter Radiochemotherapie">
         <bpmn:extensionElements>
           <i18n:translation target="@numerator" xml:lang="en">Primary cases of the denominator with
             PD-L1 testing before starting radio-chemotherapy</i18n:translation>
@@ -390,10 +348,10 @@
       </cp:qIDefinition>
     </cp:qualityIndicator>
     <bpmn:dataObject id="DataObject_14hj1rz" />
-    <bpmn:task id="Activity_1vyn60u" name="Versorgung am Lebensende / Best Supportive Care">
+    <bpmn:task id="Activity_1vyn60u" name="Versorgung am Lebensende / Best Supportive&#10;          Care">
       <bpmn:extensionElements>
-        <i18n:translation target="@name" xml:lang="en">end-of-life care / best supportive care</i18n:translation>
-        <i18n:translation target="@name" xml:lang="de">Versorgung am Lebensende / Best Supportive
+        <i18n:translation xml:lang="en">end-of-life care / best supportive care</i18n:translation>
+        <i18n:translation xml:lang="de">Versorgung am Lebensende / Best Supportive
           Care</i18n:translation>
       </bpmn:extensionElements>
       <bpmn:incoming>Flow_197q463</bpmn:incoming>
@@ -404,10 +362,10 @@
         <bpmn:targetRef>Property_1jhfz3n</bpmn:targetRef>
       </bpmn:dataInputAssociation>
     </bpmn:task>
-    <bpmn:task id="Activity_1mvnvbc" name="sonstige Therapie">
+    <bpmn:task id="Activity_1mvnvbc" name="Sonstige Therapie">
       <bpmn:extensionElements>
-        <i18n:translation target="@name" xml:lang="en">other therapy</i18n:translation>
-        <i18n:translation target="@name" xml:lang="de">sonstige Therapie</i18n:translation>
+        <i18n:translation xml:lang="en">other therapy</i18n:translation>
+        <i18n:translation xml:lang="de">Sonstige Therapie</i18n:translation>
       </bpmn:extensionElements>
       <bpmn:incoming>Flow_1qfpve4</bpmn:incoming>
       <bpmn:outgoing>Flow_1yinlre</bpmn:outgoing>
@@ -417,11 +375,11 @@
         <bpmn:targetRef>Property_0nwcvdi</bpmn:targetRef>
       </bpmn:dataInputAssociation>
     </bpmn:task>
-    <bpmn:task id="Activity_0vb4x4m" name="Radio(chemo)therapie &#10;[LC SoS 6.1]">
+    <bpmn:task id="Activity_0vb4x4m" name="Radio(chemo)therapie &#10;          [LC SoS 6.1]">
       <bpmn:extensionElements>
-        <i18n:translation target="@name" xml:lang="en">radio(chemo)-therapy 
+        <i18n:translation xml:lang="en">radio(chemo)-therapy 
           [LC SoS 6.1]</i18n:translation>
-        <i18n:translation target="@name" xml:lang="de">Radio(chemo)therapie 
+        <i18n:translation xml:lang="de">Radio(chemo)therapie 
           [LC SoS 6.1]</i18n:translation>
       </bpmn:extensionElements>
       <bpmn:incoming>Flow_0tqhe2w</bpmn:incoming>
@@ -432,11 +390,11 @@
         <bpmn:targetRef>Property_0ev6izv</bpmn:targetRef>
       </bpmn:dataInputAssociation>
     </bpmn:task>
-    <bpmn:task id="Activity_1fc895b" name="Systemtherapie&#10;[LC SoS 6.1]">
+    <bpmn:task id="Activity_1fc895b" name="Systemtherapie&#10;          [LC SoS 6.1]">
       <bpmn:extensionElements>
-        <i18n:translation target="@name" xml:lang="en">systemic therapy
+        <i18n:translation xml:lang="en">systemic therapy
           [LC SoS 6.1]</i18n:translation>
-        <i18n:translation target="@name" xml:lang="de">Systemtherapie
+        <i18n:translation xml:lang="de">Systemtherapie
           [LC SoS 6.1]</i18n:translation>
       </bpmn:extensionElements>
       <bpmn:incoming>Flow_1cncnz2</bpmn:incoming>
@@ -447,11 +405,11 @@
         <bpmn:targetRef>Property_1u9s9xz</bpmn:targetRef>
       </bpmn:dataInputAssociation>
     </bpmn:task>
-    <bpmn:task id="Activity_1tnk1np" name="Chirurgie&#10;[LC SoS 5.1]">
+    <bpmn:task id="Activity_1tnk1np" name="Chirurgie&#10;          [LC SoS 5.1]">
       <bpmn:extensionElements>
-        <i18n:translation target="@name" xml:lang="en">surgery
+        <i18n:translation xml:lang="en">surgery
           [LC SoS 5.1]</i18n:translation>
-        <i18n:translation target="@name" xml:lang="de">Chirurgie
+        <i18n:translation xml:lang="de">Chirurgie
           [LC SoS 5.1]</i18n:translation>
       </bpmn:extensionElements>
       <bpmn:incoming>Flow_1u2qdgn</bpmn:incoming>
@@ -462,41 +420,10 @@
         <bpmn:targetRef>Property_1mojhlk</bpmn:targetRef>
       </bpmn:dataInputAssociation>
     </bpmn:task>
-    <bpmn:startEvent id="Event_0g57y3w" name="Beginn der Behandlungsphase">
+    <bpmn:dataObjectReference id="DataObjectReference_0m7dszd" name="Behandlungsplan" dataObjectRef="DataObject_1nbszs6">
       <bpmn:extensionElements>
-        <i18n:translation target="@name" xml:lang="en">beginning of treatment phase</i18n:translation>
-        <i18n:translation target="@name" xml:lang="de">Beginn der Behandlungsphase</i18n:translation>
-      </bpmn:extensionElements>
-      <bpmn:outgoing>Flow_0nwqknl</bpmn:outgoing>
-    </bpmn:startEvent>
-    <bpmn:inclusiveGateway id="Gateway_18pkxio">
-      <bpmn:incoming>Flow_0nwqknl</bpmn:incoming>
-      <bpmn:outgoing>Flow_197q463</bpmn:outgoing>
-      <bpmn:outgoing>Flow_1qfpve4</bpmn:outgoing>
-      <bpmn:outgoing>Flow_0tqhe2w</bpmn:outgoing>
-      <bpmn:outgoing>Flow_1cncnz2</bpmn:outgoing>
-      <bpmn:outgoing>Flow_1u2qdgn</bpmn:outgoing>
-    </bpmn:inclusiveGateway>
-    <bpmn:endEvent id="Event_1462a1h" name="Ende der Behandlungsphase">
-      <bpmn:extensionElements>
-        <i18n:translation target="@name" xml:lang="en">end of treatment phase</i18n:translation>
-        <i18n:translation target="@name" xml:lang="de">Ende der Behandlungsphase</i18n:translation>
-      </bpmn:extensionElements>
-      <bpmn:incoming>Flow_0gxbwg6</bpmn:incoming>
-    </bpmn:endEvent>
-    <bpmn:inclusiveGateway id="Gateway_19kiq8e">
-      <bpmn:incoming>Flow_1khlgzy</bpmn:incoming>
-      <bpmn:incoming>Flow_1yinlre</bpmn:incoming>
-      <bpmn:incoming>Flow_014jrkw</bpmn:incoming>
-      <bpmn:incoming>Flow_0t3sp60</bpmn:incoming>
-      <bpmn:incoming>Flow_0z2ew4o</bpmn:incoming>
-      <bpmn:outgoing>Flow_0gxbwg6</bpmn:outgoing>
-    </bpmn:inclusiveGateway>
-    <bpmn:dataObjectReference id="DataObjectReference_0m7dszd" name="Behandlungsplan"
-      dataObjectRef="DataObject_1nbszs6">
-      <bpmn:extensionElements>
-        <i18n:translation target="@name" xml:lang="en">treatment plan</i18n:translation>
-        <i18n:translation target="@name" xml:lang="de">Behandlungsplan</i18n:translation>
+        <i18n:translation xml:lang="en">treatment plan</i18n:translation>
+        <i18n:translation xml:lang="de">Behandlungsplan</i18n:translation>
       </bpmn:extensionElements>
     </bpmn:dataObjectReference>
     <bpmn:dataObject id="DataObject_1nbszs6" />
@@ -512,317 +439,256 @@
     <bpmn:sequenceFlow id="Flow_0z2ew4o" sourceRef="Activity_1tnk1np" targetRef="Gateway_19kiq8e" />
     <bpmn:sequenceFlow id="Flow_0nwqknl" sourceRef="Event_0g57y3w" targetRef="Gateway_18pkxio" />
     <bpmn:sequenceFlow id="Flow_0gxbwg6" sourceRef="Gateway_19kiq8e" targetRef="Event_1462a1h" />
-    <bpmn:textAnnotation id="TextAnnotation_02gcplv">
+    <bpmn:inclusiveGateway id="Gateway_18pkxio">
+      <bpmn:incoming>Flow_0nwqknl</bpmn:incoming>
+      <bpmn:outgoing>Flow_197q463</bpmn:outgoing>
+      <bpmn:outgoing>Flow_1qfpve4</bpmn:outgoing>
+      <bpmn:outgoing>Flow_0tqhe2w</bpmn:outgoing>
+      <bpmn:outgoing>Flow_1cncnz2</bpmn:outgoing>
+      <bpmn:outgoing>Flow_1u2qdgn</bpmn:outgoing>
+    </bpmn:inclusiveGateway>
+    <bpmn:inclusiveGateway id="Gateway_19kiq8e">
+      <bpmn:incoming>Flow_1khlgzy</bpmn:incoming>
+      <bpmn:incoming>Flow_1yinlre</bpmn:incoming>
+      <bpmn:incoming>Flow_014jrkw</bpmn:incoming>
+      <bpmn:incoming>Flow_0t3sp60</bpmn:incoming>
+      <bpmn:incoming>Flow_0z2ew4o</bpmn:incoming>
+      <bpmn:outgoing>Flow_0gxbwg6</bpmn:outgoing>
+    </bpmn:inclusiveGateway>
+    <bpmn:startEvent id="Event_0g57y3w" name="Beginn der Behandlungsphase">
       <bpmn:extensionElements>
-        <i18n:translation target="@text" xml:lang="en">inclusive gateway activates one or more
-          branches, i.e. combined therapy</i18n:translation>
-        <i18n:translation target="@text" xml:lang="de">Inklusives Gateway aktiviert einen oder
-          mehrere Pfade, d. h. eine Kombinationstherapie</i18n:translation>
+        <i18n:translation xml:lang="en">beginning of treatment phase</i18n:translation>
+        <i18n:translation xml:lang="de">Beginn der Behandlungsphase</i18n:translation>
       </bpmn:extensionElements>
-      <bpmn:text>Inklusives Gateway aktiviert einen oder mehrere Pfade, d. h. eine
-        Kombinationstherapie</bpmn:text>
-    </bpmn:textAnnotation>
-    <bpmn:textAnnotation id="TextAnnotation_1asddeq">
+      <bpmn:outgoing>Flow_0nwqknl</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:endEvent id="Event_1462a1h" name="Ende der Behandlungsphase">
       <bpmn:extensionElements>
-        <i18n:translation target="@text" xml:lang="en">e.g., in case of malignant pleural effusion,
-          hemoptysis, superior vena cava syndrome, tracheobronchial tumour obstruction; specific
-          treatment of metastases</i18n:translation>
-        <i18n:translation target="@text" xml:lang="de">z. B. bei malignem Pleuraerguss, Hämoptyse,
-          Vena-cava-superior-Syndrom, tracheobronchialer Tumorobstruktion; spezifische Behandlung
-          von Metastasen</i18n:translation>
+        <i18n:translation xml:lang="en">end of treatment phase</i18n:translation>
+        <i18n:translation xml:lang="de">Ende der Behandlungsphase</i18n:translation>
       </bpmn:extensionElements>
-      <bpmn:text>z. B. bei malignem Pleuraerguss, Hämoptyse, Vena-cava-superior-Syndrom,
-        tracheobronchialer Tumorobstruktion; spezifische Behandlung von Metastasen</bpmn:text>
-    </bpmn:textAnnotation>
-    <bpmn:textAnnotation id="TextAnnotation_1ltbheu">
-      <bpmn:extensionElements>
-        <i18n:translation target="@text" xml:lang="en">i.e., all
-          active incoming branches of the treatment plan must be
-          completed before merging</i18n:translation>
-        <i18n:translation target="@text" xml:lang="de">d. h. alle
-          aktiven eingehenden Pfade des Behandlungsplans müssen
-          vor dem Zusammenführen abgeschlossen sein</i18n:translation>
-      </bpmn:extensionElements>
-      <bpmn:text>d. h. alle
-        aktiven eingehenden Pfade des Behandlungsplans müssen
-        vor dem Zusammenführen abgeschlossen sein</bpmn:text>
-    </bpmn:textAnnotation>
-    <bpmn:association id="Association_19i52op" sourceRef="Activity_1tnk1np"
-      targetRef="QualityIndicator_0h9k0bp" />
-    <bpmn:association id="Association_1f06h2l" sourceRef="Activity_1tnk1np"
-      targetRef="QualityIndicator_0jkrb8a" />
-    <bpmn:association id="Association_1m1jqkd" sourceRef="Activity_0vb4x4m"
-      targetRef="QualityIndicator_135vkyo" />
-    <bpmn:association id="Association_196uaxl" sourceRef="Activity_1mvnvbc"
-      targetRef="QualityIndicator_01e3xuf" />
-    <bpmn:association id="Association_0vgaoy6" sourceRef="Activity_1fc895b"
-      targetRef="QualityIndicator_1513laz" />
-    <bpmn:association id="Association_1il0ksf" sourceRef="Activity_1tnk1np"
-      targetRef="QualityIndicator_0o2xqv5" />
-    <bpmn:association id="Association_05gd8yl" sourceRef="Activity_0vb4x4m"
-      targetRef="QualityIndicator_19bmls8" />
-    <bpmn:association id="Association_0osful5" sourceRef="Activity_1fc895b"
-      targetRef="QualityIndicator_0yorsug" />
-    <bpmn:association id="Association_1n4l7mk" sourceRef="Activity_0vb4x4m"
-      targetRef="QualityIndicator_0mh5qam" />
-    <bpmn:association id="Association_13zxdqj" sourceRef="Activity_1tnk1np"
-      targetRef="QualityIndicator_08izefg" />
-    <bpmn:association id="Association_1gfjyjn" sourceRef="Activity_1tnk1np"
-      targetRef="QualityIndicator_178v666" />
-    <bpmn:association id="Association_0fwgjf3" sourceRef="Activity_1tnk1np"
-      targetRef="QualityIndicator_0un4v2r" />
-    <bpmn:association id="Association_03hn066" sourceRef="Activity_1tnk1np"
-      targetRef="QualityIndicator_152kpit" />
-    <bpmn:association id="Association_1qeyqth" sourceRef="Activity_1tnk1np"
-      targetRef="QualityIndicator_1gzyx9s" />
-    <bpmn:association id="Association_0affxqc" sourceRef="Activity_1tnk1np"
-      targetRef="QualityIndicator_1cjd7kn" />
-    <bpmn:association id="Association_1qnl7vm" sourceRef="Activity_0vb4x4m"
-      targetRef="QualityIndicator_1dhf0or" />
-    <bpmn:association id="Association_0348d32" sourceRef="Activity_1mvnvbc"
-      targetRef="TextAnnotation_1asddeq" />
-    <bpmn:association id="Association_0m4nli6" sourceRef="Gateway_18pkxio"
-      targetRef="TextAnnotation_02gcplv" />
-    <bpmn:association id="Association_1sv6uxf" sourceRef="Gateway_19kiq8e"
-      targetRef="TextAnnotation_1ltbheu" />
+      <bpmn:incoming>Flow_0gxbwg6</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:association id="Association_19i52op" sourceRef="Activity_1tnk1np" targetRef="QualityIndicator_0h9k0bp" />
+    <bpmn:association id="Association_1f06h2l" sourceRef="Activity_1tnk1np" targetRef="QualityIndicator_0jkrb8a" />
+    <bpmn:association id="Association_1m1jqkd" sourceRef="Activity_0vb4x4m" targetRef="QualityIndicator_135vkyo" />
+    <bpmn:association id="Association_196uaxl" sourceRef="Activity_1mvnvbc" targetRef="QualityIndicator_01e3xuf" />
+    <bpmn:association id="Association_0vgaoy6" sourceRef="Activity_1fc895b" targetRef="QualityIndicator_1513laz" />
+    <bpmn:association id="Association_1il0ksf" sourceRef="Activity_1tnk1np" targetRef="QualityIndicator_0o2xqv5" />
+    <bpmn:association id="Association_05gd8yl" sourceRef="Activity_0vb4x4m" targetRef="QualityIndicator_19bmls8" />
+    <bpmn:association id="Association_0osful5" sourceRef="Activity_1fc895b" targetRef="QualityIndicator_0yorsug" />
+    <bpmn:association id="Association_1n4l7mk" sourceRef="Activity_0vb4x4m" targetRef="QualityIndicator_0mh5qam" />
+    <bpmn:association id="Association_13zxdqj" sourceRef="Activity_1tnk1np" targetRef="QualityIndicator_08izefg" />
+    <bpmn:association id="Association_1gfjyjn" sourceRef="Activity_1tnk1np" targetRef="QualityIndicator_178v666" />
+    <bpmn:association id="Association_0fwgjf3" sourceRef="Activity_1tnk1np" targetRef="QualityIndicator_0un4v2r" />
+    <bpmn:association id="Association_03hn066" sourceRef="Activity_1tnk1np" targetRef="QualityIndicator_152kpit" />
+    <bpmn:association id="Association_1qeyqth" sourceRef="Activity_1tnk1np" targetRef="QualityIndicator_1gzyx9s" />
+    <bpmn:association id="Association_0affxqc" sourceRef="Activity_1tnk1np" targetRef="QualityIndicator_1cjd7kn" />
+    <bpmn:association id="Association_1qnl7vm" sourceRef="Activity_0vb4x4m" targetRef="QualityIndicator_1dhf0or" />
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_1cxznoy">
-      <bpmndi:BPMNShape id="Participant_07gxczs_di" bpmnElement="Participant_07gxczs"
-        isHorizontal="true">
+      <bpmndi:BPMNShape id="Participant_07gxczs_di" bpmnElement="Participant_07gxczs" isHorizontal="true">
         <dc:Bounds x="110" y="140" width="1090" height="830" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="BPMNShape_1fq21ca" bpmnElement="QualityIndicator_0h9k0bp"
-        bioc:fill="#dfcfe2" color:background-color="#dfcfe2">
+      <bpmndi:BPMNShape id="BPMNShape_1fq21ca" bpmnElement="QualityIndicator_0h9k0bp" bioc:fill="#dfcfe2" color:background-color="#dfcfe2">
         <dc:Bounds x="392" y="262" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="372" y="305" width="76" height="53" />
+          <dc:Bounds x="371" y="305" width="80" height="53" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="BPMNShape_1egpmpw" bpmnElement="QualityIndicator_0jkrb8a"
-        bioc:fill="#e0d1e4" color:background-color="#e0d1e4">
+      <bpmndi:BPMNShape id="BPMNShape_1egpmpw" bpmnElement="QualityIndicator_0jkrb8a" bioc:fill="#e0d1e4" color:background-color="#e0d1e4">
         <dc:Bounds x="302" y="262" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="290" y="305" width="62" height="40" />
+          <dc:Bounds x="286" y="305" width="71" height="40" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="BPMNShape_011amul" bpmnElement="QualityIndicator_135vkyo"
-        bioc:fill="#dad3e0" color:background-color="#dad3e0">
+      <bpmndi:BPMNShape id="BPMNShape_011amul" bpmnElement="QualityIndicator_135vkyo" bioc:fill="#dad3e0" color:background-color="#dad3e0">
         <dc:Bounds x="825" y="482" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="800" y="525" width="88" height="66" />
+          <dc:Bounds x="801" y="525" width="87" height="66" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="BPMNShape_088g0ou" bpmnElement="QualityIndicator_01e3xuf"
-        bioc:fill="#dbd1e0" color:background-color="#dbd1e0">
+      <bpmndi:BPMNShape id="BPMNShape_088g0ou" bpmnElement="QualityIndicator_01e3xuf" bioc:fill="#dbd1e0" color:background-color="#dbd1e0">
         <dc:Bounds x="562" y="812" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="546" y="855" width="69" height="40" />
+          <dc:Bounds x="542" y="855" width="78" height="40" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="BPMNShape_0bfhfny" bpmnElement="QualityIndicator_1513laz"
-        bioc:stroke="#000000" bioc:fill="#d9d3e0" color:background-color="#d9d3e0"
-        color:border-color="#000000">
+      <bpmndi:BPMNShape id="BPMNShape_0bfhfny" bpmnElement="QualityIndicator_1513laz" bioc:stroke="#000000" bioc:fill="#d9d3e0" color:background-color="#d9d3e0" color:border-color="#000000">
         <dc:Bounds x="772" y="662" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="753" y="705" width="79" height="53" />
+          <dc:Bounds x="759" y="705" width="67" height="53" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="BPMNShape_0dak565" bpmnElement="QualityIndicator_0o2xqv5"
-        bioc:fill="#decee2" color:background-color="#decee2">
+      <bpmndi:BPMNShape id="BPMNShape_0dak565" bpmnElement="QualityIndicator_0o2xqv5" bioc:fill="#decee2" color:background-color="#decee2">
         <dc:Bounds x="962" y="262" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="939" y="305" width="84" height="66" />
+          <dc:Bounds x="939" y="305" width="85" height="80" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="BPMNShape_1ljcs4v" bpmnElement="QualityIndicator_19bmls8"
-        bioc:fill="#d9d2e0" color:background-color="#d9d2e0">
+      <bpmndi:BPMNShape id="BPMNShape_1ljcs4v" bpmnElement="QualityIndicator_19bmls8" bioc:fill="#d9d2e0" color:background-color="#d9d2e0">
         <dc:Bounds x="712" y="482" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="702" y="523" width="60" height="66" />
+          <dc:Bounds x="696" y="523" width="72" height="66" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="BPMNShape_0enn9k4" bpmnElement="QualityIndicator_0yorsug"
-        bioc:stroke="#000000" bioc:fill="#d9d1e0" color:background-color="#d9d1e0"
-        color:border-color="#000000">
+      <bpmndi:BPMNShape id="BPMNShape_0enn9k4" bpmnElement="QualityIndicator_0yorsug" bioc:stroke="#000000" bioc:fill="#d9d1e0" color:background-color="#d9d1e0" color:border-color="#000000">
         <dc:Bounds x="542" y="662" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="521" y="707" width="77" height="53" />
+          <dc:Bounds x="521" y="707" width="79" height="66" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="BPMNShape_03bbno0" bpmnElement="QualityIndicator_0mh5qam"
-        bioc:fill="#dad0e0" color:background-color="#dad0e0">
+      <bpmndi:BPMNShape id="BPMNShape_03bbno0" bpmnElement="QualityIndicator_0mh5qam" bioc:fill="#dad0e0" color:background-color="#dad0e0">
         <dc:Bounds x="602" y="482" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="579" y="525" width="84" height="66" />
+          <dc:Bounds x="576" y="525" width="90" height="66" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="BPMNShape_1qua8aa" bpmnElement="QualityIndicator_08izefg"
-        bioc:fill="#decee2" color:background-color="#decee2">
+      <bpmndi:BPMNShape id="BPMNShape_1qua8aa" bpmnElement="QualityIndicator_08izefg" bioc:fill="#decee2" color:background-color="#decee2">
         <dc:Bounds x="872" y="262" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="846" y="305" width="90" height="66" />
+          <dc:Bounds x="848" y="305" width="87" height="93" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="BPMNShape_03b229a" bpmnElement="QualityIndicator_178v666"
-        bioc:fill="#decee2" color:background-color="#decee2">
+      <bpmndi:BPMNShape id="BPMNShape_03b229a" bpmnElement="QualityIndicator_178v666" bioc:fill="#decee2" color:background-color="#decee2">
         <dc:Bounds x="802" y="262" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="792" y="305" width="57" height="53" />
+          <dc:Bounds x="785" y="305" width="72" height="53" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="BPMNShape_12n8hiu" bpmnElement="QualityIndicator_0un4v2r"
-        bioc:fill="#decee2" color:background-color="#decee2">
+      <bpmndi:BPMNShape id="BPMNShape_12n8hiu" bpmnElement="QualityIndicator_0un4v2r" bioc:fill="#decee2" color:background-color="#decee2">
         <dc:Bounds x="732" y="262" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="718" y="305" width="65" height="53" />
+          <dc:Bounds x="706" y="305" width="90" height="53" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="BPMNShape_1j5vw4f" bpmnElement="QualityIndicator_152kpit"
-        bioc:fill="#decee2" color:background-color="#decee2">
+      <bpmndi:BPMNShape id="BPMNShape_1j5vw4f" bpmnElement="QualityIndicator_152kpit" bioc:fill="#decee2" color:background-color="#decee2">
         <dc:Bounds x="652" y="262" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="631" y="305" width="81" height="66" />
+          <dc:Bounds x="629" y="305" width="86" height="66" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="BPMNShape_09g1nlr" bpmnElement="QualityIndicator_1gzyx9s"
-        bioc:fill="#decee2" color:background-color="#decee2">
+      <bpmndi:BPMNShape id="BPMNShape_09g1nlr" bpmnElement="QualityIndicator_1gzyx9s" bioc:fill="#decee2" color:background-color="#decee2">
         <dc:Bounds x="572" y="262" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="550" y="305" width="84" height="53" />
+          <dc:Bounds x="559" y="305" width="66" height="66" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="BPMNShape_0n6v4z8" bpmnElement="QualityIndicator_1cjd7kn"
-        bioc:fill="#decee2" color:background-color="#decee2">
+      <bpmndi:BPMNShape id="BPMNShape_0n6v4z8" bpmnElement="QualityIndicator_1cjd7kn" bioc:fill="#decee2" color:background-color="#decee2">
         <dc:Bounds x="482" y="262" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="457" y="305" width="89" height="53" />
+          <dc:Bounds x="461" y="305" width="82" height="80" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="BPMNShape_1poiuwb" bpmnElement="QualityIndicator_1dhf0or"
-        bioc:fill="#dbcee0" color:background-color="#dbcee0">
+      <bpmndi:BPMNShape id="BPMNShape_1poiuwb" bpmnElement="QualityIndicator_1dhf0or" bioc:fill="#dbcee0" color:background-color="#dbcee0">
         <dc:Bounds x="492" y="482" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="469" y="525" width="83" height="66" />
+          <dc:Bounds x="467" y="525" width="87" height="93" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="BPMNShape_0pvqu80" bpmnElement="Activity_1vyn60u">
+      <bpmndi:BPMNShape id="BPMNShape_0pvqu80" bpmnElement="Activity_1vyn60u" bioc:stroke="#ff9200" color:border-color="#ff9200">
         <dc:Bounds x="620" y="870" width="100" height="80" />
+        <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="BPMNShape_1e1rbtu" bpmnElement="Activity_1mvnvbc">
+      <bpmndi:BPMNShape id="BPMNShape_1e1rbtu" bpmnElement="Activity_1mvnvbc" bioc:stroke="#ff9200" color:border-color="#ff9200">
         <dc:Bounds x="620" y="740" width="100" height="80" />
+        <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="BPMNShape_01jkxyb" bpmnElement="Activity_0vb4x4m" bioc:stroke="#00ae4e"
-        color:border-color="#00ae4e">
+      <bpmndi:BPMNShape id="BPMNShape_01jkxyb" bpmnElement="Activity_0vb4x4m" bioc:stroke="#ff9200" color:border-color="#ff9200">
         <dc:Bounds x="620" y="380" width="100" height="80" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="BPMNShape_1nmffbj" bpmnElement="Activity_1fc895b" bioc:stroke="#00af4f"
-        color:border-color="#00af4f">
+      <bpmndi:BPMNShape id="BPMNShape_1nmffbj" bpmnElement="Activity_1fc895b" bioc:stroke="#ff9200" color:border-color="#ff9200">
         <dc:Bounds x="620" y="610" width="100" height="80" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="BPMNShape_0ao16xb" bpmnElement="Activity_1tnk1np" bioc:stroke="#00af4f"
-        color:border-color="#00af4f">
+      <bpmndi:BPMNShape id="BPMNShape_0ao16xb" bpmnElement="Activity_1tnk1np" bioc:stroke="#ff9200" color:border-color="#ff9200">
         <dc:Bounds x="620" y="160" width="100" height="80" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="BPMNShape_10u51qx" bpmnElement="Event_0g57y3w">
-        <dc:Bounds x="172" y="762" width="36" height="36" />
+      <bpmndi:BPMNShape id="DataObjectReference_0m7dszd_di" bpmnElement="DataObjectReference_0m7dszd">
+        <dc:Bounds x="352" y="515" width="36" height="50" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="151" y="805" width="80" height="27" />
+          <dc:Bounds x="327" y="573" width="86" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="BPMNShape_0551xeg" bpmnElement="Gateway_18pkxio">
-        <dc:Bounds x="235" y="755" width="50" height="50" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="BPMNShape_08juvch" bpmnElement="Event_1462a1h">
-        <dc:Bounds x="1112" y="762" width="36" height="36" />
-        <bpmndi:BPMNLabel>
-          <dc:Bounds x="1090" y="805" width="84" height="27" />
-        </bpmndi:BPMNLabel>
+        <dc:Bounds x="235" y="515" width="50" height="50" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="BPMNShape_057nbb8" bpmnElement="Gateway_19kiq8e">
-        <dc:Bounds x="1015" y="755" width="50" height="50" />
+        <dc:Bounds x="1015" y="515" width="50" height="50" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="DataObjectReference_0m7dszd_di"
-        bpmnElement="DataObjectReference_0m7dszd">
-        <dc:Bounds x="352" y="515" width="36" height="50" />
+      <bpmndi:BPMNShape id="BPMNShape_10u51qx" bpmnElement="Event_0g57y3w">
+        <dc:Bounds x="172" y="522" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="271" y="533" width="71" height="14" />
+          <dc:Bounds x="150" y="565" width="83" height="40" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="BPMNShape_0z062d6" bpmnElement="TextAnnotation_02gcplv"
-        bioc:stroke="#0000ff" color:border-color="#0000ff">
-        <dc:Bounds x="160" y="615" width="90" height="111" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="BPMNShape_0kxyph2" bpmnElement="TextAnnotation_1asddeq"
-        bioc:stroke="#000000" color:border-color="#000000">
-        <dc:Bounds x="750" y="800" width="185" height="96" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="BPMNShape_1vddz0f" bpmnElement="TextAnnotation_1ltbheu"
-        bioc:stroke="#0000ff" color:border-color="#0000ff">
-        <dc:Bounds x="1060" y="593" width="120" height="111" />
-        <bpmndi:BPMNLabel />
+      <bpmndi:BPMNShape id="BPMNShape_08juvch" bpmnElement="Event_1462a1h">
+        <dc:Bounds x="1102" y="522" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1081" y="565" width="83" height="40" />
+        </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="BPMNEdge_1x9vz50" bpmnElement="Flow_197q463">
-        <di:waypoint x="260" y="805" />
-        <di:waypoint x="260" y="910" />
-        <di:waypoint x="620" y="910" />
+        <di:waypoint x="260" y="565" />
+        <di:waypoint x="260" y="930" />
+        <di:waypoint x="620" y="930" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="BPMNEdge_1wezlsx" bpmnElement="Flow_1khlgzy">
         <di:waypoint x="720" y="910" />
         <di:waypoint x="1040" y="910" />
-        <di:waypoint x="1040" y="805" />
+        <di:waypoint x="1040" y="565" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="BPMNEdge_14ocju1" bpmnElement="Flow_1qfpve4">
-        <di:waypoint x="285" y="780" />
-        <di:waypoint x="620" y="780" />
+        <di:waypoint x="260" y="565" />
+        <di:waypoint x="260" y="790" />
+        <di:waypoint x="620" y="790" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="BPMNEdge_119v5ln" bpmnElement="Flow_1yinlre">
         <di:waypoint x="720" y="780" />
-        <di:waypoint x="1015" y="780" />
+        <di:waypoint x="1040" y="780" />
+        <di:waypoint x="1040" y="565" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="BPMNEdge_1lfv97m" bpmnElement="Flow_0tqhe2w">
-        <di:waypoint x="260" y="755" />
-        <di:waypoint x="260" y="420" />
-        <di:waypoint x="620" y="420" />
+        <di:waypoint x="260" y="515" />
+        <di:waypoint x="260" y="410" />
+        <di:waypoint x="620" y="410" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="BPMNEdge_1ln4kdm" bpmnElement="Flow_014jrkw">
         <di:waypoint x="720" y="420" />
         <di:waypoint x="1040" y="420" />
-        <di:waypoint x="1040" y="755" />
+        <di:waypoint x="1040" y="515" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="BPMNEdge_0h5i8nj" bpmnElement="Flow_1cncnz2">
-        <di:waypoint x="260" y="755" />
-        <di:waypoint x="260" y="650" />
-        <di:waypoint x="620" y="650" />
+        <di:waypoint x="260" y="565" />
+        <di:waypoint x="260" y="660" />
+        <di:waypoint x="620" y="660" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="BPMNEdge_1kfyvd6" bpmnElement="Flow_0t3sp60">
         <di:waypoint x="720" y="650" />
         <di:waypoint x="1040" y="650" />
-        <di:waypoint x="1040" y="755" />
+        <di:waypoint x="1040" y="565" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="BPMNEdge_1jesill" bpmnElement="Flow_1u2qdgn">
-        <di:waypoint x="260" y="755" />
-        <di:waypoint x="260" y="200" />
-        <di:waypoint x="620" y="200" />
+        <di:waypoint x="260" y="515" />
+        <di:waypoint x="260" y="190" />
+        <di:waypoint x="620" y="190" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="BPMNEdge_1gaelb6" bpmnElement="Flow_0z2ew4o">
         <di:waypoint x="720" y="200" />
         <di:waypoint x="1040" y="200" />
-        <di:waypoint x="1040" y="755" />
+        <di:waypoint x="1040" y="515" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="BPMNEdge_0i4aar4" bpmnElement="Flow_0nwqknl">
-        <di:waypoint x="208" y="780" />
-        <di:waypoint x="235" y="780" />
+        <di:waypoint x="208" y="540" />
+        <di:waypoint x="235" y="540" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="BPMNEdge_0di9uzk" bpmnElement="Flow_0gxbwg6">
-        <di:waypoint x="1065" y="780" />
-        <di:waypoint x="1112" y="780" />
+        <di:waypoint x="1065" y="540" />
+        <di:waypoint x="1102" y="540" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="BPMNEdge_0878sxm" bpmnElement="Association_19i52op">
         <di:waypoint x="620" y="215" />
@@ -888,47 +754,54 @@
         <di:waypoint x="620" y="445" />
         <di:waypoint x="528" y="491" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="BPMNEdge_1pft8s8" bpmnElement="Association_0348d32">
-        <di:waypoint x="720" y="804" />
-        <di:waypoint x="750" y="820" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="BPMNEdge_06pq1c8" bpmnElement="Association_0m4nli6">
-        <di:waypoint x="247" y="768" />
-        <di:waypoint x="205" y="726" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="BPMNEdge_1fv89qv" bpmnElement="Association_1sv6uxf">
-        <di:waypoint x="1045" y="760" />
-        <di:waypoint x="1064" y="704" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="DataInputAssociation_0mvpvoj_di"
-        bpmnElement="DataInputAssociation_0mvpvoj">
+      <bpmndi:BPMNShape id="BPMNShape_0z062d6" bpmnElement="TextAnnotation_02gcplv" bioc:stroke="#0000ff" color:border-color="#0000ff">
+        <dc:Bounds x="160" y="350" width="90" height="140" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0kxyph2" bpmnElement="TextAnnotation_1asddeq" bioc:stroke="#000000" color:border-color="#000000">
+        <dc:Bounds x="750" y="790" width="185" height="111" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_1vddz0f" bpmnElement="TextAnnotation_1ltbheu" bioc:stroke="#0000ff" color:border-color="#0000ff">
+        <dc:Bounds x="1070" y="350" width="120" height="140" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="DataInputAssociation_0mvpvoj_di" bpmnElement="DataInputAssociation_0mvpvoj">
         <di:waypoint x="370" y="565" />
         <di:waypoint x="370" y="900" />
         <di:waypoint x="620" y="900" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="DataInputAssociation_1svlhbp_di"
-        bpmnElement="DataInputAssociation_1svlhbp">
+      <bpmndi:BPMNEdge id="DataInputAssociation_1svlhbp_di" bpmnElement="DataInputAssociation_1svlhbp">
         <di:waypoint x="370" y="565" />
         <di:waypoint x="370" y="770" />
         <di:waypoint x="620" y="770" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="DataInputAssociation_0a47686_di"
-        bpmnElement="DataInputAssociation_0a47686">
+      <bpmndi:BPMNEdge id="DataInputAssociation_0a47686_di" bpmnElement="DataInputAssociation_0a47686">
         <di:waypoint x="370" y="515" />
         <di:waypoint x="370" y="430" />
         <di:waypoint x="620" y="430" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="DataInputAssociation_1pwok00_di"
-        bpmnElement="DataInputAssociation_1pwok00">
+      <bpmndi:BPMNEdge id="DataInputAssociation_1pwok00_di" bpmnElement="DataInputAssociation_1pwok00">
         <di:waypoint x="370" y="565" />
         <di:waypoint x="370" y="640" />
         <di:waypoint x="620" y="640" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="DataInputAssociation_0zef1um_di"
-        bpmnElement="DataInputAssociation_0zef1um">
+      <bpmndi:BPMNEdge id="DataInputAssociation_0zef1um_di" bpmnElement="DataInputAssociation_0zef1um">
         <di:waypoint x="370" y="515" />
         <di:waypoint x="370" y="210" />
         <di:waypoint x="620" y="210" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_1pft8s8" bpmnElement="Association_0348d32">
+        <di:waypoint x="720" y="801" />
+        <di:waypoint x="750" y="815" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_06pq1c8" bpmnElement="Association_0m4nli6">
+        <di:waypoint x="249" y="526" />
+        <di:waypoint x="225" y="490" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_1fv89qv" bpmnElement="Association_1sv6uxf">
+        <di:waypoint x="1046" y="521" />
+        <di:waypoint x="1070" y="463" />
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
