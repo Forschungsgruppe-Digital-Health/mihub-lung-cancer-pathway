@@ -1,0 +1,403 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<bpmn:definitions xmlns:bioc="http://bpmn.io/schema/bpmn/biocolor/1.0"
+  xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL"
+  xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+  xmlns:color="http://www.omg.org/spec/BPMN/non-normative/color/1.0"
+  xmlns:cp="http://www.helict.de/bpmn4cp" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC"
+  xmlns:di="http://www.omg.org/spec/DD/20100524/DI"
+  xmlns:i18n="http://www.omg.org/spec/BPMN/non-normative/extensions/i18n/1.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" id="sample-diagram"
+  targetNamespace="http://bpmn.io/schema/bpmn"
+  xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd"
+  xml:lang="de">
+  <bpmn:collaboration id="Collaboration_1aftimr">
+    <bpmn:participant id="Participant_10yfyq5" name="Staging-Diagnostik - Lungenkrebs"
+      processRef="Process_1">
+      <bpmn:extensionElements>
+        <i18n:translation target="@name" xml:lang="en">Staging Diagnostics - Lung Cancer</i18n:translation>
+        <i18n:translation target="@name" xml:lang="de">Staging-Diagnostik - Lungenkrebs</i18n:translation>
+      </bpmn:extensionElements>
+    </bpmn:participant>
+    <bpmn:textAnnotation id="TextAnnotation_19sf7d0">
+      <bpmn:extensionElements>
+        <i18n:translation target="@text" xml:lang="en">time to first pathology report (primary
+          diagnosis) max. 3 working days 
+          [LC SoS 2.1.3]</i18n:translation>
+        <i18n:translation target="@text" xml:lang="de">Zeit bis zum ersten pathologischen Befund
+          (Primärdiagnose) max. 3 Arbeitstage 
+          [LC SoS 2.1.3]</i18n:translation>
+      </bpmn:extensionElements>
+      <bpmn:text>Zeit bis zum ersten pathologischen Befund (Primärdiagnose) max. 3 Arbeitstage 
+        [LC SoS 2.1.3]</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:textAnnotation id="TextAnnotation_11f9q4r">
+      <bpmn:extensionElements>
+        <i18n:translation target="@text" xml:lang="en">according to guideline recommendations; if
+          needed Liquid Biopsy</i18n:translation>
+        <i18n:translation target="@text" xml:lang="de">gemäß Leitlinienempfehlungen; bei Bedarf
+          Liquid Biopsy</i18n:translation>
+      </bpmn:extensionElements>
+      <bpmn:text>gemäß Leitlinienempfehlungen; bei Bedarf Liquid Biopsy</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_0swazng" sourceRef="Activity_1tdn0dk"
+      targetRef="TextAnnotation_11f9q4r" />
+    <bpmn:textAnnotation id="TextAnnotation_0e70ar9">
+      <bpmn:extensionElements>
+        <i18n:translation target="@text" xml:lang="en">usually in ambulatory care; possibilities:
+          X-ray thorax, PET/CT thorax/abdomen, MRI skull</i18n:translation>
+        <i18n:translation target="@text" xml:lang="de">in der Regel ambulant; Möglichkeiten:
+          Thorax-Röntgen, PET/CT Thorax/Abdomen, MRT Schädel</i18n:translation>
+      </bpmn:extensionElements>
+      <bpmn:text>in der Regel ambulant; Möglichkeiten: Thorax-Röntgen, PET/CT Thorax/Abdomen, MRT
+        Schädel</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_1dbypp4" sourceRef="Activity_10hbg7g"
+      targetRef="TextAnnotation_0e70ar9" />
+    <bpmn:association id="Association_0zm9y8e" associationDirection="None"
+      sourceRef="DataObjectReference_0nnzpd8" targetRef="TextAnnotation_19sf7d0" />
+  </bpmn:collaboration>
+  <bpmn:process id="Process_1" isExecutable="false">
+    <bpmn:parallelGateway id="Gateway_1xjgvsi" name="">
+      <bpmn:incoming>Flow_0058fwa</bpmn:incoming>
+      <bpmn:outgoing>Flow_0mj6tw5</bpmn:outgoing>
+      <bpmn:outgoing>Flow_1jka1pa</bpmn:outgoing>
+    </bpmn:parallelGateway>
+    <bpmn:task id="Activity_10hbg7g" name="Bildgebung">
+      <bpmn:extensionElements>
+        <i18n:translation target="@name" xml:lang="en">imaging</i18n:translation>
+        <i18n:translation target="@name" xml:lang="de">Bildgebung</i18n:translation>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_0mj6tw5</bpmn:incoming>
+      <bpmn:outgoing>Flow_1rff0er</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Activity_1tdn0dk" name="Pathologie/ Molekularpathologie&#10;[LC SoS 8.1]">
+      <bpmn:extensionElements>
+        <i18n:translation target="@name" xml:lang="en">pathology/ molecular pathology
+          [LC SoS 8.1]</i18n:translation>
+        <i18n:translation target="@name" xml:lang="de">Pathologie/ Molekularpathologie
+          [LC SoS 8.1]</i18n:translation>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_1hk0w7g</bpmn:incoming>
+      <bpmn:outgoing>Flow_01n2wpf</bpmn:outgoing>
+      <bpmn:dataOutputAssociation id="DataOutputAssociation_0sae2dt">
+        <bpmn:targetRef>DataObjectReference_0nnzpd8</bpmn:targetRef>
+      </bpmn:dataOutputAssociation>
+    </bpmn:task>
+    <bpmn:subProcess id="Activity_013emyo" name="Diagnosesicherung" cp:selectionBehavior="any">
+      <bpmn:extensionElements>
+        <i18n:translation target="@name" xml:lang="en">diagnosis assurance</i18n:translation>
+        <i18n:translation target="@name" xml:lang="de">Diagnosesicherung</i18n:translation>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_1jka1pa</bpmn:incoming>
+      <bpmn:outgoing>Flow_1hk0w7g</bpmn:outgoing>
+      <bpmn:task id="Activity_11j60zy"
+        name="mediastinales Staging (z. B. EBUS/EUS, Mediastinoskopie)">
+        <bpmn:extensionElements>
+          <i18n:translation target="@name" xml:lang="en">mediastinal staging (e.g. EBUS/EUS,
+            medianoscopy)</i18n:translation>
+          <i18n:translation target="@name" xml:lang="de">mediastinales Staging (z. B. EBUS/EUS,
+            Mediastinoskopie)</i18n:translation>
+        </bpmn:extensionElements>
+      </bpmn:task>
+      <bpmn:task id="Activity_13fvkvl" name="bildgesteuerte Biopsie (Primärläsion, Metastasen)">
+        <bpmn:extensionElements>
+          <i18n:translation target="@name" xml:lang="en">image-guided biopsy (primary lesion,
+            metastases)</i18n:translation>
+          <i18n:translation target="@name" xml:lang="de">bildgesteuerte Biopsie (Primärläsion,
+            Metastasen)</i18n:translation>
+        </bpmn:extensionElements>
+      </bpmn:task>
+      <bpmn:task id="Activity_137xg0a" name="Bronchoskopie">
+        <bpmn:extensionElements>
+          <i18n:translation target="@name" xml:lang="en">bronchoscopy</i18n:translation>
+          <i18n:translation target="@name" xml:lang="de">Bronchoskopie</i18n:translation>
+        </bpmn:extensionElements>
+      </bpmn:task>
+    </bpmn:subProcess>
+    <bpmn:startEvent id="Event_1a8ka9t" name="Beginn der Staging-Diagnostik">
+      <bpmn:extensionElements>
+        <i18n:translation target="@name" xml:lang="en">beginning of staging diagnostics</i18n:translation>
+        <i18n:translation target="@name" xml:lang="de">Beginn der Staging-Diagnostik</i18n:translation>
+      </bpmn:extensionElements>
+      <bpmn:outgoing>Flow_0058fwa</bpmn:outgoing>
+    </bpmn:startEvent>
+    <cp:qualityIndicator id="QualityIndicator_0j6w6bc"
+      name="#5 pathologische Diagnose – Tumorsubtyp"
+      zeebe:modelerTemplateIcon="data:image/svg+xml;utf8,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%0A%3C!--%20created%20with%20bpmn-js%20%2F%20http%3A%2F%2Fbpmn.io%20--%3E%0A%3C!DOCTYPE%20svg%20PUBLIC%20%22-%2F%2FW3C%2F%2FDTD%20SVG%201.1%2F%2FEN%22%20%22http%3A%2F%2Fwww.w3.org%2FGraphics%2FSVG%2F1.1%2FDTD%2Fsvg11.dtd%22%3E%0A%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20width%3D%2246%22%20height%3D%2246%22%0A%20%20%20%20%20viewBox%3D%22387%20357%2046%2046%22%20version%3D%221.1%22%3E%0A%20%20%20%20%3Cg%20transform%3D%22matrix(1%200%200%201%20392%20362)%22%3E%0A%20%20%20%20%20%20%20%20%3Ccircle%20cx%3D%2218%22%20cy%3D%2218%22%20r%3D%2218%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20style%3D%22stroke-linecap%3A%20round%3B%20stroke-linejoin%3A%20round%3B%20stroke%3A%20rgb(34%2C%2036%2C%2042)%3B%20stroke-width%3A%202px%3B%20fill%3A%20white%3B%20fill-opacity%3A%200.95%3B%22%2F%3E%0A%20%20%20%20%20%20%20%20%3Cpath%20d%3D%22m%200%2C0%20m%2019.699%2C12.899%20c%20-1.079%2C-1.183%20-2.637%2C-1.774%20-4.672%2C-1.774%20c%20-2.038%2C0%20-3.602%2C0.588%20-4.695%2C1.76%20c%20-1.09%2C1.172%20-1.633%2C2.87%20-1.633%2C5.094%20c%200%2C2.224%200.543%2C3.929%201.633%2C5.119%20c%201.086%2C1.186%202.647%2C1.777%204.678%2C1.777%20c%200%2C0%200.21%2C0%200.21%2C0%20c%200%2C0%202.427%2C3.094%202.427%2C3.094%20c%200%2C0%203.599%2C0%203.599%2C0%20c%200%2C0%20-3.19%2C-3.689%20-3.19%2C-3.689%20c%201.069%2C-0.495%201.88%2C-1.272%202.434%2C-2.334%20c%200.553%2C-1.062%200.831%2C-2.378%200.831%2C-3.953%20c%200%2C-2.214%20-0.539%2C-3.915%20-1.622%2C-5.094%20zm%20-7.209%2C1.705%20c%200.571%2C-0.76%201.417%2C-1.142%202.537%2C-1.142%20c%202.231%2C0%203.345%2C1.513%203.345%2C4.531%20c%200%2C3.018%20-1.121%2C4.524%20-3.369%2C4.524%20c%20-1.117%2C0%20-1.956%2C-0.378%20-2.516%2C-1.138%20c%20-0.564%2C-0.76%20-0.846%2C-1.887%20-0.846%2C-3.386%20c%200%2C-1.499%200.282%2C-2.626%200.849%2C-3.389%20zm%2014.4%2C9.927%20c%200%2C0%200%2C-13.406%200%2C-13.406%20c%200%2C0%20-2.808%2C0%20-2.808%2C0%20c%200%2C0%200%2C13.406%200%2C13.406%20c%200%2C0%202.808%2C0%202.808%2C0%20z%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20style%3D%22fill%3A%20rgb(34%2C%2036%2C%2042)%3B%20stroke-linecap%3A%20round%3B%20stroke-linejoin%3A%20round%3B%20stroke%3A%20none%3B%20stroke-width%3A%202px%3B%20fill-opacity%3A%200.95%3B%22%2F%3E%0A%20%20%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E%0A%0A"
+      dataObjectRef="DataObject_1qu69lw">
+      <bpmn:extensionElements>
+        <i18n:translation target="@name" xml:lang="en">#5 pathological diagnosis – tumour subtype</i18n:translation>
+        <i18n:translation target="@name" xml:lang="de">#5 pathologische Diagnose – Tumorsubtyp</i18n:translation>
+      </bpmn:extensionElements>
+      <cp:qIDefinition type="ratio"
+        numerator="Anzahl der Patienten mit pathologischer Diagnose von NSCLC, bei denen ein Tumorsubtyp identifiziert wurde."
+        denumerator="Alle Patienten mit pathologischer Diagnose von NSCLC.">
+        <bpmn:extensionElements>
+          <i18n:translation target="@numerator" xml:lang="en">Number of patients with a pathological
+            diagnosis of NSCLC who have a tumour subtype identified.</i18n:translation>
+          <i18n:translation target="@numerator" xml:lang="de">Anzahl der Patienten mit
+            pathologischer Diagnose von NSCLC, bei denen ein Tumorsubtyp identifiziert wurde.</i18n:translation>
+          <i18n:translation target="@denumerator" xml:lang="en">All patients with a pathological
+            diagnosis of NSCLC.</i18n:translation>
+          <i18n:translation target="@denumerator" xml:lang="de">Alle Patienten mit pathologischer
+            Diagnose von NSCLC.</i18n:translation>
+        </bpmn:extensionElements>
+      </cp:qIDefinition>
+    </cp:qualityIndicator>
+    <bpmn:dataObject id="DataObject_1qu69lw" />
+    <cp:qualityIndicator id="QualityIndicator_0nvwtz8" name="#4 pathologische Diagnose"
+      zeebe:modelerTemplateIcon="data:image/svg+xml;utf8,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%0A%3C!--%20created%20with%20bpmn-js%20%2F%20http%3A%2F%2Fbpmn.io%20--%3E%0A%3C!DOCTYPE%20svg%20PUBLIC%20%22-%2F%2FW3C%2F%2FDTD%20SVG%201.1%2F%2FEN%22%20%22http%3A%2F%2Fwww.w3.org%2FGraphics%2FSVG%2F1.1%2FDTD%2Fsvg11.dtd%22%3E%0A%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20width%3D%2246%22%20height%3D%2246%22%0A%20%20%20%20%20viewBox%3D%22387%20357%2046%2046%22%20version%3D%221.1%22%3E%0A%20%20%20%20%3Cg%20transform%3D%22matrix(1%200%200%201%20392%20362)%22%3E%0A%20%20%20%20%20%20%20%20%3Ccircle%20cx%3D%2218%22%20cy%3D%2218%22%20r%3D%2218%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20style%3D%22stroke-linecap%3A%20round%3B%20stroke-linejoin%3A%20round%3B%20stroke%3A%20rgb(34%2C%2036%2C%2042)%3B%20stroke-width%3A%202px%3B%20fill%3A%20white%3B%20fill-opacity%3A%200.95%3B%22%2F%3E%0A%20%20%20%20%20%20%20%20%3Cpath%20d%3D%22m%200%2C0%20m%2019.699%2C12.899%20c%20-1.079%2C-1.183%20-2.637%2C-1.774%20-4.672%2C-1.774%20c%20-2.038%2C0%20-3.602%2C0.588%20-4.695%2C1.76%20c%20-1.09%2C1.172%20-1.633%2C2.87%20-1.633%2C5.094%20c%200%2C2.224%200.543%2C3.929%201.633%2C5.119%20c%201.086%2C1.186%202.647%2C1.777%204.678%2C1.777%20c%200%2C0%200.21%2C0%200.21%2C0%20c%200%2C0%202.427%2C3.094%202.427%2C3.094%20c%200%2C0%203.599%2C0%203.599%2C0%20c%200%2C0%20-3.19%2C-3.689%20-3.19%2C-3.689%20c%201.069%2C-0.495%201.88%2C-1.272%202.434%2C-2.334%20c%200.553%2C-1.062%200.831%2C-2.378%200.831%2C-3.953%20c%200%2C-2.214%20-0.539%2C-3.915%20-1.622%2C-5.094%20zm%20-7.209%2C1.705%20c%200.571%2C-0.76%201.417%2C-1.142%202.537%2C-1.142%20c%202.231%2C0%203.345%2C1.513%203.345%2C4.531%20c%200%2C3.018%20-1.121%2C4.524%20-3.369%2C4.524%20c%20-1.117%2C0%20-1.956%2C-0.378%20-2.516%2C-1.138%20c%20-0.564%2C-0.76%20-0.846%2C-1.887%20-0.846%2C-3.386%20c%200%2C-1.499%200.282%2C-2.626%200.849%2C-3.389%20zm%2014.4%2C9.927%20c%200%2C0%200%2C-13.406%200%2C-13.406%20c%200%2C0%20-2.808%2C0%20-2.808%2C0%20c%200%2C0%200%2C13.406%200%2C13.406%20c%200%2C0%202.808%2C0%202.808%2C0%20z%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20style%3D%22fill%3A%20rgb(34%2C%2036%2C%2042)%3B%20stroke-linecap%3A%20round%3B%20stroke-linejoin%3A%20round%3B%20stroke%3A%20none%3B%20stroke-width%3A%202px%3B%20fill-opacity%3A%200.95%3B%22%2F%3E%0A%20%20%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E%0A%0A"
+      dataObjectRef="DataObject_1mf4ptv">
+      <bpmn:extensionElements>
+        <i18n:translation target="@name" xml:lang="en">#4 pathological diagnosis</i18n:translation>
+        <i18n:translation target="@name" xml:lang="de">#4 pathologische Diagnose</i18n:translation>
+      </bpmn:extensionElements>
+      <cp:qIDefinition type="ratio"
+        numerator="Anzahl der Patienten mit Lungenkrebs, die eine pathologische Diagnose haben (einschließlich nach chirurgischer Resektion)."
+        denumerator="Alle Patienten mit Lungenkrebs.">
+        <bpmn:extensionElements>
+          <i18n:translation target="@numerator" xml:lang="en">Number of patients with Lung Cancer
+            who have a pathological diagnosis (including following surgical resection).</i18n:translation>
+          <i18n:translation target="@numerator" xml:lang="de">Anzahl der Patienten mit Lungenkrebs,
+            die eine pathologische Diagnose haben (einschließlich nach chirurgischer Resektion).</i18n:translation>
+          <i18n:translation target="@denumerator" xml:lang="en">All patients with Lung Cancer.</i18n:translation>
+          <i18n:translation target="@denumerator" xml:lang="de">Alle Patienten mit Lungenkrebs.</i18n:translation>
+        </bpmn:extensionElements>
+      </cp:qIDefinition>
+    </cp:qualityIndicator>
+    <bpmn:dataObject id="DataObject_1mf4ptv" />
+    <bpmn:parallelGateway id="Gateway_00g65l5" name="">
+      <bpmn:incoming>Flow_01n2wpf</bpmn:incoming>
+      <bpmn:incoming>Flow_1rff0er</bpmn:incoming>
+      <bpmn:outgoing>Flow_0ijz914</bpmn:outgoing>
+    </bpmn:parallelGateway>
+    <bpmn:task id="Activity_0g38zlb" name="cTNM-Klassifikation und Staging">
+      <bpmn:extensionElements>
+        <i18n:translation target="@name" xml:lang="en">cTNM classification and staging</i18n:translation>
+        <i18n:translation target="@name" xml:lang="de">cTNM-Klassifikation und Staging</i18n:translation>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_0ijz914</bpmn:incoming>
+      <bpmn:outgoing>Flow_0vxd55a</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="Event_0sik5ks" name="Ende der Staging-Diagnostik">
+      <bpmn:extensionElements>
+        <i18n:translation target="@name" xml:lang="en">end of staging diagnostics</i18n:translation>
+        <i18n:translation target="@name" xml:lang="de">Ende der Staging-Diagnostik</i18n:translation>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_0vxd55a</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:dataObjectReference id="DataObjectReference_0nnzpd8" name="Pathologiebefund"
+      dataObjectRef="DataObject_04r3617">
+      <bpmn:extensionElements>
+        <i18n:translation target="@name" xml:lang="en">pathology report</i18n:translation>
+        <i18n:translation target="@name" xml:lang="de">Pathologiebefund</i18n:translation>
+      </bpmn:extensionElements>
+    </bpmn:dataObjectReference>
+    <bpmn:dataObject id="DataObject_04r3617" />
+    <cp:qualityIndicator id="QualityIndicator_0ohfvaw" name="#6 Diagnose vor Behandlungsbeginn"
+      zeebe:modelerTemplateIcon="data:image/svg+xml;utf8,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%0A%3C!--%20created%20with%20bpmn-js%20%2F%20http%3A%2F%2Fbpmn.io%20--%3E%0A%3C!DOCTYPE%20svg%20PUBLIC%20%22-%2F%2FW3C%2F%2FDTD%20SVG%201.1%2F%2FEN%22%20%22http%3A%2F%2Fwww.w3.org%2FGraphics%2FSVG%2F1.1%2FDTD%2Fsvg11.dtd%22%3E%0A%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20width%3D%2246%22%20height%3D%2246%22%0A%20%20%20%20%20viewBox%3D%22387%20357%2046%2046%22%20version%3D%221.1%22%3E%0A%20%20%20%20%3Cg%20transform%3D%22matrix(1%200%200%201%20392%20362)%22%3E%0A%20%20%20%20%20%20%20%20%3Ccircle%20cx%3D%2218%22%20cy%3D%2218%22%20r%3D%2218%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20style%3D%22stroke-linecap%3A%20round%3B%20stroke-linejoin%3A%20round%3B%20stroke%3A%20rgb(34%2C%2036%2C%2042)%3B%20stroke-width%3A%202px%3B%20fill%3A%20white%3B%20fill-opacity%3A%200.95%3B%22%2F%3E%0A%20%20%20%20%20%20%20%20%3Cpath%20d%3D%22m%200%2C0%20m%2019.699%2C12.899%20c%20-1.079%2C-1.183%20-2.637%2C-1.774%20-4.672%2C-1.774%20c%20-2.038%2C0%20-3.602%2C0.588%20-4.695%2C1.76%20c%20-1.09%2C1.172%20-1.633%2C2.87%20-1.633%2C5.094%20c%200%2C2.224%200.543%2C3.929%201.633%2C5.119%20c%201.086%2C1.186%202.647%2C1.777%204.678%2C1.777%20c%200%2C0%200.21%2C0%200.21%2C0%20c%200%2C0%202.427%2C3.094%202.427%2C3.094%20c%200%2C0%203.599%2C0%203.599%2C0%20c%200%2C0%20-3.19%2C-3.689%20-3.19%2C-3.689%20c%201.069%2C-0.495%201.88%2C-1.272%202.434%2C-2.334%20c%200.553%2C-1.062%200.831%2C-2.378%200.831%2C-3.953%20c%200%2C-2.214%20-0.539%2C-3.915%20-1.622%2C-5.094%20zm%20-7.209%2C1.705%20c%200.571%2C-0.76%201.417%2C-1.142%202.537%2C-1.142%20c%202.231%2C0%203.345%2C1.513%203.345%2C4.531%20c%200%2C3.018%20-1.121%2C4.524%20-3.369%2C4.524%20c%20-1.117%2C0%20-1.956%2C-0.378%20-2.516%2C-1.138%20c%20-0.564%2C-0.76%20-0.846%2C-1.887%20-0.846%2C-3.386%20c%200%2C-1.499%200.282%2C-2.626%200.849%2C-3.389%20zm%2014.4%2C9.927%20c%200%2C0%200%2C-13.406%200%2C-13.406%20c%200%2C0%20-2.808%2C0%20-2.808%2C0%20c%200%2C0%200%2C13.406%200%2C13.406%20c%200%2C0%202.808%2C0%202.808%2C0%20z%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20style%3D%22fill%3A%20rgb(34%2C%2036%2C%2042)%3B%20stroke-linecap%3A%20round%3B%20stroke-linejoin%3A%20round%3B%20stroke%3A%20none%3B%20stroke-width%3A%202px%3B%20fill-opacity%3A%200.95%3B%22%2F%3E%0A%20%20%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E%0A%0A"
+      dataObjectRef="DataObject_17g765p">
+      <bpmn:extensionElements>
+        <i18n:translation target="@name" xml:lang="en">#6 pre-treatment diagnosis</i18n:translation>
+        <i18n:translation target="@name" xml:lang="de">#6 Diagnose vor Behandlungsbeginn</i18n:translation>
+      </bpmn:extensionElements>
+      <cp:qIDefinition type="ratio"
+        numerator="Anzahl der Patienten, die eine kurative Behandlung (radikale Strahlentherapie, radikale Radiochemotherapie oder chirurgische Resektion) erhalten und vor der Behandlung eine zytologische / histologische Diagnose haben."
+        denumerator="Alle Patienten mit Lungenkrebs, die eine kurative Behandlung (radikale Strahlentherapie, radikale Radiochemotherapie oder chirurgische Resektion) erhalten. Ausgenommen Patienten, die Untersuchungen ablehnen.">
+        <bpmn:extensionElements>
+          <i18n:translation target="@numerator" xml:lang="en">Number of patients who receive
+            curative treatment (radical radiotherapy, radical chemoradiotherapy or surgical
+            resection) that have a cytological / histological diagnosis prior to treatment.</i18n:translation>
+          <i18n:translation target="@numerator" xml:lang="de">Anzahl der Patienten, die eine
+            kurative Behandlung (radikale Strahlentherapie, radikale Radiochemotherapie oder
+            chirurgische Resektion) erhalten und vor der Behandlung eine zytologische /
+            histologische Diagnose haben.</i18n:translation>
+          <i18n:translation target="@denumerator" xml:lang="en">All patients with Lung Cancer who
+            receive curative treatment (radical radiotherapy, radical chemoradiotherapy or surgical
+            resection). Excluding patients who refuse investigations.</i18n:translation>
+          <i18n:translation target="@denumerator" xml:lang="de">Alle Patienten mit Lungenkrebs, die
+            eine kurative Behandlung (radikale Strahlentherapie, radikale Radiochemotherapie oder
+            chirurgische Resektion) erhalten. Ausgenommen Patienten, die Untersuchungen ablehnen.</i18n:translation>
+        </bpmn:extensionElements>
+      </cp:qIDefinition>
+    </cp:qualityIndicator>
+    <bpmn:dataObject id="DataObject_17g765p" />
+    <bpmn:sequenceFlow id="Flow_0058fwa" sourceRef="Event_1a8ka9t" targetRef="Gateway_1xjgvsi" />
+    <bpmn:sequenceFlow id="Flow_0mj6tw5" sourceRef="Gateway_1xjgvsi" targetRef="Activity_10hbg7g" />
+    <bpmn:sequenceFlow id="Flow_1jka1pa" sourceRef="Gateway_1xjgvsi" targetRef="Activity_013emyo" />
+    <bpmn:sequenceFlow id="Flow_1rff0er" sourceRef="Activity_10hbg7g" targetRef="Gateway_00g65l5" />
+    <bpmn:sequenceFlow id="Flow_1hk0w7g" sourceRef="Activity_013emyo" targetRef="Activity_1tdn0dk" />
+    <bpmn:sequenceFlow id="Flow_01n2wpf" sourceRef="Activity_1tdn0dk" targetRef="Gateway_00g65l5" />
+    <bpmn:sequenceFlow id="Flow_0ijz914" sourceRef="Gateway_00g65l5" targetRef="Activity_0g38zlb" />
+    <bpmn:sequenceFlow id="Flow_0vxd55a" sourceRef="Activity_0g38zlb" targetRef="Event_0sik5ks" />
+    <bpmn:association id="Association_0xhqezc" sourceRef="Activity_1tdn0dk"
+      targetRef="QualityIndicator_0j6w6bc" />
+    <bpmn:association id="Association_0jtilau" sourceRef="Activity_1tdn0dk"
+      targetRef="QualityIndicator_0nvwtz8" />
+    <bpmn:association id="Association_0e7q11c" sourceRef="Event_0sik5ks"
+      targetRef="QualityIndicator_0ohfvaw" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_1aftimr">
+      <bpmndi:BPMNShape id="Participant_10yfyq5_di" bpmnElement="Participant_10yfyq5"
+        isHorizontal="true">
+        <dc:Bounds x="880" y="280" width="1060" height="570" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_1j7m4h2_di" bpmnElement="Gateway_1xjgvsi">
+        <dc:Bounds x="1045" y="445" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_10hbg7g_di" bpmnElement="Activity_10hbg7g">
+        <dc:Bounds x="1160" y="660" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1tdn0dk_di" bpmnElement="Activity_1tdn0dk"
+        bioc:stroke="#00ad4d" color:border-color="#00ad4d">
+        <dc:Bounds x="1370" y="430" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1a8ka9t_di" bpmnElement="Event_1a8ka9t">
+        <dc:Bounds x="932" y="452" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="919" y="495" width="64" height="40" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="QualityIndicator_0j6w6bc_di" bpmnElement="QualityIndicator_0j6w6bc"
+        bioc:fill="#decee2" color:background-color="#decee2">
+        <dc:Bounds x="1467" y="532" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1447" y="575" width="78" height="40" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="QualityIndicator_0nvwtz8_di" bpmnElement="QualityIndicator_0nvwtz8"
+        bioc:fill="#decee2" color:background-color="#decee2">
+        <dc:Bounds x="1332" y="532" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1313" y="575" width="78" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_0hlj6d0_di" bpmnElement="Gateway_00g65l5">
+        <dc:Bounds x="1590" y="445" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0g38zlb_di" bpmnElement="Activity_0g38zlb">
+        <dc:Bounds x="1680" y="430" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0sik5ks_di" bpmnElement="Event_0sik5ks">
+        <dc:Bounds x="1832" y="452" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1815" y="416" width="73" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="DataObjectReference_0nnzpd8_di"
+        bpmnElement="DataObjectReference_0nnzpd8">
+        <dc:Bounds x="1392" y="610" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1371" y="670" width="80" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="QualityIndicator_0ohfvaw_di" bpmnElement="QualityIndicator_0ohfvaw"
+        bioc:fill="#decee2" color:background-color="#decee2">
+        <dc:Bounds x="1862" y="532" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1841" y="575" width="85" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_013emyo_di" bpmnElement="Activity_013emyo" isExpanded="true">
+        <dc:Bounds x="1140" y="300" width="140" height="330" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_11j60zy_di" bpmnElement="Activity_11j60zy">
+        <dc:Bounds x="1160" y="440" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_13fvkvl_di" bpmnElement="Activity_13fvkvl">
+        <dc:Bounds x="1160" y="530" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_137xg0a_di" bpmnElement="Activity_137xg0a">
+        <dc:Bounds x="1160" y="350" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Association_0xhqezc_di" bpmnElement="Association_0xhqezc">
+        <di:waypoint x="1460" y="510" />
+        <di:waypoint x="1474" y="532" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_0jtilau_di" bpmnElement="Association_0jtilau">
+        <di:waypoint x="1380" y="510" />
+        <di:waypoint x="1364" y="532" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_0e7q11c_di" bpmnElement="Association_0e7q11c">
+        <di:waypoint x="1856" y="487" />
+        <di:waypoint x="1873" y="532" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0058fwa_di" bpmnElement="Flow_0058fwa">
+        <di:waypoint x="968" y="470" />
+        <di:waypoint x="1045" y="470" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0mj6tw5_di" bpmnElement="Flow_0mj6tw5">
+        <di:waypoint x="1070" y="495" />
+        <di:waypoint x="1070" y="700" />
+        <di:waypoint x="1160" y="700" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1jka1pa_di" bpmnElement="Flow_1jka1pa">
+        <di:waypoint x="1095" y="470" />
+        <di:waypoint x="1140" y="470" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1rff0er_di" bpmnElement="Flow_1rff0er">
+        <di:waypoint x="1260" y="700" />
+        <di:waypoint x="1615" y="700" />
+        <di:waypoint x="1615" y="495" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1hk0w7g_di" bpmnElement="Flow_1hk0w7g">
+        <di:waypoint x="1280" y="470" />
+        <di:waypoint x="1370" y="470" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_01n2wpf_di" bpmnElement="Flow_01n2wpf">
+        <di:waypoint x="1470" y="470" />
+        <di:waypoint x="1590" y="470" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0ijz914_di" bpmnElement="Flow_0ijz914">
+        <di:waypoint x="1640" y="470" />
+        <di:waypoint x="1680" y="470" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0vxd55a_di" bpmnElement="Flow_0vxd55a">
+        <di:waypoint x="1780" y="470" />
+        <di:waypoint x="1832" y="470" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_1dbypp4_di" bpmnElement="Association_1dbypp4">
+        <di:waypoint x="1187" y="740" />
+        <di:waypoint x="1220" y="789" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_0swazng_di" bpmnElement="Association_0swazng">
+        <di:waypoint x="1390" y="430" />
+        <di:waypoint x="1410" y="388" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_0zm9y8e_di" bpmnElement="Association_0zm9y8e">
+        <di:waypoint x="1428" y="635" />
+        <di:waypoint x="1460" y="635" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="TextAnnotation_11f9q4r_di" bpmnElement="TextAnnotation_11f9q4r"
+        bioc:stroke="#000000" color:border-color="#000000">
+        <dc:Bounds x="1410" y="350" width="150" height="53" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_0e70ar9_di" bpmnElement="TextAnnotation_0e70ar9"
+        bioc:stroke="#000000" color:border-color="#000000">
+        <dc:Bounds x="1220" y="760" width="164" height="68" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="DataOutputAssociation_0sae2dt_di"
+        bpmnElement="DataOutputAssociation_0sae2dt">
+        <di:waypoint x="1410" y="510" />
+        <di:waypoint x="1410" y="610" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="TextAnnotation_19sf7d0_di" bpmnElement="TextAnnotation_19sf7d0"
+        bioc:stroke="#00ae4e" color:border-color="#00ae4e">
+        <dc:Bounds x="1460" y="620" width="160" height="68" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
